@@ -5,7 +5,8 @@ import {
     Button, Row
   } 
   from 'reactstrap';
-import NavbarComponent from './NavbarComponent.js';
+import NavbarComponent from '../components/NavbarComponent.js'
+
 
 
 class Dashbaord extends Component {

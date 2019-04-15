@@ -11,16 +11,16 @@ class TradeSideBar extends Component {
     return (
         <Nav className="ml-auto" navbar>
             <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`}>My Feed</NavLink>
+                <Link to={`/Dashboard/TradeMain/MyFeed`} className="nav-link">My Feed</Link>        
             </NavItem>
             <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyItems`}>My Items</NavLink>
+                <Link to={`/Dashboard/TradeMain/MyItems`} className="nav-link">My Items</Link>
             </NavItem>
             <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/TaggedItems`}>Tagged Items</NavLink>
+                <Link to={`/Dashboard/TradeMain/TaggedItems`} className="nav-link">TaggedItems</Link>
             </NavItem>
             <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/ItemsNearYou`}>Items Near You!</NavLink>
+            <Link to={`/Dashboard/TradeMain/ItemsNearYou`} className="nav-link">ItemsNearYou</Link>
             </NavItem>
         </Nav>
     )

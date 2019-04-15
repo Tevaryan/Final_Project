@@ -6,6 +6,7 @@ import {
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
+import {Link} from "react-router-dom"
 
 class MyItems extends Component {
 
@@ -30,6 +31,7 @@ class MyItems extends Component {
 
                       <CardBody>
                       <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
+                      <Link to={`/Dashboard/TradeMain/Items`} className="nav-link">Items</Link>   
                       <CardLink href="#">Card Link</CardLink>
                       <CardLink href="#">Another Link</CardLink>
                     </CardBody>

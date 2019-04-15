@@ -9,17 +9,24 @@ import MyItems from './containers/Trade/MyItems.js'
 import TaggedItems from './containers/Trade/TaggedItems.js'
 import ItemsNearYou from './containers/Trade/ItemsNearYou.js'
 
+import items from "./components/items.js"
+
+
+
 class App extends Component {
   render() 
   {
     return (
     <div>
+
+      
       <Route exact path={'/login'} component={Login}/>
       <Route path ={'/Dashboard'} component={Dashboard}/>
       <Route path= {'/Dashboard/TradeMain/MyFeed'} component={MyFeed} />
       <Route path= {'/Dashboard/TradeMain/MyItems'} component={MyItems} />
       <Route path= {'/Dashboard/TradeMain/TaggedItems'} component={TaggedItems} />
       <Route path= {'/Dashboard/TradeMain/ItemsNearYou'} component={ItemsNearYou} />
+      <Route path={'/Dashboard/TradeMain/Items'} component={items}/>
     </div>
     )
   }

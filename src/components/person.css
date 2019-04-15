@@ -1,0 +1,99 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    width: 900px;
+    border: 2px solid black;
+    margin: auto;
+    margin-top: 100px;
+    padding: 10px;
+    border-radius: 25px;
+
+}
+
+.image{
+    width: 500px;
+    height: 500px;
+    border-radius: 25px;
+
+}
+
+.name{
+    font-size: 30px;
+    margin: 22px;
+
+}
+
+.price{
+    color: orange;
+    font-size: 50px;
+    margin: 22px;
+
+}
+
+.descriptionOne{
+    margin: 22px;
+    font-weight: bold;
+}
+
+.descriptionTwo{
+    margin: 22px;
+}
+
+.more{
+    margin: 22px;
+}
+
+.buttonSomething{
+    margin: 22px;
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 125px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+
+}
+
+
+.favouriteAndShare{
+    
+}
+
+.buttonFavourite{
+    margin: 22px;
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 50px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+}
+
+.buttonShare{
+    margin: 22px;
+    background-color: #f4511e;
+    border: none;
+    color: white;
+    padding: 16px 40px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 25px;
+}

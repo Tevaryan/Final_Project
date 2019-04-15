@@ -9,7 +9,6 @@ import MyItems from './containers/Trade/MyItems.js'
 import TaggedItems from './containers/Trade/TaggedItems.js'
 import ItemsNearYou from './containers/Trade/ItemsNearYou.js'
 
-
 class App extends Component {
   render() 
   {

@@ -8,8 +8,8 @@ from 'reactstrap';
 import {Link} from "react-router-dom"
 import '../App.css';
 
-class Login extends Component {
-  render() {
+const Login =(props)=> {
+
     return (
       <Container className="Login" fluid>
       <Row className='loginRow'>
@@ -55,8 +55,8 @@ class Login extends Component {
         </Col>
       </Row>
       </Container>
-    );
+    )
   }
-}
+
 
 export default Login;

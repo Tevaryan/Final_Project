@@ -31,6 +31,7 @@ class NavbarComponent extends Component {
       }
 
   render() {
+    
     return (
         <div>
         <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="md">

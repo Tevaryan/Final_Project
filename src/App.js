@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Route} from "react-router-dom"
-import Login from './containers/Login.js'
+import Login from './components/Login.js'
 import Dashboard from './pages/Dashboard.js'
-
 import MyFeed from './containers/Trade/MyFeed.js'
 import MyItems from './containers/Trade/MyItems.js'
 import TaggedItems from './containers/Trade/TaggedItems.js'
 import ItemsNearYou from './containers/Trade/ItemsNearYou.js'
+import SignUp from './containers/SignUp';
 
 import items from "./components/items.js"
 
@@ -18,8 +18,7 @@ class App extends Component {
   {
     return (
     <div>
-
-      
+      <Route path={"/signup"} component={SignUp}/>
       <Route exact path={'/login'} component={Login}/>
       <Route path ={'/Dashboard'} component={Dashboard}/>
       <Route path= {'/Dashboard/TradeMain/MyFeed'} component={MyFeed} />

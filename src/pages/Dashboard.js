@@ -5,11 +5,27 @@ import {
     Button, Row
   } 
   from 'reactstrap';
+import axios from 'axios';
 import NavbarComponent from '../components/NavbarComponent.js'
 
 
 
-class Dashbaord extends Component {
+class Dashboard extends Component {
+
+
+
+  // componentDidMount() {
+
+  //     axios.get(`http://localhost:5000/api/v1/users`)
+  //     .then(result => {
+  //         console.log(result)
+          
+  //     })
+  //     .catch(error => {
+  //         console.log('ERROR: ', error)
+  //     })
+  //     }
+    
   render() {
     return (
     <div>
@@ -19,4 +35,4 @@ class Dashbaord extends Component {
   }
 }
 
-export default Dashbaord;
+export default Dashboard;

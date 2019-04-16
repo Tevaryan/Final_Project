@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import {Route} from "react-router-dom"
-import Login from './components/Login.js'
+import Login from './containers/Login.js'
 import Dashboard from './pages/Dashboard.js'
 import MyFeed from './containers/Trade/MyFeed.js'
 import MyItems from './containers/Trade/MyItems.js'

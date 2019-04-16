@@ -18,10 +18,10 @@ class Items extends Component {
     return (
     <Container fluid>
       <Row>
-          <Col className="SideBar" style={{backgroundColor: '#65cca9', height: '100vh', overflow: 'hidden'}} sm ='2'>
+          <Col className="SideBar" style={{backgroundColor: '#5D6D7E', height: '100vh', overflow: 'hidden'}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col style={{backgroundColor: '#f2fffa', height: '100vh', overflow: 'auto'}}>
+          <Col style={{backgroundColor: '#5D6D7E', height: '100vh', overflow: 'auto'}}>
                     <div className="container">
                         <img className="image" src={satan}/>
                         <div className="description">

@@ -12,7 +12,8 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+
 
 class NavbarComponent extends Component {
     constructor(props) {
@@ -32,7 +33,7 @@ class NavbarComponent extends Component {
   render() {
     return (
         <div>
-        <Navbar style={{backgroundColor: '#7FFFD4'}} light expand="md">
+        <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="md">
           <NavbarBrand href="/">BARTER</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>

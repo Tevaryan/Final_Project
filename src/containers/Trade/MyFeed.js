@@ -15,10 +15,10 @@ class MyFeed extends Component {
     return (
     <Container fluid>
         <Row>
-          <Col className="SideBar" style={{backgroundColor: '#65cca9', height: '100vh', overflow: 'hidden'}} sm ='2'>
+          <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden'}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col style={{backgroundColor: '#f2fffa', height: '100vh', overflow: 'auto'}}>
+          <Col style={{backgroundColor: '#34495E', height: '100vh', overflow: 'auto'}}>
         <Row style={{height:'50%'}} className='Card_Row mt-4'>
           <Col sm='4'>
                 <Card>

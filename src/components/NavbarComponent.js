@@ -12,7 +12,7 @@ import {
     DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 
 
 class NavbarComponent extends Component {
@@ -21,7 +21,8 @@ class NavbarComponent extends Component {
     
         this.toggle = this.toggle.bind(this);
         this.state = {
-          isOpen: false
+          isOpen: false,
+          logout: false
         };
       }
       toggle() {
@@ -30,8 +31,20 @@ class NavbarComponent extends Component {
         });
       }
 
+      logoutHandler = () =>{
+        localStorage.removeItem("JWT")
+        localStorage.removeItem('profile_picute')
+        localStorage.removeItem("user_id")
+        localStorage.removeItem("username")
+
+        this.setState({logout: true})
+      }
+
   render() {
     
+    if(this.state.logout ===true){
+      return <Redirect to="/login"/>
+    }
     return (
         <div>
         <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="md">
@@ -39,13 +52,6 @@ class NavbarComponent extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
-              <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`}>TRADE</NavLink>
-              </NavItem>
-              <NavItem className = 'Navbar_Delivery'>
-                <NavLink tag ={Link} to={`/Dashboard/page2`}>DELIVERY</NavLink>
-              </NavItem>
-              
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Notifications
@@ -59,6 +65,16 @@ class NavbarComponent extends Component {
                   </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
+              <NavItem className = 'Navbar_TradeMain'>
+                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`}>TRADE</NavLink>
+              </NavItem>
+              <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/page2`}>DELIVERY</NavLink>
+              </NavItem>
+              <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler}>LOG OUT</NavLink>
+              </NavItem>
+              
             </Nav>
           </Collapse>
         </Navbar>

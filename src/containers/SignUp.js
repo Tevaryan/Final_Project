@@ -25,9 +25,6 @@ class SignUp extends React.Component{
     }
 
     handleSubmit= (event)=> {
-<<<<<<< Updated upstream
-
-
       const validateEmail = /^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/.test(this.state.email)
       const validatePassword = /^[\dA-Za-z]\w{8,}$/.test(this.state.password)
       const inputIsNotEmpty = this.state.email.length != 0 && this.state.username.length != 0 && this.state.password.length != 0
@@ -124,7 +121,6 @@ class SignUp extends React.Component{
       
       )
       }
-=======
       alert('A name was submitted: ');
       event.preventDefault();
       const data ={
@@ -168,7 +164,6 @@ class SignUp extends React.Component{
               </Modal.Footer>
       </Modal.Dialog>
     )
->>>>>>> Stashed changes
   }
 }
 export default SignUp;

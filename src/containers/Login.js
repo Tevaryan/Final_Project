@@ -17,8 +17,6 @@ class Login extends React.Component{
     login:false
     }
 
-
-
 nameInputHandler =(event)=>{
   this.setState({username:event.target.value})
 }

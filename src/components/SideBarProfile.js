@@ -8,7 +8,7 @@ class SideBarProfile extends Component {
   render() {
     return (
       <div className="sidebarprofile">
-        <img src={picture} className="sidebarprofileimg"></img>
+        <img src={picture} className="sidebarprofileimg" alt="profile_image"></img>
         <p className="sidebarname">Satan</p>
         <p className="items">666 Items</p>
         <p className="location">Location : Hell</p>

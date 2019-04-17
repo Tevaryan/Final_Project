@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class TrendingTags extends Component {
     render() {
     return (

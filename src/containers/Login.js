@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   Container, Col, Form,
   FormGroup, Input,
@@ -28,17 +28,17 @@ passwordInputHandler =(event)=>{
 handleSubmit= (event)=> {
 
   const validatePassword = /^[\dA-Za-z]\w{8,}$/.test(this.state.password)
-  const inputIsNotEmpty = this.state.username.length != 0 && this.state.password.length != 0
+  const inputIsNotEmpty = this.state.username.length !== 0 && this.state.password.length !== 0
 
   if(validatePassword ===false){
     alert("password format does not match!")
   }
 
-  if(this.state.password.lenth == 0){
+  if(this.state.password.lenth === 0){
     alert("please enter your password!")
   }
 
-  if(this.state.username.lenth == 0){
+  if(this.state.username.lenth === 0){
     alert("please enter your username!")
   }
 

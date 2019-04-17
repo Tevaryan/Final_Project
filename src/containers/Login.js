@@ -14,7 +14,6 @@ class Login extends React.Component{
   state = {
     username: "",
     password:"",
-    time: Date.now(),
     login:false
     }
 
@@ -34,7 +33,7 @@ handleSubmit= (event)=> {
       const data ={
         username: this.state.username,
         password:this.state.password,
-        time: this.time
+        time: Date.now()
       }
       axios.post(`http://localhost:5000/api/v1/auth/login`, data)
       .then((response)=> {
@@ -48,7 +47,6 @@ handleSubmit= (event)=> {
         localStorage.setItem('JWT', response.data.access_token)
         this.setState({login:true})
         
-
       })
       .catch(function (error) {
         console.log(error);

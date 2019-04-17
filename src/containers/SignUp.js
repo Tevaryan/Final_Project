@@ -9,7 +9,7 @@ class SignUp extends React.Component{
     state = {
         username: "",
         email:"",
-        password:""
+        password:"",
         }
 
   
@@ -32,7 +32,9 @@ class SignUp extends React.Component{
       const data ={
         username: this.state.username,
         email: this.state.email,
-        password:this.state.password}
+        password:this.state.password,
+        time: Date.now()
+      }
       axios.post(`http://localhost:5000/api/v1/users/new`, data)
       .then(function (response) {
         console.log(response)

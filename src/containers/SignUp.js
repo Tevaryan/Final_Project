@@ -1,8 +1,7 @@
 import React from "react";
 import axios from "axios";
 import{ Modal,Button,Form} from 'react-bootstrap';
-import {Redirect} from "react-router-dom";
-
+import {Redirect} from "react-router-dom"
 class SignUp extends React.Component{
 
     state = {
@@ -10,7 +9,6 @@ class SignUp extends React.Component{
         email:"",
         password:"",
         login: false
-
         }
 
     nameInputHandler =(event)=>{

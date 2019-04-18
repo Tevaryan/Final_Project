@@ -1,0 +1,84 @@
+.ChatSpace {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-image: url("https://source.unsplash.com/random/300*203");
+    background-size: cover;background-attachment: fixed;
+    background-position: center;
+    opacity: 0.8;
+    padding-top:56px;
+    padding-left: 30%;
+    padding-right: 200px;
+    padding-bottom:100px;
+    color: #fff;
+    font-size: 18px;
+    text-align: top;
+    z-index: 0;
+}
+
+.OutsideContainerMy {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.OutsideContainerOthers {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.Container {
+    background-color: #333;
+    opacity: 0.9;
+    border-radius: 20px;
+    padding: 5px;
+    margin: 5px 0;
+    min-width: 300px;
+}
+
+.Container::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+.MyComment {
+    float: right;
+    max-width: 60px;
+    margin-left: 20px;
+    margin-right:0;
+    border-radius: 50%;
+}
+
+.OthersComment {
+    float: left;
+    max-width: 60px;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.NameRight {
+    float: right;
+    color: #aaa;
+    font-size: 12px;
+    }
+  
+.NameLeft {
+  float: left;
+  color: #999;
+  font-size: 12px;
+}
+
+@media(max-width:499px) {
+  .Container {
+    min-width: 200px;
+  }
+}
+
+@media(max-width:799px) {
+  .ChatSpace {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 12px;
+  }
+}

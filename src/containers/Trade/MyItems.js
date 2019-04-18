@@ -1,12 +1,17 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import {
-    Container, Col, Row, Form, Label, Input, Button
-  } 
-  from 'reactstrap';
+// import {
+//     Container, Col, Row, Modal,Button,ButtonToolbar
+//   } 
+// from 'reactstrap';
+import{ Container, Col, Row,Modal,Button,ButtonToolbar,Form} from 'react-bootstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
 import axios from "axios";
 import NewItem from "../../components/addItemHandler";
+import EditItem from "../../components/EditItemHandler";
+import ShowItem from "../../components/showItems"
+
+
 
 
 class MyItems extends Component {
@@ -17,13 +22,18 @@ class MyItems extends Component {
     tag_parent:"",
     tag_children:"", 
     description:"",
-    showModel:false,
+    showAddItemModel:false,
     items: [],
+    editItem: false
     }
 
 
   componentDidMount() {
 
+    this.fetchItems()
+  }
+
+  fetchItems = () => {
     axios.get(`http://localhost:5000/api/v1/item/show/items/me`,{
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("JWT")
@@ -31,7 +41,7 @@ class MyItems extends Component {
     })
     .then(result => {
       this.setState({items:result.data.user})
-      console.log(this.state.items)
+      
         
     })
     .catch(error => {
@@ -42,7 +52,13 @@ class MyItems extends Component {
 
   addItemHandler = (event) => {
     this.setState({
-      showModel: !this.state.showModel
+      showAddItemModel: !this.state.showAddItemModel
+    })
+  }
+
+  editItemHandler = (event) => {
+    this.setState({
+      editItem: !this.state.editItem
     })
   }
 
@@ -68,7 +84,7 @@ class MyItems extends Component {
     this.setState({file_name:event.target.value})
     
   }
-  
+
 
   submitHandler = (event) => {
 
@@ -90,7 +106,6 @@ class MyItems extends Component {
 
          let items = [...this.state.items]
          items.push(response.data.user)
-         console.log(items)
          this.setState({items:items})
         })
         .catch(function (error) {
@@ -283,15 +298,17 @@ class MyItems extends Component {
         "Tricycles, Scooters & Wagons",
         "Video Games"
       ]
-
-
-
-
     }
 
     let options_prefecture = ["Arts & Craft", "Automative", "Baby", "Beuty & Personal Care", "Books", "Computers", "Electronics", "Health & Household", "Home & Kitchen", "Luggage", "Sports & Outdoors", "Toys"]
+    
+    // if (this.state.editItem ===true){
+    //   return <EditItem optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}/>
+    // } 
 
     return (
+
+      
       <Container fluid>
         <Row>
           <Col className="SideBar" style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'hidden', borderRight: "1px solid rgba(0,0,0,.05)"}} sm ='2'>
@@ -300,26 +317,30 @@ class MyItems extends Component {
           <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>  
           <button onClick={this.addItemHandler}>Add Item</button>
           {
-            this.state.showModel === true
+            this.state.showAddItemModel === true
             ? <NewItem name={this.nameInputHandler} tagParent={this.tagParentInputHandler} tagChildren={this.tagChildrenInputHandler} fileName={this.fileNameInputHandler} description={this.descriptionInputHandler} submit={this.submitHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}/>
             : null
           }
           <Row>
           {
               this.state.items.map((item, index)=> {
-                     return(<Col sm={4} key={index} className={"mt-5"} style={{border:"2px solid black"}}>
+                  
+                     return(
+                    //  <Col sm={4} key={index} className={"mt-5"} style={{border:"2px solid black"}}>
                      
-                     <span>Item{index}</span>
-                     <div>{item.name}<br/>
-                          {item.file_name}<br/>
-                          {item.tag_parent}<br/>
-                          {item.tag_children}<br/>
-                          {item.description}<br/>
-                     </div>
-                     </Col>)
-              }
-              )
-          }
+                    //  <span>Item{index}</span>
+                    //  <div>Name:  {item.name}<br/>
+                    //       Photo_Url:  {item.file_name}<br/>
+                    //       Category:  {item.tag_parent}<br/>
+                    //       Sub Category: {item.tag_children}<br/>
+                    //       description: {item.description}<br/>
+                    //       <button onClick={this.editItemHandler}>edit</button>
+                    //   </div>
+                    //  </Col>)
+                    <ShowItem refetch={this.fetchItems} key={index} item={item} index={index} editItemHandler={this.editItemHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}></ShowItem>
+                    )
+                  }
+              )}
                   
           </Row>
           </Col>

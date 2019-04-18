@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import picture from "../assets/images/satan.jpg";
 import "../components/css/tradesidebar.css";
 import axios from "axios";
 import{ Modal,Button,ButtonToolbar, Form, Col, InputGroup} from 'react-bootstrap';

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {
-    Container, Col, Form,
-    FormGroup, Input,
-    Button, Row
+    Container, Col, Row
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'

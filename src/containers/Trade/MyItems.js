@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {
-    Container, Col, Row, Card, CardImg, CardText, CardBody, CardLink,
-    CardTitle, CardSubtitle, Form, Label, Input, Button, FormText
+    Container, Col, Row, Form, Label, Input, Button
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
-import {Link} from "react-router-dom"
+// import {Link} from "react-router-dom"
 import { FormGroup, FormLabel } from 'react-bootstrap';
 import axios from "axios"
 
@@ -80,7 +79,6 @@ class MyItems extends Component {
     tag_parent:"",
     tag_children:"", 
     description:"",
-    file_name:"",
     showModel:false
     }
 

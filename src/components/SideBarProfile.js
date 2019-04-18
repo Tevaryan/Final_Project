@@ -69,6 +69,7 @@ class SideBarProfile extends Component {
     let lgClose = () => this.setState({ lgShow: false });
     return (
       <div className="sidebarprofile">
+
         <img src={this.state.pictuer} className="sidebarprofileimg"/>
         <p className="sidebarname">{this.state.username}</p>
         <p className="location">{this.state.location}</p>
@@ -237,6 +238,7 @@ class SideBarProfile extends Component {
 
         </ButtonToolbar>
         
+
       </div>
     )
   }

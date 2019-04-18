@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {
-    Container, Col, Row, Card, CardImg, CardText, CardBody, CardLink,
-    CardTitle, CardSubtitle
+    Container, Col, Row, Card, CardText, CardBody, CardLink,
+    CardTitle
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
-import jacket from '../../assets/images/jacket.jpg'
+// import jacket from '../../assets/images/jacket.jpg'
 
 
 class MyFeed extends Component {
@@ -27,7 +27,7 @@ class MyFeed extends Component {
                 <CardTitle>My Feed</CardTitle>
                 </CardBody>
                 <div>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200"/>
+                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
                 </div>
 
                 <CardBody>
@@ -42,7 +42,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
                 </CardBody>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" />
+                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images' />
                 <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -55,7 +55,7 @@ class MyFeed extends Component {
             <CardBody>
               <CardTitle>My Feed</CardTitle>
             </CardBody>
-            <img width="100%" src="https://source.unsplash.com/random/300x200" />
+            <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images' />
             <CardBody>
               <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
               <CardLink href="#">Card Link</CardLink>
@@ -70,7 +70,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
               </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" />
+              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
               <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -83,7 +83,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
               </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" />
+              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
               <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -96,7 +96,7 @@ class MyFeed extends Component {
             <CardBody>
               <CardTitle>My Feed</CardTitle>
             </CardBody>
-            <img width="100%" src="https://source.unsplash.com/random/300x300" />
+            <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
             <CardBody>
               <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
               <CardLink href="#">Card Link</CardLink>
@@ -111,7 +111,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
               </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" />
+              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
               <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -124,7 +124,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
               </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" />
+              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
               <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -137,7 +137,7 @@ class MyFeed extends Component {
             <CardBody>
               <CardTitle>My Feed</CardTitle>
             </CardBody>
-            <img width="100%" src="https://source.unsplash.com/random/300x300" />
+            <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
             <CardBody>
               <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
               <CardLink href="#">Card Link</CardLink>

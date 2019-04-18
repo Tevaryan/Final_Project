@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import satan from '../assets/images/satan.jpg'
 import './css/items.css'
 import {
-    Container, Col, Form,
-    FormGroup, Input,
-    Button, Row
+    Container, Col,Row
   } 
   from 'reactstrap';
 
@@ -23,7 +21,7 @@ class Items extends Component {
           </Col>
           <Col style={{backgroundColor: '#5D6D7E', height: '100vh', overflow: 'auto'}}>
                     <div className="container">
-                        <img className="image" src={satan}/>
+                        <img className="image" src={satan} alt='satan'/>
                         <div className="description">
                             <p className="name">Hail Satan</p>
                             <p className="price">USD 1,000</p>

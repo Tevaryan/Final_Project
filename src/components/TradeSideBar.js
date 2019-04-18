@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import {Link} from "react-router-dom"
 import "./css/tradesidebar.css"
 import {
-    Nav, NavItem, NavLink
+    Nav, NavItem, 
   } 
   from 'reactstrap';
 import SideBarProfile from "../components/SideBarProfile";
-import TrendingTags from "../components/trendingtags";
+// import TrendingTags from "../components/trendingtags";
 
 class TradeSideBar extends Component {
   render() {

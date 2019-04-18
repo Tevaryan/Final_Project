@@ -69,6 +69,9 @@ class NavbarComponent extends Component {
                 <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`}>TRADE</NavLink>
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/messageList`}>Messages</NavLink>
+              </NavItem>
+              <NavItem className = 'Navbar_Delivery'>
                 <NavLink tag ={Link} to={`/Dashboard/page2`}>DELIVERY</NavLink>
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>

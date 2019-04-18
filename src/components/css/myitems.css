@@ -1,0 +1,35 @@
+.additembutton{
+    background-color: #308CE8; 
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 20px;
+    width: 150px;
+    height: 45px;
+    border-radius: 25px;
+    }
+
+.itemname{
+    font-size: 30px;
+    padding: 2px;
+
+}
+
+.itemtag{   
+    background-color: #869FB8; 
+    border: none;
+    color: white;
+    text-align: center;
+    display: inline-block;
+    font-size: 10px;
+    border-radius: 25px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.itemdescription{
+    font-style: italic;
+}

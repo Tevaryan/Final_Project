@@ -6,7 +6,6 @@ import {
   } 
   from 'reactstrap';
 import SideBarProfile from "../components/SideBarProfile";
-// import TrendingTags from "../components/trendingtags";
 
 class TradeSideBar extends Component {
   render() {

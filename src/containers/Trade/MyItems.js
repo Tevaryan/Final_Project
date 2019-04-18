@@ -5,71 +5,9 @@ import {
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
-// import {Link} from "react-router-dom"
-import { FormGroup, FormLabel } from 'react-bootstrap';
-import axios from "axios"
+import axios from "axios";
+import NewItem from "../../components/addItemHandler";
 
-const NewItem = props => (
-  <Form>
-        <FormGroup row>
-          <Label for="exampleEmail" sm={2}>Item Name</Label>
-          <Col sm={10}>
-            <Input type="text" name="item name" id="exampleEmail" onChange={props.name} />
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <FormLabel>Category</FormLabel>
-              <br/>
-              <select onChange={props.tagParent}>
-              <option></option>
-              {
-                 props.optionsPrefecture.map((o, index)=> {
-                   return(<option key={index} value={o}>{o}</option>)
-                 }
-                 )
-               }
-              </select>
-              {
-                props.tagParentValue ?
-                (
-                  <>
-                    <FormLabel>Tag Children</FormLabel>
-                    <select onChange={props.tagChildren}>
-                    <option></option>
-                    {
-                      props.subOption[props.tagParentValue].map((o, index)=> {
-                        return(<option key={index} value={o}>{o}</option>)
-                      }
-                      )
-                    }
-                      
-                    </select>
-                  </>
-                ) : null
-              }
-        </FormGroup>
-
-        <FormGroup row>
-          <Label for="exampleSelectMulti" sm={2}>file_name</Label>
-          <Col sm={10}>
-            <Input type="text" name="file name" id="exampleSelectMulti" onChange={props.fileName}/>
-          </Col>
-        </FormGroup>
-        <FormGroup row>
-          <Label for="exampleText" sm={2}>Description</Label>
-          <Col sm={10}>
-            <Input type="textarea" name="description" id="exampleText" onChange={props.description}/>
-          </Col>
-        </FormGroup>
-        <FormGroup check row>
-          <Col sm={{ size: 10, offset: 2 }}>
-            <Button onClick={props.submit}>Submit</Button>
-          </Col>
-        </FormGroup>
-       
-      </Form>
-
-);
 
 class MyItems extends Component {
 
@@ -79,8 +17,28 @@ class MyItems extends Component {
     tag_parent:"",
     tag_children:"", 
     description:"",
-    showModel:false
+    showModel:false,
+    items: [],
     }
+
+
+  componentDidMount() {
+
+    axios.get(`http://localhost:5000/api/v1/item/show/items/me`,{
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("JWT")
+      }
+    })
+    .then(result => {
+      this.setState({items:result.data.user})
+      console.log(this.state.items)
+        
+    })
+    .catch(error => {
+        console.log('ERROR: ', error)
+    })
+  }
+
 
   addItemHandler = (event) => {
     this.setState({
@@ -129,7 +87,11 @@ class MyItems extends Component {
           }
         })
         .then((response)=> {
-         console.log(response)
+
+         let items = [...this.state.items]
+         items.push(response.data.user)
+         console.log(items)
+         this.setState({items:items})
         })
         .catch(function (error) {
           console.log(error);
@@ -329,16 +291,6 @@ class MyItems extends Component {
 
     let options_prefecture = ["Arts & Craft", "Automative", "Baby", "Beuty & Personal Care", "Books", "Computers", "Electronics", "Health & Household", "Home & Kitchen", "Luggage", "Sports & Outdoors", "Toys"]
 
-
-
-
-
-
-
-
-
-
-
     return (
       <Container fluid>
         <Row>
@@ -352,7 +304,24 @@ class MyItems extends Component {
             ? <NewItem name={this.nameInputHandler} tagParent={this.tagParentInputHandler} tagChildren={this.tagChildrenInputHandler} fileName={this.fileNameInputHandler} description={this.descriptionInputHandler} submit={this.submitHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}/>
             : null
           }
-
+          <Row>
+          {
+              this.state.items.map((item, index)=> {
+                     return(<Col sm={4} key={index} className={"mt-5"} style={{border:"2px solid black"}}>
+                     
+                     <span>Item{index}</span>
+                     <div>{item.name}<br/>
+                          {item.file_name}<br/>
+                          {item.tag_parent}<br/>
+                          {item.tag_children}<br/>
+                          {item.description}<br/>
+                     </div>
+                     </Col>)
+              }
+              )
+          }
+                  
+          </Row>
           </Col>
         </Row>
     </Container>
@@ -363,17 +332,3 @@ class MyItems extends Component {
 export default MyItems;
 
 
-
-// tag parent selector
-        // <Form>
-        //     <FormGroup>
-        //       <select>
-        //       {
-        //         options_prefecture.map((o, index)=> {
-        //           return(<option key={index} value={o}>{o}</option>)
-        //         }
-        //         )
-        //       }
-        //       </select>
-        //     </FormGroup>
-        //   </Form>

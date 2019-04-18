@@ -31,11 +31,11 @@ class SignUp extends React.Component{
       const inputIsNotEmpty = this.state.email.length !== 0 && this.state.username.length !== 0 && this.state.password.length !== 0
       console.log(validatePassword && validateEmail && inputIsNotEmpty )
 
-      if(validateEmail !== false){
+      if(validateEmail == false){
         alert("please enter valid email address")
       }
 
-      if(validatePassword !==false){
+      if(validatePassword ==false){
         alert("password format does not match!")
       }
 
@@ -80,7 +80,7 @@ class SignUp extends React.Component{
 
     render(){
 
-      if (this.state.login !==true){
+      if (this.state.login ===true){
         return <Redirect to='/Dashboard/TradeMain/MyFeed'/>
       } else {
         return(

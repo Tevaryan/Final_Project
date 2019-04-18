@@ -19,7 +19,7 @@ class MyFeed extends Component {
           <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden'}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col style={{backgroundColor: '#34495E', height: '100vh', overflow: 'auto'}}>
+          <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
         <Row style={{height:'50%'}} className='Card_Row mt-4'>
           <Col sm='4'>
                 <Card>

@@ -29,7 +29,6 @@ class TradeSideBar extends Component {
             </NavItem>
         </Nav>  
           <br/>
-          <TrendingTags/>
       </div>
     )
   }

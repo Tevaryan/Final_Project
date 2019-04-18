@@ -10,7 +10,8 @@
 
 .my-danger {
     background-color: #5D6D7E;
-    border-radius: 5px;
+    border-right: 1px solid rgba(0,0,0,.05)
+    
 } 
 
 .my-border {
@@ -18,10 +19,6 @@
 }
 
 
-.my-danger {
-    background-color: #34495E;
-    
-} 
 
 .sidebarprofileimg{
     height: 150px;
@@ -51,9 +48,10 @@
     border: 1px solid #34495E;
     background-color: #5D6D7E;
     border-radius: 5px;
+    color:white;
     /* color: black; */
     text-align: center;
-    display: inline-block;
+    /* display: inline-block; */
     margin-top: 6px;
 }
 

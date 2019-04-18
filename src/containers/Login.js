@@ -28,30 +28,52 @@ passwordInputHandler =(event)=>{
 }
 
 handleSubmit= (event)=> {
-  alert('Success');
-      event.preventDefault();
-      const data ={
-        username: this.state.username,
-        password:this.state.password,
-        time: Date.now()
-      }
-      axios.post(`http://localhost:5000/api/v1/auth/login`, data)
-      .then((response)=> {
-        // console.log(response.data.user.id)
-        // console.log(response.data.user.profile_picture)
-        
-        // store user information when login
-        localStorage.setItem('username', response.data.user.username)
-        localStorage.setItem('profile_picute', response.data.user.profile_picture)
-        localStorage.setItem('user_id', response.data.user.id)
-        localStorage.setItem('JWT', response.data.access_token)
-        this.setState({login:true})
-        
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    }
+
+
+  const validatePassword = /^[\dA-Za-z]\w{8,}$/.test(this.state.password)
+  const inputIsNotEmpty = this.state.username.length != 0 && this.state.password.length != 0
+
+  if(validatePassword ===false){
+    alert("password format does not match!")
+  }
+
+  if(this.state.password.lenth == 0){
+    alert("please enter your password!")
+  }
+
+  if(this.state.username.lenth == 0){
+    alert("please enter your username!")
+  }
+
+  if(validatePassword && inputIsNotEmpty){
+
+        alert('Success');
+        event.preventDefault();
+        const data ={
+          username: this.state.username,
+          password:this.state.password,
+          time: Date.now()
+        }
+        axios.post(`http://localhost:5000/api/v1/auth/login`, data)
+        .then((response)=> {
+          // console.log(response.data.user.id)
+          // console.log(response.data.user.profile_picture)
+          
+          // store user information when login
+          localStorage.setItem('username', response.data.user.username)
+          localStorage.setItem('profile_picture', response.data.user.profile_picture)
+          localStorage.setItem('user_id', response.data.user.id)
+          localStorage.setItem('JWT', response.data.access_token)
+          this.setState({login:true})
+          
+  
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }
+  }
+
 
     // handler()=>{
     //   localStorage.removeItem("JWT")

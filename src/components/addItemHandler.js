@@ -60,7 +60,7 @@ const NewItem = props => (
               <Button onClick={props.submit}>Add</Button>
             </Col>
           </FormGroup>
-         
+          
         </Form>
   
   );

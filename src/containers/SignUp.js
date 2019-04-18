@@ -10,6 +10,7 @@ class SignUp extends React.Component{
         email:"",
         password:"",
         login: false
+
         }
 
     nameInputHandler =(event)=>{
@@ -74,6 +75,7 @@ class SignUp extends React.Component{
           console.log(error);
         });
       }
+
     }
 
     render(){

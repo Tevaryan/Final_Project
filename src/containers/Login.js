@@ -27,6 +27,7 @@ passwordInputHandler =(event)=>{
 
 handleSubmit= (event)=> {
 
+
   const validatePassword = /^[\dA-Za-z]\w{8,}$/.test(this.state.password)
   const inputIsNotEmpty = this.state.username.length !== 0 && this.state.password.length !== 0
 
@@ -70,6 +71,7 @@ handleSubmit= (event)=> {
         });
   }
   }
+
 
     // handler()=>{
     //   localStorage.removeItem("JWT")

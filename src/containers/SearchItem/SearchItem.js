@@ -24,12 +24,12 @@ class MyFeed extends Component {
       method: "get"
     })
     .then((response)=>{
-      console.log(response)
+      
       this.setState({
         items: response.data.item,
         keyword: this.props.match.params.item
       })
-      console.log(this.state.item)
+      
     })
     .catch( (error)=> {
       console.log(error);
@@ -62,14 +62,14 @@ class MyFeed extends Component {
   }
 
   detailSearch=(event)=>{
-    console.log(event.target.innerHTML)
+   
     axios( {
       url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}?tag_children=${event.target.innerHTML}`,
       headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
       method: "get",
     })
     .then((response)=>{
-      console.log(response)
+      
       this.setState({
         items: response.data.item,
         keyword: this.props.match.params.item
@@ -97,7 +97,7 @@ class MyFeed extends Component {
           this.state.items.map((item,index)=>{
             let link = '/Dashboard/message/' + item.owner_user_id
             return(
-              <Col sm='4' className='my-2'>
+              <Col sm='4' className='my-2'key={index}>
               <Card>
                 <CardBody>
                 <CardTitle>{item.item_name}</CardTitle>

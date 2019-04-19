@@ -23,7 +23,7 @@ class Messages extends React.Component {
   
   componentDidMount () {
     //!! when user comes to this page,let user join room and activate socket
-    console.log('gooo')
+   
     this.setSocketListeners()
     socket.emit("join_room",{'user_id':this.state.user_id,'partner_id': this.state.partner_id})
   }

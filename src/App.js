@@ -8,6 +8,8 @@ import MyItems from './containers/Trade/MyItems.js'
 import TaggedItems from './containers/Trade/TaggedItems.js'
 import ItemsNearYou from './containers/Trade/ItemsNearYou.js'
 import SignUp from './containers/SignUp';
+import EditItem from "./components/EditItemHandler"
+
 import Messages from './containers/Chatroom/Chatroom'
 import MessageList from './containers/Chatroom/MessageList/MessageList'
 import items from "./components/items.js"
@@ -30,6 +32,7 @@ class App extends Component {
       <Route path= {'/Dashboard/TradeMain/TaggedItems'} component={TaggedItems} />
       <Route path= {'/Dashboard/TradeMain/ItemsNearYou'} component={ItemsNearYou} />
       <Route path={'/Dashboard/TradeMain/Items'} component={items}/>
+      <Route path={'/Dashboard/TradeMain/MyItem/EditItem'} component={EditItem}/>
     </div>
     )
   }

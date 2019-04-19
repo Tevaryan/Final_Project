@@ -3,13 +3,16 @@ import axios from "axios";
 import{ Modal,Button,Form} from 'react-bootstrap';
 import {Redirect} from "react-router-dom"
 class SignUp extends React.Component{
-
-    state = {
-        username: "",
-        email:"",
-        password:"",
-        login: false
-        }
+    constructor(props) {
+      super(props)
+      this.state = {
+          username: "",
+          email:"",
+          password:"",
+          login: false
+  
+          }
+    }
 
     nameInputHandler =(event)=>{
       this.setState({username:event.target.value})

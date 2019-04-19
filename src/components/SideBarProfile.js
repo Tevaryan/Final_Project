@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import picture from "../assets/images/satan.jpg";
 import "../components/css/tradesidebar.css";
 import axios from "axios";
 import{ Modal,Button,ButtonToolbar, Form, Col} from 'react-bootstrap';
@@ -76,7 +75,7 @@ class SideBarProfile extends Component {
         birthday = '',
         brif = ''
       } = response.data.user
-      console.log(response)
+      
       this.setState({
         username,
         firstname,

@@ -27,7 +27,7 @@ class MyFeed extends Component {
                 <CardTitle>My Feed</CardTitle>
                 </CardBody>
                 <div>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
+                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images1'/>
                 </div>
 
                 <CardBody>
@@ -42,7 +42,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
                 </CardBody>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images' />
+                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images2' />
                 <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -55,7 +55,7 @@ class MyFeed extends Component {
             <CardBody>
               <CardTitle>My Feed</CardTitle>
             </CardBody>
-            <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images' />
+            <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images3' />
             <CardBody>
               <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
               <CardLink href="#">Card Link</CardLink>
@@ -70,7 +70,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
               </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images4' />
               <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -83,7 +83,7 @@ class MyFeed extends Component {
               <CardBody>
                 <CardTitle>My Feed</CardTitle>
               </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images5' />
               <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -96,7 +96,7 @@ class MyFeed extends Component {
             <CardBody>
               <CardTitle>My Feed</CardTitle>
             </CardBody>
-            <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+            <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images6' />
             <CardBody>
               <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
               <CardLink href="#">Card Link</CardLink>

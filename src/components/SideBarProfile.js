@@ -144,7 +144,8 @@ class SideBarProfile extends Component {
             going_to,
             date, 
             birthday,
-            brif
+            brif,
+            lgShow: false
           })     
         })
         .catch( (error)=> {
@@ -287,21 +288,21 @@ class SideBarProfile extends Component {
                 <Form.Row>
                   <Form.Group as={Col} md="6" controlId="validationCustom03">
                     <Form.Label>Location</Form.Label>
-                    <Form.Control type="text" name="location" onChange={this.handleChange} placeholder={this.state.location} required />
+                    <Form.Control type="text" name="location" onChange={this.handleChange} defaultValue={this.state.location}  placeholder={this.state.location} required />
                     <p style={red}>
 
                     {!valisation_location && "please enter your info here"}</p>
                   </Form.Group>
                   <Form.Group as={Col} md="3" controlId="validationCustom04">
                     <Form.Label>going_to</Form.Label>
-                    <Form.Control type="text" name="going_to" onChange={this.handleChange} placeholder={this.state.going_to} required />
+                    <Form.Control type="text" name="going_to" onChange={this.handleChange} defaultValue={this.state.going_to}  placeholder={this.state.going_to} required />
                     <p style={red}>
 
                     {!valisation_going_to && "please enter your info here"}</p>
                   </Form.Group>
                   <Form.Group as={Col} md="3" controlId="validationCustom05">
                     <Form.Label>Date</Form.Label>
-                    <Form.Control type="text" name="date" onChange={this.handleChange} placeholder={this.state.date} required />
+                    <Form.Control type="text" name="date" onChange={this.handleChange} defaultValue={this.state.date} placeholder={this.state.date} required />
                     <p style={red}>
                     
                     {!valisation_date && "please enter your info here"}</p>
@@ -311,7 +312,7 @@ class SideBarProfile extends Component {
                 
                 <Form.Group controlId="exampleForm.ControlTextarea1">
                   <Form.Label>Info.</Form.Label>
-                  <Form.Control as="textarea" rows="3" name="brif" onChange={this.handleChange} defaultValue={this.state.brif}/>
+                  <Form.Control as="textarea" rows="3" name="brif" onChange={this.handleChange}  defaultValue={this.state.brif}/>
                   <p style={red}>{!valisation_brif && "please enter your info here"}</p>
                 </Form.Group>
                 <Modal.Body><Button type="submit" onClick={this.handleEditForm}>Edit Profile</Button></Modal.Body>

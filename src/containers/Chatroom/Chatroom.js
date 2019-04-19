@@ -2,7 +2,12 @@ import React from "react"
 import io from 'socket.io-client'
 import {Row,Col} from 'react-bootstrap'
 import './Chatroom.css'
-import MessageSend from '../MessageSend/MessageSend'
+import MessageSend from './MessageSend/MessageSend'
+import {
+  Card, CardText, CardBody,
+  CardTitle
+} 
+from 'reactstrap';
 
 const socket = io('http://localhost:5000')
 
@@ -17,6 +22,7 @@ class Messages extends React.Component {
 
   
   componentDidMount () {
+    //!! when user comes to this page,let user join room and activate socket
     console.log('gooo')
     this.setSocketListeners()
     socket.emit("join_room",{'user_id':this.state.user_id,'partner_id': this.state.partner_id})
@@ -81,7 +87,6 @@ class Messages extends React.Component {
 
   render(){
     let current_user_id = Number(localStorage.getItem('user_id'))
-
     let dialog = this.state.messages.map((conv,index) =>{  
     let attachedClasses
     let outsideContainer
@@ -115,13 +120,35 @@ class Messages extends React.Component {
         </div>
     )
 })
+// if user come from search result page, show a selected item on chatroom
+let item;
+if(this.props.location.state.description){
+  item =  <Col sm='2' className='my-2 position-fixed' style={{zIndex:'100'}}>
+  <Card>
+    <CardBody>
+    <CardTitle>Selected Item</CardTitle>
+    </CardBody>
+    <div>
+      <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
+    </div>
+    <CardBody>
+    <CardText>ownwer: {this.props.location.state.username}</CardText>
+    <CardText>Description:{this.props.location.state.description}</CardText>
+  </CardBody>
+  </Card>
+</Col>
+} else {
+  item = null
+}
+
         return(
             <>
-        <div className="ChatSpace" >
-            <MessageSend message={this.state.newMessage} input={this.inputHandler} submit={this.handleSubmit}/>
-            {dialog}
-        </div>
-        </>
+            {item}
+            <div className="ChatSpace" >
+                <MessageSend message={this.state.newMessage} input={this.inputHandler} submit={this.handleSubmit}/>
+                {dialog}
+            </div>
+            </>
         )
     }
 }

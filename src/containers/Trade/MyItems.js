@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {
-    Container, Col, Row, Form, Label, Input, Button, Card, CardText, CardBody, CardLink,
+    Container, Col, Row, Card, CardText, CardBody, CardLink,
     CardTitle
   } 
   from 'reactstrap';

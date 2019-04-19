@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../App.css';
+<<<<<<< HEAD
 // import {
 //     Container, Col, Row, Modal,Button,ButtonToolbar
 //   } 
@@ -12,6 +13,17 @@ import EditItem from "../../components/EditItemHandler";
 import ShowItem from "../../components/showItems"
 
 
+=======
+import {
+    Container, Col, Row, Card, CardText, CardBody, CardLink,
+    CardTitle
+  } 
+  from 'reactstrap';
+import TradeSideBar from '../../components/TradeSideBar.js'
+import axios from "axios";
+import NewItem from "../../components/addItemHandler";
+import "../../components/css/myitems.css"
+>>>>>>> master
 
 
 class MyItems extends Component {
@@ -77,7 +89,7 @@ class MyItems extends Component {
 
   descriptionInputHandler =(event)=>{
     this.setState({description:event.target.value})
-   
+    
   }
 
   fileNameInputHandler =(event)=>{
@@ -104,9 +116,16 @@ class MyItems extends Component {
         })
         .then((response)=> {
 
+<<<<<<< HEAD
          let items = [...this.state.items]
          items.push(response.data.user)
          this.setState({items:items})
+=======
+          let items = [...this.state.items]
+          items.push(response.data.user)
+          console.log(items)
+          this.setState({items:items})
+>>>>>>> master
         })
         .catch(function (error) {
           console.log(error);
@@ -314,8 +333,8 @@ class MyItems extends Component {
           <Col className="SideBar" style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'hidden', borderRight: "1px solid rgba(0,0,0,.05)"}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>  
-          <button onClick={this.addItemHandler}>Add Item</button>
+          <Col>  
+          <button onClick={this.addItemHandler}  className="additembutton">+ Add Item</button>
           {
             this.state.showAddItemModel === true
             ? <NewItem name={this.nameInputHandler} tagParent={this.tagParentInputHandler} tagChildren={this.tagChildrenInputHandler} fileName={this.fileNameInputHandler} description={this.descriptionInputHandler} submit={this.submitHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}/>
@@ -324,23 +343,38 @@ class MyItems extends Component {
           <Row>
           {
               this.state.items.map((item, index)=> {
-                  
-                     return(
-                    //  <Col sm={4} key={index} className={"mt-5"} style={{border:"2px solid black"}}>
-                     
-                    //  <span>Item{index}</span>
-                    //  <div>Name:  {item.name}<br/>
-                    //       Photo_Url:  {item.file_name}<br/>
-                    //       Category:  {item.tag_parent}<br/>
-                    //       Sub Category: {item.tag_children}<br/>
-                    //       description: {item.description}<br/>
-                    //       <button onClick={this.editItemHandler}>edit</button>
-                    //   </div>
-                    //  </Col>)
-                    <ShowItem refetch={this.fetchItems} key={index} item={item} index={index} editItemHandler={this.editItemHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}></ShowItem>
-                    )
-                  }
-              )}
+                        return(
+                          <Col sm='4' key={index} className={"mt-5"}>
+                            <Card>
+                              <CardBody className="itemname">
+                                <CardTitle>
+                                  {/* <span>Item{index}</span> */}
+                                  {item.name}<br/>
+                                </CardTitle>
+                              </CardBody>
+                              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                              <CardBody>
+                              <CardText>
+                                {/* {item.file_name}<br/> */}
+                                <div className="itemtag">
+                                  {item.tag_parent}<br/>
+                                </div>
+                                <div className="itemtag">
+                                  {item.tag_children}<br/>
+                                </div>
+                                <div className="itemdescription">
+                                  {item.description}<br/>
+                                </div>
+                              </CardText>
+                              <CardLink href="#">edit</CardLink>
+                              <CardLink href="#">delete</CardLink>
+                              </CardBody>
+                            </Card>
+                          </Col>
+                        )
+              }
+              )
+          }
                   
           </Row>
           </Col>

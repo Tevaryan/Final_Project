@@ -4,7 +4,7 @@ import {Row,Col} from 'react-bootstrap'
 import './Chatroom.css'
 import MessageSend from './MessageSend/MessageSend'
 import {
-  Card, CardText, CardBody, CardLink,Button,
+  Card, CardText, CardBody,
   CardTitle
 } 
 from 'reactstrap';

@@ -43,7 +43,7 @@ class MyFeed extends Component {
       method: "get"
     })
     .then((response)=>{
-      if(prevProps.match.params.item != this.props.match.params.item) {
+      if(prevProps.match.params.item !== this.props.match.params.item) {
         this.setState({
           items: response.data.item,
           keyword: this.props.match.params.item

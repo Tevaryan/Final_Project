@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import picture from "../assets/images/satan.jpg";
+// import picture from "../assets/images/satan.jpg";
 import "../components/css/tradesidebar.css";
 import axios from "axios";
-import{ Modal,Button,ButtonToolbar, Form, Col, InputGroup} from 'react-bootstrap';
+import{ Modal,Button,ButtonToolbar, Form, Col} from 'react-bootstrap';
 
 
 const red = {
@@ -161,7 +161,7 @@ class SideBarProfile extends Component {
     return (
       <div className="sidebarprofile">
 
-        <img src={this.state.pictuer} className="sidebarprofileimg"/>
+        <img src={this.state.pictuer} className="sidebarprofileimg" alt='aaaa'/>
         <p className="sidebarname">{this.state.username}</p>
         <p className="location">{this.state.location}</p>
         <p className="items">{this.state.going_to}</p>
@@ -184,7 +184,7 @@ class SideBarProfile extends Component {
                 Profile Page
               </Modal.Title>
             </Modal.Header>
-              {/* form                 */}
+              {/* form */}
               
 
               <Modal.Body>
@@ -192,7 +192,7 @@ class SideBarProfile extends Component {
 
               <Form.Row>
                   <Form.Group as={Col} md="4" controlId="validationCustom01">
-                    <img src={this.state.pictuer} className="sidebarprofileimg"/>
+                    <img src={this.state.pictuer} className="sidebarprofileimg" alt='aaa'/>
                   </Form.Group>
                   <Form.Group as={Col} md="8" controlId="validationCustom02">
                     <h5>{this.state.username}<br/><br/>{this.state.location}<br/><br/>I am going to {this.state.going_to} in {this.state.date}</h5>

@@ -75,7 +75,7 @@ class SideBarProfile extends Component {
         birthday = '',
         brif = ''
       } = response.data.user
-      console.log(response)
+      
       this.setState({
         username,
         firstname,

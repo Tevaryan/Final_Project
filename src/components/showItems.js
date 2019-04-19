@@ -1,9 +1,9 @@
 import React from "react";
 import {Col} from "react-bootstrap";
 import { FormGroup, FormLabel,Form} from 'react-bootstrap';
-import {Input, Button, Label} from "reactstrap";
+import {Input, Button, Label, Card, CardBody, CardTitle, CardText, CardLink} from "reactstrap";
 import axios from "axios";
-import {Redirect} from "react-router-dom";
+
 
 
 class Items extends React.Component{
@@ -29,7 +29,7 @@ class Items extends React.Component{
     tagParentInputHandler =(event)=>{
         this.setState({tag_parent:event.target.value})
         }
-    
+
     tagChildrenInputHandler =(event)=>{
     this.setState({tag_children:event.target.value})
     
@@ -56,7 +56,7 @@ class Items extends React.Component{
               description: this.state.description,
               file_name: this.state.file_name
             }
-            console.log(this.props.item)
+            
             axios.post(`http://localhost:5000/api/v1/item/edit/${this.props.item.id}`, data, {
               headers: {
                 "Authorization": "Bearer " + localStorage.getItem("JWT")
@@ -147,17 +147,39 @@ class Items extends React.Component{
         return(
 
 
-            <Col sm={4} key={this.props.index} className={"mt-5"} style={{border:"2px solid black"}}>
-                     
-                <span>Item{this.props.index}</span>
-                <div>Name:  {this.props.item.name}<br/>
-                    Photo_Url:  {this.props.item.file_name}<br/>
-                    Category:  {this.props.item.tag_parent}<br/>
-                    Sub Category: {this.props.item.tag_children}<br/>
-                    description: {this.props.item.description}<br/>
-                    <button onClick={()=>{this.setState({editItem:true})}}>edit</button>
-                </div>
+            <Col sm='4' key={this.props.index} className={"mt-5"}>
+                <Card>
+                <CardBody className="itemname">
+                    <CardTitle>
+                    {/* <span>Item{index}</span> */}
+                    {this.props.item.name}<br/>
+                    </CardTitle>
+                </CardBody>
+                <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                <CardBody>
+                    <div className="itemtag">
+                        <CardText>
+                            {/* {item.file_name}<br/> */}
+                            {this.props.item.tag_parent}<br/>
+                        </CardText>
+                    </div>
+                    <div className="itemtag">
+                        <CardText>
+                            {this.props.item.tag_children}<br/>
+                        </CardText>
+                    </div>
+                    <div className="itemdescription">
+                        <CardText>
+                            {this.props.item.description}<br/>
+                        </CardText>
+                    </div>
+                
+                <button onClick={()=>{this.setState({editItem:true})}}>edit</button>
+                <CardLink href="#">delete</CardLink>
+                </CardBody>
+                </Card>
             </Col>
+
                    
             )
 

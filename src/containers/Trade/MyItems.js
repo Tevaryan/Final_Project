@@ -1,29 +1,11 @@
 import React, { Component } from 'react';
 import '../../App.css';
-<<<<<<< HEAD
-// import {
-//     Container, Col, Row, Modal,Button,ButtonToolbar
-//   } 
-// from 'reactstrap';
-import{ Container, Col, Row,Modal,Button,ButtonToolbar,Form} from 'react-bootstrap';
-import TradeSideBar from '../../components/TradeSideBar.js'
+import{ Container, Col, Row} from 'react-bootstrap';
 import axios from "axios";
-import NewItem from "../../components/addItemHandler";
-import EditItem from "../../components/EditItemHandler";
-import ShowItem from "../../components/showItems"
-
-
-=======
-import {
-    Container, Col, Row, Card, CardText, CardBody, CardLink,
-    CardTitle
-  } 
-  from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
-import axios from "axios";
 import NewItem from "../../components/addItemHandler";
-import "../../components/css/myitems.css"
->>>>>>> master
+import "../../components/css/myitems.css";
+import ShowItem from "../../components/showItems";
 
 
 class MyItems extends Component {
@@ -46,7 +28,7 @@ class MyItems extends Component {
   }
 
   fetchItems = () => {
-    axios.get(`http://localhost:5000/api/v1/item/show/items/me`,{
+    axios.get(`http://localhost:5000/api/v1/item/show/me`,{
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("JWT")
       }
@@ -116,16 +98,10 @@ class MyItems extends Component {
         })
         .then((response)=> {
 
-<<<<<<< HEAD
          let items = [...this.state.items]
          items.push(response.data.user)
          this.setState({items:items})
-=======
-          let items = [...this.state.items]
-          items.push(response.data.user)
-          console.log(items)
-          this.setState({items:items})
->>>>>>> master
+         this.setState({showAddItemModel:false})
         })
         .catch(function (error) {
           console.log(error);
@@ -344,33 +320,7 @@ class MyItems extends Component {
           {
               this.state.items.map((item, index)=> {
                         return(
-                          <Col sm='4' key={index} className={"mt-5"}>
-                            <Card>
-                              <CardBody className="itemname">
-                                <CardTitle>
-                                  {/* <span>Item{index}</span> */}
-                                  {item.name}<br/>
-                                </CardTitle>
-                              </CardBody>
-                              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
-                              <CardBody>
-                              <CardText>
-                                {/* {item.file_name}<br/> */}
-                                <div className="itemtag">
-                                  {item.tag_parent}<br/>
-                                </div>
-                                <div className="itemtag">
-                                  {item.tag_children}<br/>
-                                </div>
-                                <div className="itemdescription">
-                                  {item.description}<br/>
-                                </div>
-                              </CardText>
-                              <CardLink href="#">edit</CardLink>
-                              <CardLink href="#">delete</CardLink>
-                              </CardBody>
-                            </Card>
-                          </Col>
+                          <ShowItem key={index} item={item} index={index} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent} refetch={this.fetchItems}></ShowItem>
                         )
               }
               )

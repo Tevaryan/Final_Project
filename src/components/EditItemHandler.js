@@ -1,5 +1,5 @@
 import React from "react";
-import { FormGroup, FormLabel,Form} from 'react-bootstrap';
+import { FormGroup,Form} from 'react-bootstrap';
 import {Input, Button, Label, Col} from "reactstrap";
 
 

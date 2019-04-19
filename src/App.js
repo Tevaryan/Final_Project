@@ -9,12 +9,12 @@ import TaggedItems from './containers/Trade/TaggedItems.js'
 import ItemsNearYou from './containers/Trade/ItemsNearYou.js'
 import SignUp from './containers/SignUp';
 import Messages from './containers/Chatroom/Chatroom'
-import MessageList from './containers/Chatroom/MessageList'
+import MessageList from './containers/Chatroom/MessageList/MessageList'
 import items from "./components/items.js"
-
-
+import SearchItem from './containers/SearchItem/SearchItem'
 
 class App extends Component {
+
   render() 
   {
     return (
@@ -25,6 +25,7 @@ class App extends Component {
       <Route path ={'/Dashboard/Message/:id'} component={Messages}/>
       <Route path ={'/Dashboard/MessageList'} component={MessageList}/>
       <Route path= {'/Dashboard/TradeMain/MyFeed'} component={MyFeed} />
+      <Route path= {'/Dashboard/Search/:item'} component={SearchItem} />
       <Route path= {'/Dashboard/TradeMain/MyItems'} component={MyItems} />
       <Route path= {'/Dashboard/TradeMain/TaggedItems'} component={TaggedItems} />
       <Route path= {'/Dashboard/TradeMain/ItemsNearYou'} component={ItemsNearYou} />

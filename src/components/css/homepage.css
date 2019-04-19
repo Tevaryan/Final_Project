@@ -1,0 +1,44 @@
+.navbartext{
+    color: white;
+}
+
+.container2{
+    color: aliceblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+    display: flex;
+    font-size: 35px;
+
+}
+
+.container3{
+    color: aliceblue;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+    display: flex;
+    font-size: 100px;
+
+}
+
+.container4{
+    color: aliceblue;
+    position: absolute;
+    top: 65%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+    display: flex;
+    
+
+}
+
+.searchbarbutton{
+    margin-left: 7.5px;
+    
+}

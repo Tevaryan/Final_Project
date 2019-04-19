@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import {Route} from "react-router-dom"
-import Login from './containers/Login.js'
-import Dashboard from './pages/Dashboard.js'
-import MyFeed from './containers/Trade/MyFeed.js'
-import MyItems from './containers/Trade/MyItems.js'
-import TaggedItems from './containers/Trade/TaggedItems.js'
-import ItemsNearYou from './containers/Trade/ItemsNearYou.js'
+import {Route} from "react-router-dom";
+import Homepage from "./components/HomePage";
+import Login from './containers/Login.js';
+import Dashboard from './pages/Dashboard.js';
+import MyFeed from './containers/Trade/MyFeed.js';
+import MyItems from './containers/Trade/MyItems.js';
+import TaggedItems from './containers/Trade/TaggedItems.js';
+import ItemsNearYou from './containers/Trade/ItemsNearYou.js';
 import SignUp from './containers/SignUp';
 import EditItem from "./components/EditItemHandler"
 
@@ -14,6 +15,13 @@ import Messages from './containers/Chatroom/Chatroom'
 import MessageList from './containers/Chatroom/MessageList/MessageList'
 import items from "./components/items.js"
 import SearchItem from './containers/SearchItem/SearchItem'
+import Messages from './containers/Chatroom/Chatroom';
+import MessageList from './containers/Chatroom/MessageList';
+import items from "./components/items.js";
+import './components/css/homepage.css'
+
+
+
 
 class App extends Component {
 
@@ -21,8 +29,9 @@ class App extends Component {
   {
     return (
     <div>
+      <Route exact path={"/"} component={Homepage}/>
       <Route path={"/signup"} component={SignUp}/>
-      <Route exact path={'/login'} component={Login}/>
+      <Route path={'/login'} component={Login}/>
       <Route path ={'/Dashboard'} component={Dashboard}/>
       <Route path ={'/Dashboard/Message/:id'} component={Messages}/>
       <Route path ={'/Dashboard/MessageList'} component={MessageList}/>

@@ -7,7 +7,8 @@ import {
 from 'reactstrap';
 import axios from "axios";
 import {Link, Redirect} from "react-router-dom"
-import '../App.css';
+// import '../App.css';
+import "../components/css/login.css"
 
 class Login extends React.Component{
 
@@ -64,7 +65,6 @@ handleSubmit= (event)=> {
           localStorage.setItem('JWT', response.data.access_token)
           this.setState({login:true})
           
-  
         })
         .catch(function (error) {
           console.log(error);
@@ -82,60 +82,63 @@ handleSubmit= (event)=> {
       return <Redirect to='/Dashboard/TradeMain/MyFeed'/>
     } else {
     return (
-            <Container className="Login" fluid>
-              <Row className='loginRow'>
-                <Col sm="5" className="picture_space" ></Col>
-                <Col className="Form-Container" sm="7">
-                  <Row>
+            <div id="root2">
+              <Container className="Login" fluid>
+                <Row className='loginRow'>
+                  <Col sm="5" className="picture_space" ></Col>
+                  <Col className="Form-Container" sm="7">
+                    <Row>
                       <Col sm='3'></Col>
                       <Col sm='6' className = "login">
-                      <Form className="form">
-                      <FormGroup>
-                      
-                      <Input
-                      type="name"
-                      name="name"
-                      id="exampleName"
-                      placeholder="enter your username"
-                      onChange={this.nameInputHandler}
-                      />
-                      </FormGroup>
-                      <FormGroup>
-                      
-                      <Input
-                      type="password"
-                      name="password"
-                      id="examplePassword"
-                      placeholder="password"
-                      onChange={this.passwordInputHandler}
-                      />
-                      </FormGroup>
-                      <div className="d-flex align-items-center justify-content-between">
-                      
-                      <Button className = "LoginButton"
-                      style={{borderRadius: "25px", width: '47%'}}
-                      onClick={this.handleSubmit}>
-                      Login
-                      </Button>
-
-                      <Button className = "LoginButton"
-                      style={{borderRadius: "25px", width: '47%'}}
-                      tag ={Link} to={`/signup`}> 
-                      Sign Up
-                      </Button>
-
-                      </div>
-
-                      <hr/>
-                      
-                      <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger">Login with Google</Button>
-                      </Form>
+                        <Form className="form">
+                          <FormGroup>
+                            <Input
+                              type="name"
+                              name="name"
+                              id="exampleName"
+                              placeholder="enter your username"
+                              onChange={this.nameInputHandler}/>
+                          </FormGroup>
+                          <FormGroup>
+                            <Input
+                              type="password"
+                              name="password"
+                              id="examplePassword"
+                              placeholder="password"
+                              onChange={this.passwordInputHandler}/>
+                            </FormGroup>
+                            <div className="d-flex align-items-center justify-content-between">
+                              <Button 
+                                className = "LoginButton"
+                                style={{borderRadius: "25px", width: '47%'}}
+                                onClick={this.handleSubmit}>
+                                Login
+                              </Button>
+                              <Button 
+                                className = "LoginButton"
+                                style={{borderRadius: "25px", width: '47%'}}
+                                tag ={Link} to={`/signup`}> 
+                                Sign Up
+                              </Button>
+                            </div>
+                          <hr/>
+                          <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger">Login with Google</Button>
+                        </Form>
                       </Col>
-                      
-                      </Row>
-                      </Col>
-                      </Row>
-            </Container>
+                    </Row>
+                  </Col>
+                </Row>
+              </Container>
+              <div className="containerforlogintext">
+                <p >barter</p>
+                <p>/ˈbɑːtə/</p>
+                <p>verb</p>
+                <p>exchange (goods or services) for other<br/> goods or services without using money.</p>
+                <br/>
+                <br/>
+                <p>“ Life is either a daring adventure or <br/>nothing at all.” -Helen Keller.</p>
+              </div>
+            </div>
     )}
   }
   }

@@ -17,9 +17,9 @@ const NewItem = props => (
                 <select onChange={props.tagParent}>
                 <option></option>
                 {
-                   props.optionsPrefecture.map((o, index)=> {
+                    props.optionsPrefecture.map((o, index)=> {
                      return(<option key={index} value={o}>{o}</option>)
-                   }
+                    }
                    )
                  }
                 </select>

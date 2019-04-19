@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import{ Container, Col, Row} from 'react-bootstrap';
+import {
+    Container, Col, Row, Card, CardText, CardBody, CardLink,
+    CardTitle
+  } 
+  from 'reactstrap';
+import TradeSideBar from '../../components/TradeSideBar.js'
 import axios from "axios";
 import TradeSideBar from '../../components/TradeSideBar.js'
 import NewItem from "../../components/addItemHandler";

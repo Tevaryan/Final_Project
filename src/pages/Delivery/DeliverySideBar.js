@@ -17,20 +17,21 @@ class DeliverySideBar extends React.Component {
 
   render(){
     //! check user resistered location and destination 
-    let DesButton = this.state.Destination ? <NavItem className = 'mb-2'><Button color="secondary" size="lg" block><strong>Destination:{localStorage.getItem('location')}</strong></Button></NavItem>: null
-    let LocButton = this.state.Location ? <NavItem className = 'Navbar_TradeMain mb-2'><Button color="secondary" size="lg" block><strong>Destination:{localStorage.getItem('location')}</strong></Button></NavItem>: null
+    let DesButton = this.state.Destination ? <><strong>By your location</strong><NavItem className = 'mb-2'><Button color="secondary" ><strong>{localStorage.getItem('location')}</strong></Button></NavItem></>: null
+
+    let LocButton = this.state.Location ? <><strong>By your destination</strong><NavItem className = 'Navbar_TradeMain mb-2'><Button color="secondary" ><strong>{localStorage.getItem('destination')}</strong></Button></NavItem></>: null
 
     return (
       <Nav className="ml-auto py-3" n avbar>  
         <strong>Search Request</strong>
-          {DesButton}
-          {LocButton}
         <InputGroup>
           <InputGroupAddon  addonType="prepend">
             <Button className="p-0" onClick={this.props.submit}><img style={{width:'25px'}} alt="searchMark" src={search}></img></Button>
           </InputGroupAddon>
           <Input name="place" placeholder="Enter Place Name" onChange={this.props.input}/>
         </InputGroup>
+          {DesButton}
+          {LocButton}
 
         <strong className={'mt-3'}>Make Request</strong>
         <NavItem className = 'Navbar_TradeMain mb-4'>

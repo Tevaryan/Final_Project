@@ -34,12 +34,8 @@ class App extends Component {
       <Route path= {'/Dashboard/TradeMain/TaggedItems'} component={TaggedItems} />
       <Route path= {'/Dashboard/TradeMain/ItemsNearYou'} component={ItemsNearYou} />
       <Route path={'/Dashboard/TradeMain/Items'} component={items}/>
-<<<<<<< HEAD
       <Route path={'/Dashboard/TradeMain/MyItem/EditItem'} component={EditItem}/>
-    </div>
-=======
     </>
->>>>>>> 1.added make request modal. 2.added search function
     )
   }
 }

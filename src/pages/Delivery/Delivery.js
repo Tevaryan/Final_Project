@@ -20,7 +20,7 @@ class Delivery extends React.Component{
         method: "get"
       })
       .then((response)=>{
-        // console.log(response.data.requests)
+        console.log(response.data.requests)
         this.setState({
           items: response.data.requests
         })
@@ -83,37 +83,40 @@ class Delivery extends React.Component{
                 backgroundImage:`url(${woodImage})`,
                 backgroundSize: 'cover'
             }} className='Card_Row pt-2'>
+
             {
               this.state.items.map((item,index)=>{
                 let link = '/Dashboard/message/' + item.user_id
                 return(
-                  <Col sm='4' key={index} className='my-3'>
+                  <Col sm='6' key={index} className='my-3'>
                   <Card style={{backgroundColor:'#F8ECC2',boxShadow:'5px 10px',boxSizing:'border-box'}}>
-                    <CardBody>
                     <CardTitle className="text-center mb-0" style={{fontSize:'30px'}}><strong>WANTED</strong></CardTitle>
+                    <Row>
+                      <Col sm={6} >
+                        <img src="https://source.unsplash.com/random/300x200" alt='temparaly images' className="img-fluid"/>
+                      </Col>
+                      <Col sm={6} className="pl-0">
+                        <CardText>ownwer: {item.username}</CardText>
+                        <CardText>Reward: {item.reward}</CardText>
+                        <Link to={{pathname: link,
+                          state:{
+                            profile_image: item.user_profile_image,
+                            username: item.username,
+                            reward: item.reward,
+                            description: item.description2 
+                          }}}
+                        ><Button color="secondary">Contact</Button></Link>
+                      </Col>
+                    </Row>
+                    <CardBody className="py-1">
+                      <CardText>Description: {item.description}</CardText>
                     </CardBody>
-                    <div className="px-3">
-                      <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
-                    </div>
-                    <CardBody>
-                    <CardText>ownwer: {item.username}</CardText>
-                    <CardText>Description: {item.description}</CardText>
-                    <CardText>Reward: {item.reward}</CardText>
-                    
-                  </CardBody>
-                  <div className="card-footer text-muted">
-                    <Link to={{pathname: link,
-                    state:{
-                      profile_image: item.user_profile_image,
-                      username: item.username,
-                    }}}
-                      ><Button color="secondary" className='btn-block'>Contact</Button></Link>
-                  </div>
                   </Card>
                 </Col>
                 )
               })
             }
+
             </Row>
               </Col>
             </Row>

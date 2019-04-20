@@ -60,7 +60,7 @@ handleSubmit= (event)=> {
           
           // store user information when login
           localStorage.setItem('username', response.data.user.username)
-          if(response.data.user.going_to){
+          if(response.data.user.destination){
             localStorage.setItem('destination', response.data.user.destination)
           }
           if(response.data.user.location){

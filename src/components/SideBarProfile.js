@@ -188,17 +188,13 @@ class SideBarProfile extends Component {
               
 
               <Modal.Body>
-              
-
               <Form.Row>
                   <Form.Group as={Col} md="4" controlId="validationCustom01">
                     <img src={this.state.pictuer} className="sidebarprofileimg" alt='aaa'/>
                   </Form.Group>
                   <Form.Group as={Col} md="8" controlId="validationCustom02">
                     <h5>{this.state.username}<br/><br/>{this.state.location}<br/><br/>I am going to {this.state.going_to} in {this.state.date}</h5>
-                    
                   </Form.Group>
-                 
                 </Form.Row>
 
 

@@ -16,7 +16,7 @@ class Items extends Component {
     return (
     <Container fluid>
       <Row>
-          <Col className="SideBar" style={{backgroundColor: '#5D6D7E', height: '100vh', overflow: 'hidden'}} sm ='2'>
+          <Col className="SideBar" style={{backgroundColor: '#5D6D7E', height: '100vh', overflowY: 'hidden'}} sm ='2'>
             <TradeSideBar/>
           </Col>
           <Col style={{backgroundColor: '#5D6D7E', height: '100vh', overflow: 'auto'}}>

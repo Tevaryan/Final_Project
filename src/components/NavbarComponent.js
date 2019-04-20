@@ -67,6 +67,8 @@ class NavbarComponent extends Component {
         localStorage.removeItem('profile_picute')
         localStorage.removeItem("user_id")
         localStorage.removeItem("username")
+        localStorage.removeItem("location")
+        localStorage.removeItem("destination")
         this.setState({logout: true})
       }
 
@@ -88,28 +90,30 @@ class NavbarComponent extends Component {
           <NavbarBrand href="/Dashboard/TradeMain/MyFeed">BARTER</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
+
            {/* for fiter thing  */}
            <UncontrolledDropdown id='target2' nav inNavbar className={'list-unstyled text-white ml-5'}>
-                <DropdownToggle nav caret onMouseOver={this.overHandler} className={'text-white ml-5'}>
-                  <strong>Search</strong>
-                </DropdownToggle> 
-                <div onMouseLeave={this.closeBackdrop}>
-                <DropdownMenu id='target'  onMouseLeave={this.closedropdown}>
-                <Link to={`/Dashboard/Search/Arts & Craft`}><DropdownItem>Arts & Craft</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Automative`}><DropdownItem>Automative</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Baby`}><DropdownItem>Baby</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Beuty & Personal Care`}><DropdownItem>Beuty & Personal Care</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Books`}><DropdownItem>Books</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Computers`}><DropdownItem>Computers</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Health & Household`}><DropdownItem>Health & Household</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Electronics`}><DropdownItem>Electronics</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Home & Kitchen`}><DropdownItem>Home & Kitchen</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Luggage`}><DropdownItem>Luggage</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Sports & Outdoors`}><DropdownItem>Sports & Outdoors</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Toys`}><DropdownItem>Toys</DropdownItem></Link>
-                </DropdownMenu>
-                </div>
-              </UncontrolledDropdown>
+              <DropdownToggle nav caret onMouseOver={this.overHandler} className={'text-white ml-5'}>
+                <strong>Search</strong>
+              </DropdownToggle> 
+              <div onMouseLeave={this.closeBackdrop}>
+              <DropdownMenu id='target'  onMouseLeave={this.closedropdown}>
+              <Link to={`/Dashboard/Search/Arts & Craft`}><DropdownItem>Arts & Craft</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Automative`}><DropdownItem>Automative</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Baby`}><DropdownItem>Baby</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Beuty & Personal Care`}><DropdownItem>Beuty & Personal Care</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Books`}><DropdownItem>Books</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Computers`}><DropdownItem>Computers</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Health & Household`}><DropdownItem>Health & Household</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Electronics`}><DropdownItem>Electronics</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Home & Kitchen`}><DropdownItem>Home & Kitchen</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Luggage`}><DropdownItem>Luggage</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Sports & Outdoors`}><DropdownItem>Sports & Outdoors</DropdownItem></Link>
+              <Link to={`/Dashboard/Search/Toys`}><DropdownItem>Toys</DropdownItem></Link>
+              </DropdownMenu>
+              </div>
+            </UncontrolledDropdown>
+
             <Nav className="ml-auto" navbar>
               <NavItem className = 'Navbar_TradeMain'>
                 <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`}>TRADE</NavLink>
@@ -118,7 +122,7 @@ class NavbarComponent extends Component {
                 <NavLink tag ={Link} to={`/Dashboard/messageList`}>Messages</NavLink>
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>
-                <NavLink tag ={Link} to={`/Dashboard/page2`}>DELIVERY</NavLink>
+                <NavLink tag ={Link} to={`/Dashboard/Delivery`}>DELIVERY</NavLink>
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>
                 <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler}>LOG OUT</NavLink>

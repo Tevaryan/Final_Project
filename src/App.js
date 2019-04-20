@@ -14,13 +14,14 @@ import Messages from './containers/Chatroom/Chatroom'
 import MessageList from './containers/Chatroom/MessageList/MessageList'
 import items from "./components/items.js"
 import SearchItem from './containers/SearchItem/SearchItem'
+import Delivery from './pages/Delivery/Delivery'
 
 class App extends Component {
 
   render() 
   {
     return (
-    <div>
+    <>
       <Route path={"/signup"} component={SignUp}/>
       <Route exact path={'/login'} component={Login}/>
       <Route path ={'/Dashboard'} component={Dashboard}/>
@@ -28,12 +29,17 @@ class App extends Component {
       <Route path ={'/Dashboard/MessageList'} component={MessageList}/>
       <Route path= {'/Dashboard/TradeMain/MyFeed'} component={MyFeed} />
       <Route path= {'/Dashboard/Search/:item'} component={SearchItem} />
+      <Route path={'/Dashboard/Delivery'} component={Delivery}/>
       <Route path= {'/Dashboard/TradeMain/MyItems'} component={MyItems} />
       <Route path= {'/Dashboard/TradeMain/TaggedItems'} component={TaggedItems} />
       <Route path= {'/Dashboard/TradeMain/ItemsNearYou'} component={ItemsNearYou} />
       <Route path={'/Dashboard/TradeMain/Items'} component={items}/>
+<<<<<<< HEAD
       <Route path={'/Dashboard/TradeMain/MyItem/EditItem'} component={EditItem}/>
     </div>
+=======
+    </>
+>>>>>>> 1.added make request modal. 2.added search function
     )
   }
 }

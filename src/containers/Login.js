@@ -54,11 +54,18 @@ handleSubmit= (event)=> {
         }
         axios.post(`http://localhost:5000/api/v1/auth/login`, data)
         .then((response)=> {
+          console.log(response.data)
           // console.log(response.data.user.id)
           // console.log(response.data.user.profile_picture)
           
           // store user information when login
           localStorage.setItem('username', response.data.user.username)
+          if(response.data.user.going_to){
+            localStorage.setItem('destination', response.data.user.destination)
+          }
+          if(response.data.user.location){
+            localStorage.setItem('location', response.data.user.location)
+            }
           localStorage.setItem('profile_picture', response.data.user.profile_picture)
           localStorage.setItem('user_id', response.data.user.id)
           localStorage.setItem('JWT', response.data.access_token)

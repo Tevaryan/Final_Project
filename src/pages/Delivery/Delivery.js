@@ -20,7 +20,6 @@ class Delivery extends React.Component{
         method: "get"
       })
       .then((response)=>{
-        console.log(response.data.requests)
         this.setState({
           items: response.data.requests
         })
@@ -44,7 +43,6 @@ class Delivery extends React.Component{
           method: "get"
         })
         .then((response)=>{
-          // console.log(response.data.requests)
           this.setState({
             items: response.data.requests
           })

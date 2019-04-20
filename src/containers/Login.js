@@ -8,6 +8,8 @@ from 'reactstrap';
 import axios from "axios";
 import {Link, Redirect} from "react-router-dom"
 import '../App.css';
+import FacebookLogin from '../containers/Login/facebook_login'
+import GoogleLogin from '../containers/Login/google_login'
 
 class Login extends React.Component{
 
@@ -54,11 +56,7 @@ handleSubmit= (event)=> {
         }
         axios.post(`http://localhost:5000/api/v1/auth/login`, data)
         .then((response)=> {
-          console.log(response.data)
-          // console.log(response.data.user.id)
-          // console.log(response.data.user.profile_picture)
-          
-          // store user information when login
+          // console.log(response.data)
           localStorage.setItem('username', response.data.user.username)
           if(response.data.user.destination){
             localStorage.setItem('destination', response.data.user.destination)
@@ -94,7 +92,10 @@ handleSubmit= (event)=> {
                 <Col sm="5" className="picture_space" ></Col>
                 <Col className="Form-Container" sm="7">
                   <Row>
-                      <Col sm='3'></Col>
+                      <Col sm='3'>
+                        <FacebookLogin/>
+                        <GoogleLogin/>
+                      </Col>
                       <Col sm='6' className = "login">
                       <Form className="form">
                       <FormGroup>

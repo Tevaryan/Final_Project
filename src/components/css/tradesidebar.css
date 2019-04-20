@@ -1,42 +1,24 @@
-/* .SideBar col-sm-2{
-    background-color: #34495E  ;
-} */
-
-/* .ml-auto{
-    background-color: #34495E  ;
-} */
-
-
-
-.my-danger {
-    background-color: #5D6D7E;
-    border-right: 1px solid rgba(0,0,0,.05)
-    
-} 
-
-.my-border {
-    /* border: solid whitesmoke; */
-}
-
-
-
 .sidebarprofileimg{
     height: 150px;
     width:150px;
-    border: 1px solid grey;
     border-radius: 50%;
-    display: block;
     margin-left: auto;
     margin-right: auto;
+    display: block;
     
     
 }
 
 .sidebarprofile{
-    margin-top: 15px;
-    padding: 10px;
-    border-radius: 5px;
+    margin-top: 31px;
+    padding: 5px;
+    border-radius: 50%;
     background-color: #5D6D7E;
+    height: 160px;
+    width:160px;
+    margin-right: auto;
+    margin-left: auto;
+
 }
 
 .sidebarname{
@@ -44,7 +26,6 @@
 }
 
 .something{
-    
     border: 1px solid #34495E;
     background-color: #5D6D7E;
     border-radius: 5px;
@@ -54,16 +35,6 @@
     /* display: inline-block; */
     margin-top: 6px;
 }
-
-
-/* .Navbar_TradeMain1{
-    background-color: #34495E;
-    margin: 4px 2px;
-    transition: 0.3s;
-    border: 2px solid #34495E;
-    border-radius: 5px;
-    color: #34495E;
-} */
 
 .trendingtags{
     border-radius: 5px;

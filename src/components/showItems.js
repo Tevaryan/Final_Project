@@ -174,7 +174,7 @@ class Items extends React.Component{
                         </CardText>
                     </div>
                 
-                <button onClick={()=>{this.setState({editItem:true})}}>edit</button>
+                <CardLink href="#" onClick={()=>{this.setState({editItem:true})}}>edit</CardLink>
                 <CardLink href="#">delete</CardLink>
                 </CardBody>
                 </Card>

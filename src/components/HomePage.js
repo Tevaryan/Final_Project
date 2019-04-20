@@ -10,6 +10,7 @@ import {
     NavLink,
     } from 'reactstrap';
 import {Link} from "react-router-dom";
+import Logo from "../assets/images/logo.jpg"
 
 
 
@@ -34,8 +35,8 @@ class HomePage extends Component {
     
     return (
         <div id="root2">
-        <Navbar>
-            <NavbarBrand href="/"><p className="navbartext">BARTER</p></NavbarBrand>
+        <Navbar className="navbar">
+            <NavbarBrand href="/"><img src={Logo} className="navbarlogo"></img></NavbarBrand>
             <Nav>
                 <NavItem>
                     <NavLink tag ={Link} to={`/`}><p className="navbartext">What is Barter</p></NavLink>

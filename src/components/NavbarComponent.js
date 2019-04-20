@@ -14,7 +14,10 @@ import {
     DropdownMenu,
     DropdownItem } from 'reactstrap';
 import {Link, Redirect} from "react-router-dom";
-// import {DropdownButton,Dropdown} from 'react-bootstrap'
+import "../components/css/navbarcomponent.css"
+import Homelogo from "../assets/images/homebuttonblue.jpg"
+import Messagelogo from "../assets/images/message.jpg"
+import Logoutlogo from "../assets/images/logout.jpg"
 
 class NavbarComponent extends Component {
     constructor(props) {
@@ -84,14 +87,22 @@ class NavbarComponent extends Component {
     return (
         <div>
         {backdrop}
-        <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="sm" className='pb-0'>
-          <NavbarBrand href="/Dashboard/TradeMain/MyFeed">BARTER</NavbarBrand>
+        <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="sm" className='pb-0' className="containertopnavbar">
+          <NavbarBrand href="/Dashboard/TradeMain/MyFeed" className="buttonhome"><img src={Homelogo} className="homelogo"></img></NavbarBrand>
+          <NavbarBrand href="/Dashboard/messageList" className="buttonmessage"><img src={Messagelogo} className="messagelogo"></img></NavbarBrand>
+          
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
+          <div className= "container5">
+            <form action="/">
+              <input type="text" placeholder="  Search.." name="search" className='searchbar'></input>
+              <button type="submit" className="searchbarbutton">🔎</button>
+            </form>
+          </div>
            {/* for fiter thing  */}
-           <UncontrolledDropdown id='target2' nav inNavbar className={'list-unstyled text-white ml-5'}>
+            <UncontrolledDropdown id='target2' nav inNavbar className={'list-unstyled text-white ml-5'} className="category">
                 <DropdownToggle nav caret onMouseOver={this.overHandler} className={'text-white ml-5'}>
-                  <strong>Search</strong>
+                  <strong>Category</strong>
                 </DropdownToggle> 
                 <div onMouseLeave={this.closeBackdrop}>
                 <DropdownMenu id='target'  onMouseLeave={this.closedropdown}>
@@ -112,16 +123,21 @@ class NavbarComponent extends Component {
               </UncontrolledDropdown>
             <Nav className="ml-auto" navbar>
               <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`}>TRADE</NavLink>
+                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`} className="tradebutton"><p className="tradewords">TRADE</p></NavLink>
               </NavItem>
-              <NavItem className = 'Navbar_Delivery'>
+              {/* <NavItem className = 'Navbar_Delivery'>
                 <NavLink tag ={Link} to={`/Dashboard/messageList`}>Messages</NavLink>
+              </NavItem> */}
+              <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/page2`} className="deliverybutton"><p className="deliveryword">DELIVERY</p></NavLink>
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>
-                <NavLink tag ={Link} to={`/Dashboard/page2`}>DELIVERY</NavLink>
-              </NavItem>
-              <NavItem className = 'Navbar_Delivery'>
-                <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler}>LOG OUT</NavLink>
+                <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler} >
+                <div className="logoutbutton">
+                  <img src={Logoutlogo} className="logoutlogo"></img>
+                  <p className="logoutword">LOGOUT</p>
+                </div>
+                </NavLink>
               </NavItem>
               
             </Nav>

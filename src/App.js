@@ -11,12 +11,9 @@ import ItemsNearYou from './containers/Trade/ItemsNearYou.js';
 import SignUp from './containers/SignUp';
 import EditItem from "./components/EditItemHandler"
 
-import Messages from './containers/Chatroom/Chatroom'
 import MessageList from './containers/Chatroom/MessageList/MessageList'
-import items from "./components/items.js"
 import SearchItem from './containers/SearchItem/SearchItem'
 import Messages from './containers/Chatroom/Chatroom';
-import MessageList from './containers/Chatroom/MessageList';
 import items from "./components/items.js";
 import './components/css/homepage.css'
 

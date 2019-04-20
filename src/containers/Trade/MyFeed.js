@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import '../../App.css';
 import {
     Container, Col, Row, Card, CardText, CardBody, CardLink,
     CardTitle
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
-// import jacket from '../../assets/images/jacket.jpg'
+
 
 
 class MyFeed extends Component {
@@ -20,8 +19,8 @@ class MyFeed extends Component {
             <TradeSideBar/>
           </Col>
           <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
-        <Row style={{height:'50%'}} className='Card_Row mt-4'>
-          <Col sm='4'>
+        <Row style={{height:'55%'}} className='Card_Row mt-4'>
+          <Col sm='4' >
                 <Card>
                 <CardBody>
                 <CardTitle>My Feed</CardTitle>
@@ -29,7 +28,6 @@ class MyFeed extends Component {
                 <div>
                   <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images1'/>
                 </div>
-
                 <CardBody>
                 <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
                 <CardLink href="#">Card Link</CardLink>
@@ -64,7 +62,7 @@ class MyFeed extends Component {
           </Card>
           </Col>
         </Row>
-        <Row style={{height:'50%'}} className='Card_Row mt-5'>
+        <Row style={{height:'55%'}} className='Card_Row mt-5'>
           <Col sm='4'>
                 <Card>
               <CardBody>

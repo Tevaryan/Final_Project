@@ -1,11 +1,19 @@
-.containerforlogintext{
-    color: aliceblue;
+.logo2{
     position: absolute;
-    top: 50%;
+    top: 15%;
     left: 22%;
     margin-right: -50%;
     transform: translate(-50%, -50%) ;
-    font-size: 30px;
+}
+
+.containerforlogintext{
+    color: aliceblue;
+    position: absolute;
+    top: 55%;
+    left: 22%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+    font-size: 25px;
 }
 
 .picture_space{

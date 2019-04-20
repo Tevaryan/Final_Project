@@ -21,10 +21,12 @@ class ResponseFacebook extends Component {
       return response.json()
     }).then((data) => {
       if (data.status === 'success') {
-        localStorage.setItem('username', data.user.username)
-        localStorage.setItem('profileImage', data.user.profile_picture)
-        localStorage.setItem('user-id', data.user.id)
+        localStorage.setItem('user_id', data.user.id)
         localStorage.setItem('JWT', data.access_token)
+        localStorage.setItem('username', data.user.username)
+        localStorage.setItem('destination',data.user.destination)
+        localStorage.setItem('location', data.user.location)
+        localStorage.setItem('profile_picture', data.user.profile_picture)
         this.setState({
           isLogin: true
         })

@@ -20,10 +20,12 @@ class ResponseGoogle extends Component {
     }).then((response) => {
       console.log(response)
       if (response.data.status === 'success') {
-        localStorage.setItem('username', response.data.user.username)
-        localStorage.setItem('profileImage', response.data.user.profile_picture)
-        localStorage.setItem('user-id', response.data.user.id)
+        localStorage.setItem('user_id', response.data.user.id)
         localStorage.setItem('JWT', response.data.access_token)
+        localStorage.setItem('username', response.data.user.username)
+        localStorage.setItem('destination',response.data.user.destination)
+        localStorage.setItem('location', response.data.user.location)
+        localStorage.setItem('profile_picture', response.data.user.profile_picture)
         this.setState({
           isLogin: true
         })

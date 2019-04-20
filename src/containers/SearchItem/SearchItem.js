@@ -1,39 +1,25 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {
-    Container, Col, Row, Card, CardText, CardBody, CardLink,Button,
-    CardTitle
+    Container, Col, Row
   } 
   from 'reactstrap';
-import {Link} from "react-router-dom"
+
 import axios from 'axios'
-import SearchSideBar from './SearchItemSideBar'
+import SearchSideBar from './SearchItemSideBar';
+import SearchItems from './searchedItems';
 
 
 class MyFeed extends Component {
   state={
     items:[],
     keyword:'',
-    dropdownOpen: false
+    dropdownOpen: false,
+
   }
 
   componentDidMount(){
-    axios( {
-      url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
-      headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
-      method: "get"
-    })
-    .then((response)=>{
-      // console.log(response)
-      this.setState({
-        items: response.data.item,
-        keyword: this.props.match.params.item
-      })
-      // console.log(this.state.item)
-    })
-    .catch( (error)=> {
-      console.log(error);
-    });
+    this.fetch()
   }
 
   componentDidUpdate(prevProps) {
@@ -43,12 +29,40 @@ class MyFeed extends Component {
       method: "get"
     })
     .then((response)=>{
+<<<<<<< HEAD
+      // console.log(response)
+      this.setState({
+        items: response.data.item,
+        keyword: this.props.match.params.item
+      })
+      // console.log(this.state.item)
+=======
       if(prevProps.match.params.item !== this.props.match.params.item) {
         this.setState({
           items: response.data.item,
           keyword: this.props.match.params.item
         })
       }
+>>>>>>> added favourite feature and delete item
+    })
+    .catch( (error)=> {
+      console.log(error);
+    });
+  }
+
+  fetch=()=>{
+    axios( {
+      url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
+      headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
+      method: "get"
+    })
+    .then((response)=>{
+      
+      this.setState({
+        items: response.data.item,
+        keyword: this.props.match.params.item
+      })
+      
     })
     .catch( (error)=> {
       console.log(error);
@@ -74,7 +88,7 @@ class MyFeed extends Component {
         items: response.data.item,
         keyword: this.props.match.params.item
       })
-      // console.log(this.state.item)
+   
     })
     .catch( (error)=> {
       console.log(error);
@@ -97,33 +111,10 @@ class MyFeed extends Component {
           this.state.items.map((item,index)=>{
             let link = '/Dashboard/message/' + item.owner_user_id
             return(
-              <Col sm='4' className='my-2'key={index}>
-              <Card>
-                <CardBody>
-                <CardTitle>{item.item_name}</CardTitle>
-                </CardBody>
-                <div>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
-                </div>
-                <CardBody>
-                <CardText>ownwer: {item.owner_name}</CardText>
-                <CardText>Description:  {item.description}</CardText>
-                <CardLink href="#">{item.tag_children}</CardLink>
-                <CardLink href="#">{item.tag_parent}</CardLink>
-                
-              </CardBody>
-              <div className="card-footer text-muted">
-              <Link to={{pathname: link,
-              state:{
-                profile_image: item.owner_profile_img,
-                username: item.owner_name,
-                item_name:item.item_name,
-                description:item.description
-              }}}
-                ><Button color="secondary" className='btn-block'>Contact</Button></Link>
-              </div>
-              </Card>
-            </Col>
+            
+              <SearchItems refetch={this.fetch} key={index} item={item} link={link}></SearchItems>
+           
+          
             )
           })
         }

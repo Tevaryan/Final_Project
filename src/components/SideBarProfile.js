@@ -131,7 +131,7 @@ class SideBarProfile extends Component {
       }
       })
       .then( (response)=>{
-          console.log(response)
+        
           const { username, firstname, lastname, occupation, location, sex, going_to, date, birthday, brif } = this.state
           this.setState({
             username,

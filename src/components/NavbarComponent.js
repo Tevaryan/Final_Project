@@ -70,6 +70,8 @@ class NavbarComponent extends Component {
         localStorage.removeItem('profile_picute')
         localStorage.removeItem("user_id")
         localStorage.removeItem("username")
+        localStorage.removeItem("location")
+        localStorage.removeItem("destination")
         this.setState({logout: true})
       }
 
@@ -93,6 +95,7 @@ class NavbarComponent extends Component {
           
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
+
           <div className= "container5">
             <form action="/">
               <input type="text" placeholder="  Search.." name="search" className='searchbar'></input>
@@ -121,6 +124,7 @@ class NavbarComponent extends Component {
                 </DropdownMenu>
                 </div>
               </UncontrolledDropdown>
+
             <Nav className="ml-auto" navbar>
               <NavItem className = 'Navbar_TradeMain'>
                 <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`} className="tradebutton"><p className="tradewords">TRADE</p></NavLink>
@@ -129,7 +133,9 @@ class NavbarComponent extends Component {
                 <NavLink tag ={Link} to={`/Dashboard/messageList`}>Messages</NavLink>
               </NavItem> */}
               <NavItem className = 'Navbar_Delivery'>
+
                 <NavLink tag ={Link} to={`/Dashboard/page2`} className="deliverybutton"><p className="deliveryword">DELIVERY</p></NavLink>
+
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>
                 <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler} >

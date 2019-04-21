@@ -6,9 +6,11 @@ import {
 } 
 from 'reactstrap';
 import axios from "axios";
+
 import {Link, Redirect} from "react-router-dom";
 import "../components/css/login.css";
 import Logo from "../assets/images/logo.jpg";
+
 
 class Login extends React.Component{
 
@@ -55,11 +57,14 @@ handleSubmit= (event)=> {
         }
         axios.post(`http://localhost:5000/api/v1/auth/login`, data)
         .then((response)=> {
-          // console.log(response.data.user.id)
-          // console.log(response.data.user.profile_picture)
-          
-          // store user information when login
+          // console.log(response.data)
           localStorage.setItem('username', response.data.user.username)
+          if(response.data.user.destination){
+            localStorage.setItem('destination', response.data.user.destination)
+          }
+          if(response.data.user.location){
+            localStorage.setItem('location', response.data.user.location)
+            }
           localStorage.setItem('profile_picture', response.data.user.profile_picture)
           localStorage.setItem('user_id', response.data.user.id)
           localStorage.setItem('JWT', response.data.access_token)
@@ -82,6 +87,7 @@ handleSubmit= (event)=> {
       return <Redirect to='/Dashboard/TradeMain/MyFeed'/>
     } else {
     return (
+
             <div id="root2">
                 <Container className="Login" fluid>
                   <Row className='loginRow'>
@@ -125,6 +131,7 @@ handleSubmit= (event)=> {
                             <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger">Login with Google</Button>
                           </Form>
                         </Col>
+
                       </Row>
                     </Col>
                   </Row>

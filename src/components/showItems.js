@@ -1,7 +1,7 @@
 import React from "react";
 import {Col} from "react-bootstrap";
 import { FormGroup, FormLabel,Form} from 'react-bootstrap';
-import {Input, Button, Label, Card, CardBody, CardTitle, CardText, CardLink} from "reactstrap";
+import {Input, Button, Label, Card, CardBody, CardTitle, CardText} from "reactstrap";
 import axios from "axios";
 
 
@@ -70,6 +70,27 @@ class Items extends React.Component{
               console.log(error);
             });
         
+      }
+
+      deleteItem = (id) =>{
+
+        const data ={
+            item_id:id
+        }
+        
+        axios.post(`http://localhost:5000/api/v1/item/delete`, data, {
+            headers: {
+            "Authorization": "Bearer " + localStorage.getItem("JWT")
+            }
+        })
+        .then((response)=> {
+      
+           this.props.refetch()
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+      
       }
 
             
@@ -174,8 +195,10 @@ class Items extends React.Component{
                         </CardText>
                     </div>
                 
+
                 <CardLink href="#" onClick={()=>{this.setState({editItem:true})}}>edit</CardLink>
                 <CardLink href="#">delete</CardLink>
+
                 </CardBody>
                 </Card>
             </Col>

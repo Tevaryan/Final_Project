@@ -120,8 +120,9 @@ class Messages extends React.Component {
         </div>
     )
 })
-// if user come from search result page, show a selected item on chatroom
+// if user come from search result page or delivery page, show a selected item on chatroom
 let item;
+console.log(this.props.location.state)
 if(this.props.location.state.description){
   item =  <Col sm='2' className='my-2 position-fixed' style={{zIndex:'100'}}>
   <Card>
@@ -134,6 +135,22 @@ if(this.props.location.state.description){
     <CardBody>
     <CardText>ownwer: {this.props.location.state.username}</CardText>
     <CardText>Description:{this.props.location.state.description}</CardText>
+  </CardBody>
+  </Card>
+</Col>
+} else if(this.props.location.state.reward) {
+  item =  <Col sm='2' className='my-2 position-fixed' style={{zIndex:'100'}}>
+  <Card>
+    <CardBody>
+    <CardTitle>Selected Request</CardTitle>
+    </CardBody>
+    <div>
+      <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
+    </div>
+    <CardBody>
+    <CardText>ownwer: {this.props.location.state.username}</CardText>
+    <CardText>reward: {this.props.location.state.reward}</CardText>
+    <CardText>Description:{this.props.location.state.description2}</CardText>
   </CardBody>
   </Card>
 </Col>

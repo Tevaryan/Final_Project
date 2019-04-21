@@ -10,6 +10,97 @@ import {Link} from "react-router-dom"
 
 class MyItems extends Component {
 
+<<<<<<< Updated upstream
+=======
+  state = {
+    name: "",
+    file_name:"",
+    tag_parent:"",
+    tag_children:"", 
+    description:"",
+    showModel:false,
+    items: [],
+    }
+
+
+  componentDidMount() {
+
+    axios.get(`http://localhost:5000/api/v1/item/show/me`,{
+      headers: {
+        "Authorization": "Bearer " + localStorage.getItem("JWT")
+      }
+    })
+    .then(result => {
+      this.setState({items:result.data.user})
+      console.log(this.state.items)
+        
+    })
+    .catch(error => {
+        console.log('ERROR: ', error)
+    })
+  }
+
+
+  addItemHandler = (event) => {
+    this.setState({
+      showModel: !this.state.showModel
+    })
+  }
+
+  nameInputHandler =(event)=>{
+    this.setState({name:event.target.value})
+  }
+
+  tagParentInputHandler =(event)=>{
+    this.setState({tag_parent:event.target.value})
+  }
+
+  tagChildrenInputHandler =(event)=>{
+    this.setState({tag_children:event.target.value})
+    
+  }
+
+  descriptionInputHandler =(event)=>{
+    this.setState({description:event.target.value})
+    
+  }
+
+  fileNameInputHandler =(event)=>{
+    this.setState({file_name:event.target.value})
+    
+  }
+  
+
+  submitHandler = (event) => {
+
+    alert('Success');
+        event.preventDefault();
+        const data ={
+          name: this.state.name,
+          tag_parent:this.state.tag_parent,
+          tag_children:this.state.tag_children,
+          description: this.state.description,
+          file_name: this.state.file_name
+        }
+        axios.post(`http://localhost:5000/api/v1/item/new`, data, {
+          headers: {
+            "Authorization": "Bearer " + localStorage.getItem("JWT")
+          }
+        })
+        .then((response)=> {
+
+          let items = [...this.state.items]
+          items.push(response.data.user)
+          console.log(items)
+          this.setState({items:items})
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    
+  }
+
+>>>>>>> Stashed changes
     
   render() {
     return (

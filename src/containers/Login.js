@@ -71,7 +71,7 @@ handleSubmit= (event)=> {
                   <Row>
                       <Col sm='3'></Col>
                       <Col sm='6' className = "login">
-                      <Form className="form">
+                      <Form  onSubmit={this.handleSubmit} className="form">
                       <FormGroup>
                       
                       <Input

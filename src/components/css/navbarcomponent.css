@@ -41,10 +41,10 @@
 .containertopnavbar{
     padding: 10px;
     height: 60px;
+    display: flex;
     align-items: center;
     
 }
-
 .container5{
     color: aliceblue;
     position: absolute;
@@ -53,9 +53,8 @@
     margin-right: -50%;
     transform: translate(-50%, -50%) ;
     display: flex;
-    border: 1px solid #007bff;
-    border-radius: 25px;
-    background: white;
+    /* border: 1px solid #007bff;  */
+    border-radius: 25px; 
     
     
 }
@@ -64,6 +63,8 @@
     width: 600px;
     border-radius: 25px;
     border: none;
+    position: relative;
+    left: 70px;
     
 }
 
@@ -71,10 +72,17 @@
     background: none;
     border: none;
     margin-right: 9px;
+    position: relative;
+    left: 20px;
     
     
 }
 
+.categorylogo{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
 
 .category{
     position: absolute;
@@ -85,40 +93,23 @@
     color: #007bff;
 }
 
+.city{
+    margin-top: auto;
+    margin-bottom: auto;
+    left: 100%;
+    margin-right: -50%;
+    display: flex;
+    /* color: #007bff; */
+}
+
+.taobutton{
+    color: #007bff;
+    margin-top: 16px;
+}
 
 .logoutbutton{
-    background: #34495E;
-    border-radius: 25px;
-    padding: 5px;
-    
-}
-
-.logoutlogo{
-    width: 20px;
-}
-
-
-.logoutword{
     color: #007bff;
-    float: right;
-}   
-
-
-.tradewords{
-    color: #007bff;
-    background: #34495E;
-    border-radius: 25px;
-    padding: 5px;
-
-    
-}
-
-.deliveryword{
-    color: #007bff;
-    background: #34495E;
-    border-radius: 25px;
-    padding: 5px;
-
+    margin-top: 16px;
     
 }
 

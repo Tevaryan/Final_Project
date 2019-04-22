@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Backdrop from '../components/Backdrop/Backdrop'
 import LocationFilter from '../containers/LocationFilter/locationFilter'
+import Categorylogo from "../assets/images/category.jpg"
 
 import {
     Collapse,
@@ -11,6 +12,7 @@ import {
     NavItem,
     NavLink,
     UncontrolledDropdown,
+    Dropdown,
     DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
@@ -139,10 +141,11 @@ class NavbarComponent extends Component {
             </form>
           </div>
            {/* for fiter thing  */}
-           <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
-                <DropdownToggle nav caret onMouseOver={this.overHandler} className={'text-white ml-5'}>
-                  <strong>Search</strong>
-                </DropdownToggle> 
+            <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
+                <div nav caret onMouseOver={this.overHandler} className={'text-white ml-5'} className="categorybutton">
+                  <img src={Categorylogo} className="categorylogo"></img>
+                  <strong>Category</strong>
+                </div> 
                 <div >
                 <DropdownMenu id='target'  onMouseLeave={this.closedropdown}>
                   <Link to={`/Dashboard/Search/Arts & Craft`}><DropdownItem>Arts & Craft</DropdownItem></Link>
@@ -160,33 +163,24 @@ class NavbarComponent extends Component {
                 </DropdownMenu>
                 </div>
               </UncontrolledDropdown>
-              <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
-                <DropdownToggle nav caret onMouseOver={this.overHandler2} className={'text-white ml-5'}>
-                  <strong>Location</strong>
-                </DropdownToggle> 
+              <Dropdown nav inNavbar className={'text-white ml-5 list-unstyled'}>
+                <div nav caret onMouseOver={this.overHandler2} className={'text-white'}  className="city">
+                  <strong>📍Location</strong>
+                </div> 
                 <div>
-                <DropdownMenu id='target2'  onMouseLeave={this.closedropdown2}>
-                  <LocationFilter >Show Filter</LocationFilter>
-                </DropdownMenu>
+                  <DropdownMenu id='target2'  onMouseLeave={this.closedropdown2} >
+                    <LocationFilter >Show Filter</LocationFilter>
+                  </DropdownMenu>
                 </div>
-              </UncontrolledDropdown>
+              </Dropdown>
             <Nav className="ml-auto" navbar>
               <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`} className="tradebutton"><p className="tradewords">TRADE</p></NavLink>
-              </NavItem>
-              {/* <NavItem className = 'Navbar_Delivery'>
-                <NavLink tag ={Link} to={`/Dashboard/messageList`}>Messages</NavLink>
-              </NavItem> */}
-              <NavItem className = 'Navbar_Delivery'>
-
-                <NavLink tag ={Link} to={`/Dashboard/page2`} className="deliverybutton"><p className="deliveryword">DELIVERY</p></NavLink>
-
+                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`} className="tradebutton"><p className="taobutton">Tao click here</p></NavLink>
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>
                 <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler} >
-                <div className="logoutbutton">
-                  <img src={Logoutlogo} className="logoutlogo"></img>
-                  <p className="logoutword">LOGOUT</p>
+                <div>
+                  <p className="logoutbutton">LOGOUT</p>
                 </div>
                 </NavLink>
               </NavItem>

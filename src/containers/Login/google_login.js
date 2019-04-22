@@ -47,8 +47,6 @@ class ResponseGoogle extends Component {
         <>
           <GoogleLogin
           clientId="494882721260-h0fgefbdt6ar1utd0d5oboffkeuf35d6.apps.googleusercontent.com"
-          buttonText="Login with Google"
-          cssClass=''
           onSuccess={this.responseGoogle}
           onFailure={this.responseError}
           cookiePolicy={'single_host_origin'}

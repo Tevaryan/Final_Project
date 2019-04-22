@@ -10,6 +10,8 @@ import axios from "axios";
 import {Link, Redirect} from "react-router-dom";
 import "../components/css/login.css";
 import Logo from "../assets/images/logo.jpg";
+import Facebook from '../containers/Login/google_login'
+import Google from '../containers/Login/facebook_login'
 
 
 class Login extends React.Component{
@@ -129,6 +131,8 @@ handleSubmit= (event)=> {
                               </div>
                             <hr/>
                             <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger">Login with Google</Button>
+                            <Facebook/>
+                            <Google/>
                           </Form>
                         </Col>
 

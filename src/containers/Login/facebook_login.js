@@ -47,7 +47,7 @@ class ResponseFacebook extends Component {
     if (this.state.isLogin === false) {
       return(
         <>
-          <FacebookLogin
+          <FacebookLogin 
           appId="1059436517582741"
           textButton =" Login with Facebook"
           autoLoad={false}

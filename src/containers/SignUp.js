@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import{ Modal,Button,Form} from 'react-bootstrap';
 import {Redirect} from "react-router-dom"
+import Backdrop from '../components/Backdrop/Backdrop'
 class SignUp extends React.Component{
     constructor(props) {
       super(props)
@@ -10,7 +11,6 @@ class SignUp extends React.Component{
           email:"",
           password:"",
           login: false
-  
           }
     }
 
@@ -85,9 +85,23 @@ class SignUp extends React.Component{
         return <Redirect to='/Dashboard/TradeMain/MyFeed'/>
       } else {
         return(
-        <div id="root2">
-          <Modal.Dialog>
-                  <Modal.Header closeButton>
+        // <div id="root2">
+        <>
+          <Backdrop backdrop={this.props.modal}/>
+          <Modal.Dialog
+          style={{
+            position: 'fixed',
+            zIndex: '500',
+            width: '100%',
+            backgroundColor: 'white',
+            border: '1px solid white',
+            boxShadow: '1px 1px 1px black',
+            padding: '16px',
+            left: '35%',
+            top: '5%',
+            boxSizing: "border-box",
+        }}>
+                  <Modal.Header>
                   <Modal.Title>Sign Up</Modal.Title>
                   </Modal.Header>
               
@@ -115,10 +129,11 @@ class SignUp extends React.Component{
               
                   <Modal.Footer>
                   <Button variant="primary" type="submit" onClick={this.handleSubmit}>Sign Up</Button>
-                  <Button variant="secondary">Cancel</Button>
+                  <Button variant="secondary" onClick={this.props.modal}>Cancel</Button>
                   </Modal.Footer>
           </Modal.Dialog>
-        </div>
+        {/* // </div> */}
+        </>
       )
       }
     }

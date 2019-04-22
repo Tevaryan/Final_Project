@@ -73,7 +73,7 @@ class TaggedItems extends Component {
           <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden'}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col style={{backgroundColor: '#34495E', height: '100vh', overflow: 'auto'}}>
+          <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
           <Row>
             {
               this.state.items.map((item,index)=>{

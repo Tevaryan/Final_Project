@@ -14,9 +14,6 @@ class TradeSideBar extends Component {
         <SideBarProfile/>
         <br/>
         <Nav className="ml-auto my-border my-danger" navbar>
-            <NavItem className = 'Navbar_TradeMain1'>
-                <Link to={`/Dashboard/TradeMain/MyFeed`} className="nav-link something" >My Feed</Link>        
-            </NavItem>
             <NavItem className = 'Navbar_TradeMain'>
                 <Link to={`/Dashboard/TradeMain/MyItems`} className="nav-link something">My Items</Link>
             </NavItem>

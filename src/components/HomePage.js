@@ -56,7 +56,7 @@ class HomePage extends Component {
                         <NavLink tag ={Link} to={`/login`}><p className="navbartext">Sign In</p></NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink onClick={this.modalHandler}><p className="navbartext">Sign Up</p></NavLink>
+                        <NavLink onClick={this.modalHandler} style={{cursor:'pointer'}}><p className="navbartext">Sign Up</p></NavLink>
                     </NavItem>
                 </Nav>
             </Navbar>

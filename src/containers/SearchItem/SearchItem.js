@@ -29,21 +29,16 @@ class MyFeed extends Component {
       method: "get"
     })
     .then((response)=>{
-<<<<<<< HEAD
-      // console.log(response)
       this.setState({
         items: response.data.item,
         keyword: this.props.match.params.item
       })
-      // console.log(this.state.item)
-=======
       if(prevProps.match.params.item !== this.props.match.params.item) {
         this.setState({
           items: response.data.item,
           keyword: this.props.match.params.item
         })
       }
->>>>>>> added favourite feature and delete item
     })
     .catch( (error)=> {
       console.log(error);
@@ -83,7 +78,6 @@ class MyFeed extends Component {
       method: "get",
     })
     .then((response)=>{
-      
       this.setState({
         items: response.data.item,
         keyword: this.props.match.params.item

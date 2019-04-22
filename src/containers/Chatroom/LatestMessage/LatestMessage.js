@@ -3,7 +3,8 @@ import axios from 'axios'
 
 class latestMessaage extends React.Component {
     state = {
-        latestMessaage: ''
+        latestMessaage: '',
+        MessageTime:''
     }
 
     componentDidMount(){
@@ -14,25 +15,23 @@ class latestMessaage extends React.Component {
                 "Authorization": "Bearer " + localStorage.getItem("JWT")
             },
         }).then((result)=>{
-            console.log(result.data.msg)
+            console.log(result.data)
+            console.log(result.data[0].msg)
+            console.log(result.data[0].time)
             this.setState({
-                latestMessaage: result.data.msg
+                latestMessaage: result.data[0].msg,
+                MessageTime: result.data[0].time
             })
         })
-    }
+    }   
 
 
     render(){
-        let latestMessaage
-        if (this.state.latestMessaage){
-            latestMessaage=this.state.latestMessaage
-        } else {
-            latestMessaage = null
-        }
-        
+        let latestMessaage = this.state.latestMessaage? this.state.latestMessaage: null
+        let time = this.state.MessageTime? this.state.MessageTime.slice(0,this.state.MessageTime.length-7): null
         return(
             <>
-            {latestMessaage}
+            {latestMessaage}<br/>({time})
             </>
         )
     }

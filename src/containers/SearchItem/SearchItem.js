@@ -105,10 +105,7 @@ class MyFeed extends Component {
           this.state.items.map((item,index)=>{
             let link = '/Dashboard/message/' + item.owner_user_id
             return(
-            
               <SearchItems refetch={this.fetch} key={index} item={item} link={link}></SearchItems>
-           
-          
             )
           })
         }

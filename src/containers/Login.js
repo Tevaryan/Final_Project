@@ -12,6 +12,7 @@ import "../components/css/login.css";
 import Logo from "../assets/images/logo.jpg";
 import Facebook from '../containers/Login/google_login'
 import Google from '../containers/Login/facebook_login'
+import SignUp from './SignUp'
 
 
 class Login extends React.Component{
@@ -19,7 +20,8 @@ class Login extends React.Component{
   state = {
     username: "",
     password:"",
-    login:false
+    login:false,
+    ismodal: false
     }
 
 nameInputHandler =(event)=>{
@@ -79,17 +81,21 @@ handleSubmit= (event)=> {
   }
   }
 
-
-    // handler()=>{
-    //   localStorage.removeItem("JWT")
-    // }
+  modalHandler=()=>(
+    this.setState({
+        ismodal: !this.state.ismodal
+    })
+)
 
   render(){
+    let signup = this.state.ismodal?  signup = <SignUp modal={this.modalHandler}/>: null
+
     if (this.state.login ===true){
       return <Redirect to='/Dashboard/TradeMain/MyFeed'/>
     } else {
     return (
-
+          <>
+            {signup}
             <div id="root2">
                 <Container className="Login" fluid>
                   <Row className='loginRow'>
@@ -125,12 +131,12 @@ handleSubmit= (event)=> {
                                 <Button 
                                   className = "LoginButton"
                                   style={{borderRadius: "25px", width: '47%'}}
-                                  tag ={Link} to={`/signup`}> 
+                                   onClick={this.modalHandler}> 
                                   Sign Up
                                 </Button>
                               </div>
                             <hr/>
-                            <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger">Login with Google</Button>
+                            <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger" >Login with Google</Button>
                             <Facebook/>
                             <Google/>
                           </Form>
@@ -153,6 +159,7 @@ handleSubmit= (event)=> {
                   <img src={Logo}></img>
               </div>
             </div>
+          </>
     )}
   }
   }

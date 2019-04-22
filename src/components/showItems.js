@@ -1,7 +1,7 @@
 import React from "react";
 import {Col} from "react-bootstrap";
 import { FormGroup, FormLabel,Form} from 'react-bootstrap';
-import {Input, Button, Label, Card, CardBody, CardTitle, CardText} from "reactstrap";
+import {Input, Button, Label, Card, CardBody, CardTitle, CardText, CardLink} from "reactstrap";
 import axios from "axios";
 
 
@@ -195,8 +195,10 @@ class Items extends React.Component{
                         </CardText>
                     </div>
                 
-                <Button onClick={()=>{this.setState({editItem:true})}}>edit</Button>
-                <Button onClick={()=>this.deleteItem(this.props.item.id)}>delete</Button>
+
+                <CardLink href="#" onClick={()=>{this.setState({editItem:true})}}>edit</CardLink>
+                <CardLink href="#">delete</CardLink>
+
                 </CardBody>
                 </Card>
             </Col>

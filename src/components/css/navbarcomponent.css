@@ -1,0 +1,124 @@
+.homebutton{
+    border: 2px solid #34495E;
+    border-radius: 25px;
+    padding: 5px;
+    
+}
+
+.buttonhome {
+    background: #34495E;
+    margin-right: none;
+    width: 20px;
+    padding: 20px;
+    border-radius: 50%;
+    }
+
+
+.homelogo{
+    width: 20px;
+    position: relative;
+    right: 10px;
+    bottom: 3px;
+}
+
+
+
+.buttonmessage {
+    background: #34495E;
+    margin-right: none;
+    width: 20px;
+    padding: 20px;
+    border-radius: 50%;
+    }
+
+.messagelogo{
+    width: 20px;
+    position: relative;
+    right: 10px;
+    bottom: 3px;
+}
+
+.containertopnavbar{
+    padding: 10px;
+    height: 60px;
+    align-items: center;
+    
+}
+
+.container5{
+    color: aliceblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+    display: flex;
+    border: 1px solid #007bff;
+    border-radius: 25px;
+    background: white;
+    
+    
+}
+
+.searchbar{
+    width: 600px;
+    border-radius: 25px;
+    border: none;
+    
+}
+
+.searchbarbutton{
+    background: none;
+    border: none;
+    margin-right: 9px;
+    
+    
+}
+
+
+.category{
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    margin-right: -50%;
+    display: flex;
+    color: #007bff;
+}
+
+
+.logoutbutton{
+    background: #34495E;
+    border-radius: 25px;
+    padding: 5px;
+    
+}
+
+.logoutlogo{
+    width: 20px;
+}
+
+
+.logoutword{
+    color: #007bff;
+    float: right;
+}   
+
+
+.tradewords{
+    color: #007bff;
+    background: #34495E;
+    border-radius: 25px;
+    padding: 5px;
+
+    
+}
+
+.deliveryword{
+    color: #007bff;
+    background: #34495E;
+    border-radius: 25px;
+    padding: 5px;
+
+    
+}
+

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import "../components/css/tradesidebar.css";
 import axios from "axios";
-import{ Modal,Button,ButtonToolbar, Form, Col} from 'react-bootstrap';
+import{ Modal,Button,Form, Col} from 'react-bootstrap';
 
 
 const red = {
@@ -46,7 +46,7 @@ class SideBarProfile extends Component {
         [e.target.name]: e.target.value,
       })
     }
-   
+
     // handleSubmit(event) {
     //   const form = event.currentTarget;
     //   if (form.checkValidity() === false) {
@@ -152,8 +152,6 @@ class SideBarProfile extends Component {
         });
       }
     
- 
- 
 
   render() {
     let lgClose = () => this.setState({ lgShow: false });
@@ -161,15 +159,13 @@ class SideBarProfile extends Component {
     return (
       <div className="sidebarprofile">
 
-        <img src={this.state.pictuer} className="sidebarprofileimg" alt='aaaa'/>
+        {/* <img src={this.state.picture} className="sidebarprofileimg" alt='aaaa' onClick={() => this.setState({ lgShow: true })}/> */}
+        <img src="https://source.unsplash.com/random/300x200" className="sidebarprofileimg" alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
+        
         <p className="sidebarname">{this.state.username}</p>
         <p className="location">{this.state.location}</p>
         <p className="items">{this.state.going_to}</p>
         <p className="items">{this.state.date}</p>
-        <ButtonToolbar>
-          <Button onClick={() => this.setState({ lgShow: true })}>
-            Large modal
-          </Button>
 
           <Modal
             size="lg"
@@ -327,7 +323,7 @@ class SideBarProfile extends Component {
             
           </Modal>
 
-        </ButtonToolbar>
+        {/* </ButtonToolbar> */}
         
 
       </div>

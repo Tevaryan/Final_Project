@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import '../../App.css';
-import{ Container, Col, Row} from 'react-bootstrap';
+import {
+    Container, Col, Row, Card, CardText, CardBody, CardLink,
+    CardTitle
+  } 
+  from 'reactstrap';
 import axios from "axios";
 import TradeSideBar from '../../components/TradeSideBar.js'
 import NewItem from "../../components/addItemHandler";
@@ -91,7 +95,7 @@ class MyItems extends Component {
           description: this.state.description,
           file_name: this.state.file_name
         }
-        axios.post(`http://localhost:5000/api/v1/item/new`, data, {
+        axios.post(`http://localhost:5000/api/v1/item/show/items/me`, data, {
           headers: {
             "Authorization": "Bearer " + localStorage.getItem("JWT")
           }
@@ -306,7 +310,7 @@ class MyItems extends Component {
       
       <Container fluid>
         <Row>
-          <Col className="SideBar" style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'hidden', borderRight: "1px solid rgba(0,0,0,.05)"}} sm ='2'>
+          <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden', borderRight: "1px solid rgba(0,0,0,.05)"}} sm ='2'>
             <TradeSideBar/>
           </Col>
           <Col>  

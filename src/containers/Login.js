@@ -6,10 +6,11 @@ import {
 } 
 from 'reactstrap';
 import axios from "axios";
-import {Link, Redirect} from "react-router-dom"
-import '../App.css';
-import FacebookLogin from '../containers/Login/facebook_login'
-import GoogleLogin from '../containers/Login/google_login'
+
+import {Link, Redirect} from "react-router-dom";
+import "../components/css/login.css";
+import Logo from "../assets/images/logo.jpg";
+
 
 class Login extends React.Component{
 
@@ -69,7 +70,6 @@ handleSubmit= (event)=> {
           localStorage.setItem('JWT', response.data.access_token)
           this.setState({login:true})
           
-  
         })
         .catch(function (error) {
           console.log(error);
@@ -87,63 +87,68 @@ handleSubmit= (event)=> {
       return <Redirect to='/Dashboard/TradeMain/MyFeed'/>
     } else {
     return (
-            <Container className="Login" fluid>
-              <Row className='loginRow'>
-                <Col sm="5" className="picture_space" ></Col>
-                <Col className="Form-Container" sm="7">
-                  <Row>
-                      <Col sm='3'>
-                        <FacebookLogin/>
-                        <GoogleLogin/>
-                      </Col>
-                      <Col sm='6' className = "login">
-                      <Form className="form">
-                      <FormGroup>
-                      
-                      <Input
-                      type="name"
-                      name="name"
-                      id="exampleName"
-                      placeholder="enter your username"
-                      onChange={this.nameInputHandler}
-                      />
-                      </FormGroup>
-                      <FormGroup>
-                      
-                      <Input
-                      type="password"
-                      name="password"
-                      id="examplePassword"
-                      placeholder="password"
-                      onChange={this.passwordInputHandler}
-                      />
-                      </FormGroup>
-                      <div className="d-flex align-items-center justify-content-between">
-                      
-                      <Button className = "LoginButton"
-                      style={{borderRadius: "25px", width: '47%'}}
-                      onClick={this.handleSubmit}>
-                      Login
-                      </Button>
 
-                      <Button className = "LoginButton"
-                      style={{borderRadius: "25px", width: '47%'}}
-                      tag ={Link} to={`/signup`}> 
-                      Sign Up
-                      </Button>
+            <div id="root2">
+                <Container className="Login" fluid>
+                  <Row className='loginRow'>
+                    <Col sm="5" className="picture_space" ></Col>
+                    <Col className="Form-Container" sm="7">
+                      <Row>
+                        <Col sm='3'></Col>
+                        <Col sm='6' className = "login">
+                          <Form className="form">
+                            <FormGroup>
+                              <Input
+                                type="name"
+                                name="name"
+                                id="exampleName"
+                                placeholder="enter your username"
+                                onChange={this.nameInputHandler}/>
+                            </FormGroup>
+                            <FormGroup>
+                              <Input
+                                type="password"
+                                name="password"
+                                id="examplePassword"
+                                placeholder="password"
+                                onChange={this.passwordInputHandler}/>
+                              </FormGroup>
+                              <div className="d-flex align-items-center justify-content-between">
+                                <Button 
+                                  className = "LoginButton"
+                                  style={{borderRadius: "25px", width: '47%'}}
+                                  onClick={this.handleSubmit}>
+                                  Login
+                                </Button>
+                                <Button 
+                                  className = "LoginButton"
+                                  style={{borderRadius: "25px", width: '47%'}}
+                                  tag ={Link} to={`/signup`}> 
+                                  Sign Up
+                                </Button>
+                              </div>
+                            <hr/>
+                            <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger">Login with Google</Button>
+                          </Form>
+                        </Col>
 
-                      </div>
-
-                      <hr/>
-                      
-                      <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger">Login with Google</Button>
-                      </Form>
-                      </Col>
-                      
                       </Row>
-                      </Col>
-                      </Row>
-            </Container>
+                    </Col>
+                  </Row>
+                </Container>
+                <div className="containerforlogintext">
+                  <p >barter</p>
+                  <p>/ˈbɑːtə/</p>
+                  <p>verb</p>
+                  <p>exchange (goods or services) for other<br/> goods or services without using money.</p>
+                  <br/>
+                  <br/>
+                  <p>“ The greatest quest in life is to reach  <br/>one's potential.” -Mychal Wynn.</p>
+                </div>
+                <div className="logo2">
+                  <img src={Logo}></img>
+              </div>
+            </div>
     )}
   }
   }

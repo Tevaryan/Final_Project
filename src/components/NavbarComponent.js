@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Backdrop from '../components/Backdrop/Backdrop'
+import LocationFilter from '../containers/LocationFilter/locationFilter'
 
 import {
     Collapse,
@@ -27,9 +28,11 @@ class NavbarComponent extends Component {
         this.state = {
           isOpen: false,
           logout: false,
-          backdrop: false
+          backdrop: false,
+          backdrop2: false
         };
       }
+
       toggle() {
         this.setState({
           isOpen: !this.state.isOpen
@@ -65,6 +68,35 @@ class NavbarComponent extends Component {
         })
       }
 
+      closedropdown2=()=>{
+        this.setState({
+          backdrop2:!this.state.backdrop2
+        })
+        const dropdown = document.getElementById('target2')
+        dropdown.classList.remove('show')
+      }
+
+      
+      // drop down filter options when mousehover
+      overHandler2=()=>{
+        // setTimeout(()=>{
+          const dropdown = document.getElementById('target2')
+          dropdown.classList.add('show')
+          this.setState({
+            backdrop2:!this.state.backdrop2
+          })
+        // }, 200)
+      }
+
+      // when click dropdown
+      dropdownClick2=()=>{ 
+        const dropdown = document.getElementById('target2')
+        dropdown.classList.remove('show')
+        this.setState({
+          backdrop2:!this.state.backdrop2
+        })
+      }
+
       logoutHandler = () =>{
         localStorage.removeItem("JWT")
         localStorage.removeItem('profile_picute')
@@ -79,7 +111,11 @@ class NavbarComponent extends Component {
     let backdrop;
     if(this.state.backdrop){
       backdrop = <Backdrop backdrop={this.dropdownClick}/>
-    } else{
+    }
+    else if(this.state.backdrop2){
+      backdrop = <Backdrop backdrop={this.dropdownClick2}/>
+    }
+    else{
       backdrop = null
     }
     
@@ -103,28 +139,37 @@ class NavbarComponent extends Component {
             </form>
           </div>
            {/* for fiter thing  */}
-            <UncontrolledDropdown id='target2' nav inNavbar className={'list-unstyled text-white ml-5'} className="category">
+           <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
                 <DropdownToggle nav caret onMouseOver={this.overHandler} className={'text-white ml-5'}>
-                  <strong>Category</strong>
+                  <strong>Search</strong>
                 </DropdownToggle> 
-                <div onMouseLeave={this.closeBackdrop}>
+                <div >
                 <DropdownMenu id='target'  onMouseLeave={this.closedropdown}>
-                <Link to={`/Dashboard/Search/Arts & Craft`}><DropdownItem>Arts & Craft</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Automative`}><DropdownItem>Automative</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Baby`}><DropdownItem>Baby</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Beuty & Personal Care`}><DropdownItem>Beuty & Personal Care</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Books`}><DropdownItem>Books</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Computers`}><DropdownItem>Computers</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Health & Household`}><DropdownItem>Health & Household</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Electronics`}><DropdownItem>Electronics</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Home & Kitchen`}><DropdownItem>Home & Kitchen</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Luggage`}><DropdownItem>Luggage</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Sports & Outdoors`}><DropdownItem>Sports & Outdoors</DropdownItem></Link>
-                <Link to={`/Dashboard/Search/Toys`}><DropdownItem>Toys</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Arts & Craft`}><DropdownItem>Arts & Craft</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Automative`}><DropdownItem>Automative</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Baby`}><DropdownItem>Baby</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Beuty & Personal Care`}><DropdownItem>Beuty & Personal Care</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Books`}><DropdownItem>Books</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Computers`}><DropdownItem>Computers</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Health & Household`}><DropdownItem>Health & Household</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Electronics`}><DropdownItem>Electronics</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Home & Kitchen`}><DropdownItem>Home & Kitchen</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Luggage`}><DropdownItem>Luggage</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Sports & Outdoors`}><DropdownItem>Sports & Outdoors</DropdownItem></Link>
+                  <Link to={`/Dashboard/Search/Toys`}><DropdownItem>Toys</DropdownItem></Link>
                 </DropdownMenu>
                 </div>
               </UncontrolledDropdown>
-
+              <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
+                <DropdownToggle nav caret onMouseOver={this.overHandler2} className={'text-white ml-5'}>
+                  <strong>Location</strong>
+                </DropdownToggle> 
+                <div>
+                <DropdownMenu id='target2'  onMouseLeave={this.closedropdown2}>
+                  <LocationFilter >Show Filter</LocationFilter>
+                </DropdownMenu>
+                </div>
+              </UncontrolledDropdown>
             <Nav className="ml-auto" navbar>
               <NavItem className = 'Navbar_TradeMain'>
                 <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`} className="tradebutton"><p className="tradewords">TRADE</p></NavLink>

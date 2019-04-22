@@ -23,26 +23,22 @@ class MyFeed extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    axios( {
-      url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
-      headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
-      method: "get"
-    })
-    .then((response)=>{
-      this.setState({
-        items: response.data.item,
-        keyword: this.props.match.params.item
+    if(prevProps.match.params.item !== this.props.match.params.item) {
+      axios( {
+        url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
+        headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
+        method: "get"
       })
-      if(prevProps.match.params.item !== this.props.match.params.item) {
-        this.setState({
-          items: response.data.item,
-          keyword: this.props.match.params.item
-        })
-      }
-    })
-    .catch( (error)=> {
-      console.log(error);
-    });
+      .then((response)=>{
+          this.setState({
+            items: response.data.item,
+            keyword: this.props.match.params.item
+          })
+      })
+      .catch( (error)=> { 
+        console.log(error);
+      });
+    }
   }
 
   fetch=()=>{
@@ -63,6 +59,8 @@ class MyFeed extends Component {
       console.log(error);
     });
   }
+  
+  
 
   toggle=()=> {
     this.setState({
@@ -71,12 +69,14 @@ class MyFeed extends Component {
   }
 
   detailSearch=(event)=>{
-   
+    console.log('goooo')
+    console.log(event.target.innerText)
     axios( {
-      url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}?tag_children=${event.target.innerHTML}`,
+      // url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}?tag_children=${event.target.innerHTML}`,
+      url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}/${event.target.innerText}`,
       headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
       method: "get",
-    })
+    }) 
     .then((response)=>{
       this.setState({
         items: response.data.item,

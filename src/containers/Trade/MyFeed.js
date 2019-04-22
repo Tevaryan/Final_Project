@@ -1,15 +1,38 @@
 import React, { Component } from 'react';
 import {
     Container, Col, Row, Card, CardText, CardBody, CardLink,
-    CardTitle
+    CardTitle,Button
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
+<<<<<<< HEAD
 
 
+=======
+import axios from 'axios'
+import {Link} from 'react-router-dom'
+>>>>>>> added feed page
 
 class MyFeed extends Component {
+  state={
+    items:[]
+  }
 
+  componentDidMount(){
+    axios( {
+      url: `http://localhost:5000/api/v1/item/show/search_result`,
+      headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
+      method: "get"
+    })
+    .then((response)=>{
+      this.setState({
+        items: response.data.item,
+      })
+    })
+    .catch( (error)=> {
+      console.log(error);
+    });
+  }
     
   render() {
     return (
@@ -19,92 +42,43 @@ class MyFeed extends Component {
             <TradeSideBar/>
           </Col>
           <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
-        <Row style={{height:'60%'}} className='Card_Row mt-4'>
-          <Col sm='4' >
-                <Card>
+
+          <Row style={{height:'50%'}} className='Card_Row mt-4'>
+        {
+          this.state.items.map((item,index)=>{
+            let link = '/Dashboard/message/' + item.owner_user_id
+            return(
+              <Col sm='4' className='my-2'key={index}>
+              <Card>
                 <CardBody>
-                <CardTitle>My Feed</CardTitle>
+                <CardTitle>{item.item_name}</CardTitle>
                 </CardBody>
                 <div>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images1'/>
+                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
                 </div>
                 <CardBody>
-                <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
-                <CardLink href="#">Card Link</CardLink>
-                <CardLink href="#">Another Link</CardLink>
+                <CardText>ownwer: {item.owner_name}</CardText>
+                <CardText>Description:  {item.description}</CardText>
+                <CardLink href="#">{item.tag_children}</CardLink>
+                <CardLink href="#">{item.tag_parent}</CardLink>
+                
               </CardBody>
-            </Card>
-          </Col>
-          <Col sm='4'>
-          <Card>
-              <CardBody>
-                <CardTitle>My Feed</CardTitle>
-                </CardBody>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images2' />
-                <CardBody>
-                <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
-                <CardLink href="#">Card Link</CardLink>
-                <CardLink href="#">Another Link</CardLink>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col sm='4'>
-              <Card>
-            <CardBody>
-              <CardTitle>My Feed</CardTitle>
-            </CardBody>
-            <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images3' />
-            <CardBody>
-              <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
-              <CardLink href="#">Card Link</CardLink>
-              <CardLink href="#">Another Link</CardLink>
-            </CardBody>
-          </Card>
-          </Col>
-        </Row>
-        <Row style={{height:'60%'}} className='Card_Row mt-5'>
-          <Col sm='4'>
-                <Card>
-              <CardBody>
-                <CardTitle>My Feed</CardTitle>
-              </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images4' />
-              <CardBody>
-                <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
-                <CardLink href="#">Card Link</CardLink>
-                <CardLink href="#">Another Link</CardLink>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col sm='4'>
-          <Card>
-              <CardBody>
-                <CardTitle>My Feed</CardTitle>
-              </CardBody>
-              <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images5' />
-              <CardBody>
-                <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
-                <CardLink href="#">Card Link</CardLink>
-                <CardLink href="#">Another Link</CardLink>
-              </CardBody>
-            </Card>
-          </Col>
-          <Col sm='4'>
-              <Card>
-            <CardBody>
-              <CardTitle>My Feed</CardTitle>
-            </CardBody>
-            <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images6' />
-            <CardBody>
-              <CardText>Some quick example text to build on the My Feed and make up the bulk of the card's content.</CardText>
-              <CardLink href="#">Card Link</CardLink>
-              <CardLink href="#">Another Link</CardLink>
-            </CardBody>
-          </Card>
-          </Col>
-        </Row>
-        
-            
+              <div className="card-footer text-muted">
+              <Link to={{pathname: link,
+              state:{
+                profile_image: item.owner_profile_img,
+                username: item.owner_name,
+                item_name:item.item_name,
+                description:item.description
+              }}}
+                ><Button color="secondary" className='btn-block'>Contact</Button></Link>
+              </div>
+              </Card>
+            </Col>
+            )
+          })
+        }
+      </Row>
           </Col>
         </Row>
     </Container>

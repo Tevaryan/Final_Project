@@ -19,7 +19,7 @@ class MyFeed extends Component {
             <TradeSideBar/>
           </Col>
           <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
-        <Row style={{height:'55%'}} className='Card_Row mt-4'>
+        <Row style={{height:'60%'}} className='Card_Row mt-4'>
           <Col sm='4' >
                 <Card>
                 <CardBody>
@@ -62,7 +62,7 @@ class MyFeed extends Component {
           </Card>
           </Col>
         </Row>
-        <Row style={{height:'55%'}} className='Card_Row mt-5'>
+        <Row style={{height:'60%'}} className='Card_Row mt-5'>
           <Col sm='4'>
                 <Card>
               <CardBody>

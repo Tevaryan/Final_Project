@@ -7,8 +7,8 @@ import Login from './containers/Login.js';
 import Dashboard from './pages/Dashboard.js';
 import MyFeed from './containers/Trade/MyFeed.js';
 import MyItems from './containers/Trade/MyItems.js';
-import TaggedItems from './containers/Trade/TaggedItems.js';
 import ItemsNearYou from './containers/Trade/ItemsNearYou.js';
+import Favourite from './containers/Trade/favourite.js'
 
 import SignUp from './containers/SignUp';
 import EditItem from "./components/EditItemHandler"
@@ -18,6 +18,7 @@ import SearchItem from './containers/SearchItem/SearchItem'
 import Messages from './containers/Chatroom/Chatroom';
 import items from "./components/items.js";
 import './components/css/homepage.css'
+import Delivery from './pages/Delivery/Delivery'
 
 
 class App extends Component {
@@ -25,8 +26,7 @@ class App extends Component {
   render() 
   {
     return (
-
-    <div>
+    <>
       <Route exact path={"/"} component={Homepage}/>
 
       <Route path={"/signup"} component={SignUp}/>

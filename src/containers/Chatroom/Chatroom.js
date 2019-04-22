@@ -1,6 +1,6 @@
 import React from "react"
 import io from 'socket.io-client'
-import {Row,Col} from 'react-bootstrap'
+import {Row,Col, Container} from 'react-bootstrap'
 import './Chatroom.css'
 import MessageSend from './MessageSend/MessageSend'
 import {
@@ -90,22 +90,25 @@ class Messages extends React.Component {
     let dialog = this.state.messages.map((conv,index) =>{  
     let attachedClasses
     let outsideContainer
+    let container
     let img
     let message =conv.message
     let time = conv.time.slice(0,conv.time.length-12)
     if (conv.user_id === current_user_id) {
         attachedClasses = "MyComment"
         outsideContainer = "OutsideContainerMy"
+        container= "ContainerMy"
         img = localStorage.getItem('profile_picture')
     } else {
         attachedClasses ="OthersComment"
         outsideContainer = "OutsideContainerOthers"
+        container= "Container"
         img = this.props.location.state.profile_image
     }
 
     return(
         <div className={outsideContainer} key={index}>
-            <div className="Container" >
+            <div className={container} >
                 <Row>
                   <Col xs={4}>
                     <img className={attachedClasses} src={img} alt='userimage'/>
@@ -124,49 +127,38 @@ class Messages extends React.Component {
 let item;
 console.log(this.props.location.state)
 if(this.props.location.state.description){
-  item =  <Col sm='2' className='my-2 position-fixed' style={{zIndex:'100'}}>
-  <Card>
-    <CardBody>
-    <CardTitle>Selected Item</CardTitle>
-    </CardBody>
-    <div>
-      <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
-    </div>
-    <CardBody>
-    <CardText>ownwer: {this.props.location.state.username}</CardText>
-    <CardText>Description:{this.props.location.state.description}</CardText>
-  </CardBody>
-  </Card>
-</Col>
-} else if(this.props.location.state.reward) {
-  item =  <Col sm='2' className='my-2 position-fixed' style={{zIndex:'100'}}>
-  <Card>
-    <CardBody>
-    <CardTitle>Selected Request</CardTitle>
-    </CardBody>
-    <div>
-      <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
-    </div>
-    <CardBody>
-    <CardText>ownwer: {this.props.location.state.username}</CardText>
-    <CardText>reward: {this.props.location.state.reward}</CardText>
-    <CardText>Description:{this.props.location.state.description2}</CardText>
-  </CardBody>
-  </Card>
-</Col>
+  item =  
+<Card body className='py-0 '>
+  <CardTitle>Selected Item</CardTitle>
+  <div>
+    <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
+  </div>
+  <CardText>ownwer: {this.props.location.state.username}</CardText>
+  <CardText>reward: {this.props.location.state.reward}</CardText>
+  <CardText>Description:{this.props.location.state.description2}</CardText>
+</Card>
 } else {
   item = null
 }
-
-        return(
-            <>
-            {item}
+let img = this.props.location.state.picture? this.props.location.state.picture: this.props.location.state.profile_image
+  	
+      return(
+          <>
+          <div style={{position: 'fixed',zIndex: '100', width: '20%'}}>
+                <Card body className='text-center p-0'>
+                  <img src={img} className="m-auto img-fluid rounded-circle" style={{width:'80px'}}/>
+                  <CardTitle>{this.props.location.state.username}</CardTitle>
+                </Card>
+                {item}
+          </div>
             <div className="ChatSpace" >
                 <MessageSend message={this.state.newMessage} input={this.inputHandler} submit={this.handleSubmit}/>
+              <div style={{marginTop: '200px'}}>
                 {dialog}
-            </div>
-            </>
-        )
+              </div>
+          </div>
+          </>
+      )
     }
 }
 

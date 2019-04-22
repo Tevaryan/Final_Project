@@ -3,10 +3,11 @@
     width: 100%;
     min-height: 100vh;
     height: 100%;
-    background-image: url("https://source.unsplash.com/random/300*203");
+    background-color:rgb(245, 245, 245);
+    /* background-image: '';
     background-size: cover;background-attachment: fixed;
     background-position: center;
-    opacity: 0.8;
+    opacity: 0.8; */
     padding-top:56px;
     padding-left: 30%;
     padding-right: 200px;
@@ -18,22 +19,35 @@
 }
 
 .OutsideContainerMy {
+  width: 80%;
+  margin-left: auto;
   display: flex;
   justify-content: flex-end;
 }
 
 .OutsideContainerOthers {
+  width: 80%;
+  margin-left: auto;
   display: flex;
   justify-content: flex-start;
 }
 
 .Container {
-    background-color: #333;
+    background-color:#767676;
     opacity: 0.9;
     border-radius: 20px;
     padding: 5px;
     margin: 5px 0;
-    min-width: 300px;
+    min-width: 200px;
+}
+
+.ContainerMy {
+  background-color: #333;
+  opacity: 0.9;
+  border-radius: 20px;
+  padding: 5px;
+  margin: 5px 0;
+  min-width: 200px;
 }
 
 .Container::after {
@@ -53,7 +67,7 @@
 .OthersComment {
     float: left;
     max-width: 60px;
-    margin-right: 20px;
+    margin-right: 100px;
     border-radius: 50%;
 }
 
@@ -69,7 +83,7 @@
   font-size: 12px;
 }
 
-@media(max-width:499px) {
+/* @media(max-width:499px) {
   .Container {
     min-width: 200px;
   }
@@ -81,4 +95,4 @@
     padding-right: 20px;
     font-size: 12px;
   }
-}
+} */

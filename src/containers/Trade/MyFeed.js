@@ -40,7 +40,7 @@ class MyFeed extends Component {
           </Col>
           <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
 
-          <Row><strong>You may also wanna check</strong></Row>
+          <Row><h3><strong>You may also wanna check</strong></h3></Row>
           <Row style={{height:'50%'}} className='Card_Row mt-4'>
         {
           this.state.items.map((item,index)=>{

@@ -28,7 +28,6 @@ class App extends Component {
     return (
     <>
       <Route exact path={"/"} component={Homepage}/>
-
       <Route path={"/signup"} component={SignUp}/>
       <Route path={'/login'} component={Login}/>
       <Route path ={'/Dashboard'} component={Dashboard}/>

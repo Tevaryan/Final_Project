@@ -5,13 +5,8 @@ import {
   } 
   from 'reactstrap';
 import TradeSideBar from '../../components/TradeSideBar.js'
-<<<<<<< HEAD
-
-
-=======
 import axios from 'axios'
 import {Link} from 'react-router-dom'
->>>>>>> added feed page
 
 class MyFeed extends Component {
   state={
@@ -25,9 +20,11 @@ class MyFeed extends Component {
       method: "get"
     })
     .then((response)=>{
+      console.log(response)
       this.setState({
         items: response.data.item,
       })
+      console.log(this.state.items)
     })
     .catch( (error)=> {
       console.log(error);
@@ -43,6 +40,7 @@ class MyFeed extends Component {
           </Col>
           <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
 
+          <Row><strong>You may also wanna check</strong></Row>
           <Row style={{height:'50%'}} className='Card_Row mt-4'>
         {
           this.state.items.map((item,index)=>{

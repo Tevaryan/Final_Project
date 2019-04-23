@@ -59,7 +59,7 @@ class MyFeed extends Component {
       console.log(error);
     });
   }
-  
+
   
 
   toggle=()=> {

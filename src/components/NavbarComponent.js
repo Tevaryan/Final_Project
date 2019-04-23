@@ -141,7 +141,7 @@ class NavbarComponent extends Component {
           </div>
            {/* for fiter thing  */}
             <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
-                <div nav caret onMouseOver={this.overHandler} className={'text-white ml-5'} className="categorybutton">
+                <div onMouseOver={this.overHandler} className={'text-white ml-5'} className="categorybutton">
                   <img src={Categorylogo} className="categorylogo" alt='test'/>
                   <strong>Category</strong>
                 </div> 
@@ -163,7 +163,7 @@ class NavbarComponent extends Component {
                 </div>
               </UncontrolledDropdown>
               <Dropdown nav inNavbar className={'text-white ml-5 list-unstyled'}>
-                <div nav caret onMouseOver={this.overHandler2} className={'text-white'}  className="city">
+                <div onMouseOver={this.overHandler2} className={'text-white'}  className="city">
                   <strong>📍Location</strong>
                 </div> 
                 <div>

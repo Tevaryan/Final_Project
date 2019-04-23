@@ -13,6 +13,7 @@ import Logo from "../assets/images/logo.jpg";
 import Facebook from '../containers/Login/google_login'
 import Google from '../containers/Login/facebook_login'
 import SignUp from './SignUp'
+import Carousel from "../components/carousel"
 
 
 class Login extends React.Component{
@@ -102,6 +103,9 @@ handleSubmit= (event)=> {
                     <Col sm="5" className="picture_space" ></Col>
                     <Col className="Form-Container" sm="7">
                       <Row>
+                      <div className="logo2">
+                        <img src={Logo}></img>
+                      </div>
                         <Col sm='3'></Col>
                         <Col sm='6' className = "login">
                           <Form className="form">
@@ -131,12 +135,11 @@ handleSubmit= (event)=> {
                                 <Button 
                                   className = "LoginButton"
                                   style={{borderRadius: "25px", width: '47%'}}
-                                   onClick={this.modalHandler}> 
+                                    onClick={this.modalHandler}> 
                                   Sign Up
                                 </Button>
                               </div>
                             <hr/>
-                            <Button className = "LoginButton" style={{borderRadius: "25px", width: '100%'}} color="danger" >Login with Google</Button>
                             <Facebook/>
                             <Google/>
                           </Form>
@@ -146,18 +149,10 @@ handleSubmit= (event)=> {
                     </Col>
                   </Row>
                 </Container>
-                <div className="containerforlogintext">
-                  <p >barter</p>
-                  <p>/ˈbɑːtə/</p>
-                  <p>verb</p>
-                  <p>exchange (goods or services) for other<br/> goods or services without using money.</p>
-                  <br/>
-                  <br/>
-                  <p>“ The greatest quest in life is to reach  <br/>one's potential.” -Mychal Wynn.</p>
+                <div className="containerforlogintext h-100">
+                  <Carousel/>
                 </div>
-                <div className="logo2">
-                  <img src={Logo} alt="logo"></img>
-              </div>
+                
             </div>
           </>
     )}

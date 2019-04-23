@@ -173,8 +173,20 @@ class NavbarComponent extends Component {
                 </div>
               </Dropdown>
             <Nav className="ml-auto" navbar>
+              <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/AgreementList`}>Agreement Requests</NavLink>
+              </NavItem>
+              <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/ExchangeRequestList`}>Exchange Requests</NavLink>
+              </NavItem>
+              <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/messageList`}>Messages</NavLink>
+              </NavItem>
               <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`} className="tradebutton"><p className="taobutton">Tao click here</p></NavLink>
+                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`}>TRADE</NavLink>
+              </NavItem>
+              <NavItem className = 'Navbar_Delivery'>
+                <NavLink tag ={Link} to={`/Dashboard/Delivery`}>DELIVERY</NavLink>
               </NavItem>
               <NavItem className = 'Navbar_Delivery'>
                 <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler} >

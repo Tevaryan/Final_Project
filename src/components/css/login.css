@@ -1,21 +1,35 @@
 .logo2{
     position: absolute;
-    top: 15%;
-    left: 22%;
+    top: 35%;
+    left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%) ;
 }
 
 .containerforlogintext{
-    color: aliceblue;
     position: absolute;
-    top: 55%;
+    top: 45%;
     left: 22%;
     margin-right: -50%;
     transform: translate(-50%, -50%) ;
-    font-size: 25px;
+    width: 500px;
+    
 }
 
 .picture_space{
     opacity: 0.8;
+}
+
+.carouselwidth{
+    width: 400px;
+    height: 400px;
+    margin: 10%;
+}
+
+.carouselcaption{
+    margin-top: 30px;
+}
+
+.carousel-inner{
+    height: 100%;
 }

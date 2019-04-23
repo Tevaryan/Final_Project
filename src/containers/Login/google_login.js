@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import { Redirect } from "react-router-dom"
 import GoogleLogin from 'react-google-login';
 import axios from 'axios';
+import LoginButton from "../../assets/images/googlelogo.jpg"
+import "../../components/css/loginbutton.css"
  
 class ResponseGoogle extends Component {
   state = {
@@ -44,14 +46,19 @@ class ResponseGoogle extends Component {
   render(){
     if (this.state.isLogin === false) {
       return(
-        <>
+        <div>
+          {/* <Button className = "LoginButton"  >Login with Google</Button> */}
           <GoogleLogin
           clientId="494882721260-h0fgefbdt6ar1utd0d5oboffkeuf35d6.apps.googleusercontent.com"
           onSuccess={this.responseGoogle}
           onFailure={this.responseError}
           cookiePolicy={'single_host_origin'}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} disabled={renderProps.disabled}className="googlebutton">Login with Google</button>
+          )}
           />
-        </>
+          
+        </div>
       )
     } else {
       return <Redirect to='/Dashboard/TradeMain/MyFeed'/>

@@ -1,4 +1,8 @@
 .sidebarprofileimg{
+<<<<<<< Updated upstream
+=======
+    /* height: 150px; */
+>>>>>>> Stashed changes
     width:150px;
     display: block;
     position: relative;
@@ -8,6 +12,14 @@
     
 }
 
+<<<<<<< Updated upstream
+=======
+.border{
+    width:150px;
+    height: 150px;
+    border: 2px solid red;
+}
+>>>>>>> Stashed changes
 
 .sidebarprofile{
     margin-top: 31px;

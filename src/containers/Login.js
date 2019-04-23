@@ -88,7 +88,7 @@ handleSubmit= (event)=> {
 )
 
   render(){
-    let signup = this.state.ismodal?  signup = <SignUp modal={this.modalHandler}/>: null
+    let signup = this.state.ismodal? <SignUp modal={this.modalHandler}/>: null
 
     if (this.state.login ===true){
       return <Redirect to='/Dashboard/TradeMain/MyFeed'/>
@@ -156,7 +156,7 @@ handleSubmit= (event)=> {
                   <p>“ The greatest quest in life is to reach  <br/>one's potential.” -Mychal Wynn.</p>
                 </div>
                 <div className="logo2">
-                  <img src={Logo}></img>
+                  <img src={Logo} alt="logo"></img>
               </div>
             </div>
           </>

@@ -146,7 +146,7 @@ let img = this.props.location.state.picture? this.props.location.state.picture: 
           <>
           <div style={{position: 'fixed',zIndex: '100', width: '20%'}}>
                 <Card body className='text-center p-0'>
-                  <img src={img} className="m-auto img-fluid rounded-circle" style={{width:'80px'}}/>
+                  <img src={img} className="m-auto img-fluid rounded-circle" style={{width:'80px'}} alt="userProfile"/>
                   <CardTitle>{this.props.location.state.username}</CardTitle>
                 </Card>
                 {item}

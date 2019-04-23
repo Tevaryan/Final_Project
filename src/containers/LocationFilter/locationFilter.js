@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {
-    Form, FormGroup, Label, Input, Modal
+    Form, FormGroup, Label, Input
   } 
   from 'reactstrap';
 import axios from 'axios';

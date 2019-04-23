@@ -1,59 +1,73 @@
 import React from "react";
 import { FormGroup, FormLabel,Form} from 'react-bootstrap';
-import {Input, Button, Label, Col} from "reactstrap";
-
+import {Input, Button, Label, Col,Row,Modal} from "reactstrap";
 
 const NewItem = props => (
+  <>
+  
+  <div 
+  style={{
+    backgroundColor: 'white',
+    padding:'25px',
+    position: 'absolute',
+    zIndex:'100',
+    left:'25%',
+    borderRadius:'50px'
+    }}>
     <Form>
           <FormGroup >
-            <Label for="exampleEmail" sm={2}>Item Name</Label>
-            <Col sm={10}>
-              <Input type="text" name="item name" id="exampleEmail" onChange={props.name} />
-            </Col>
-          </FormGroup>
-          <FormGroup sm={2}>
-            <FormLabel >Category</FormLabel>
-                <br/>
-                <select onChange={props.tagParent}>
-                <option></option>
-                {
-                    props.optionsPrefecture.map((o, index)=> {
-                     return(<option key={index} value={o}>{o}</option>)
-                    }
-                   )
-                 }
-                </select>
-                {
-                  props.tagParentValue ?
-                  (
-                    <>
-                      <FormLabel>Sub category</FormLabel>
-                      <select onChange={props.tagChildren}>
-                      <option></option>
-                      {
-                        props.subOption[props.tagParentValue].map((o, index)=> {
-                          return(<option key={index} value={o}>{o}</option>)
-                        }
-                        )
+            <Row>
+              <Col>
+                <Label for="exampleEmail">Item Name</Label>
+                <Input type="text" name="item name" id="exampleEmail" onChange={props.name} />
+              </Col>
+              <Col>
+                <Col>
+                  <Label for="exampleSelectMulti">File</Label>
+                  <Input type="text" name="file name" id="exampleSelectMulti" onChange={props.fileName}/>
+                </Col>
+              </Col>
+            </Row>
+            <div>
+              <FormLabel >Category</FormLabel>
+                  <br/>
+                  <select onChange={props.tagParent}>
+                  <option></option>
+                  {
+                      props.optionsPrefecture.map((o, index)=> {
+                      return(<option key={index} value={o}>{o}</option>)
                       }
-                        
-                      </select>
-                    </>
-                  ) : null
+                    )
+                  }
+                  </select>
+            </div>
+            <div>
+
+                {
+              props.tagParentValue ?
+              (
+                <>
+                  <FormLabel className="mt-3">Sub category</FormLabel><br/>
+                  <select onChange={props.tagChildren}>
+                  <option></option>
+                  {
+                    props.subOption[props.tagParentValue].map((o, index)=> {
+                      return(<option key={index} value={o}>{o}</option>)
+                    }
+                    )
+                  }
+                    
+                  </select>
+                </>
+              ) : null
                 }
+            </div>
+
           </FormGroup>
   
-          <FormGroup >
-            <Label for="exampleSelectMulti" sm={2}>file_name</Label>
-            <Col sm={10}>
-              <Input type="text" name="file name" id="exampleSelectMulti" onChange={props.fileName}/>
-            </Col>
-          </FormGroup>
           <FormGroup>
             <Label for="exampleText" sm={2}>Description</Label>
-            <Col sm={10}>
               <Input type="textarea" name="description" id="exampleText" onChange={props.description}/>
-            </Col>
           </FormGroup>
           <FormGroup>
             <Col sm={{ size: 10 }}>
@@ -62,7 +76,8 @@ const NewItem = props => (
           </FormGroup>
           
         </Form>
-  
+        </div>
+      </>
   );
   
 

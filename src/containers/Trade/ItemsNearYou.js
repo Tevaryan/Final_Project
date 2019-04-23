@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactMapboxGl, { Layer, Feature, Popup} from "react-mapbox-gl";
+import ReactMapboxGl, { Layer, Feature} from "react-mapbox-gl";
 import axios from 'axios';
 import Geocoding from '../Maps/geocoding.js'
 import PopUp from '../Maps/PopUp.js'

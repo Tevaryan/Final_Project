@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import "../components/css/tradesidebar.css";
 import axios from "axios";
 import{ Modal,Button,Form, Col,} from 'react-bootstrap';
-import {Input,Label} from 'reactstrap'
+import {Input} from 'reactstrap'
 
 
 
@@ -47,7 +47,7 @@ class SideBarProfile extends Component {
       this.setState({
         [e.target.name]: e.target.value,
       })
-    }
+    } 
 
     // handleSubmit(event) {
     //   const form = event.currentTarget;
@@ -161,12 +161,19 @@ class SideBarProfile extends Component {
     return (
       <div className="sidebarprofile">
 
-        <img src="https://source.unsplash.com/random/300x200" className="sidebarprofileimg" alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
-        
+        <img src="https://source.unsplash.com/random/100x100" className="sidebarprofileimg" style={{border: '5px solid #5D6D7E'}} alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
+
+        <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
+          <li>Name:{this.state.username}</li>
+          <li>Location:{this.state.location}</li>
+          <li>Destination:{this.state.going_to}</li>
+          {/* <li>{this.state.date}</li> */}
+        </ul>
+  {/*         
         <p className="sidebarname">{this.state.username}</p>
         <p className="location">{this.state.location}</p>
         <p className="items">{this.state.going_to}</p>
-        <p className="items">{this.state.date}</p>
+        <p className="items">{this.state.date}</p> */}
 
           <Modal
             size="lg"

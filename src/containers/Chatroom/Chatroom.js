@@ -1,10 +1,10 @@
 import React from "react"
 import io from 'socket.io-client'
-import {Row,Col, Container} from 'react-bootstrap'
+import {Row,Col} from 'react-bootstrap'
 import './Chatroom.css'
 import MessageSend from './MessageSend/MessageSend'
 import {
-  Card, CardText, CardBody,
+  Card, CardText,
   CardTitle
 } 
 from 'reactstrap';

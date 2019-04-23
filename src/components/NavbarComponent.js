@@ -13,14 +13,13 @@ import {
     NavLink,
     UncontrolledDropdown,
     Dropdown,
-    DropdownToggle,
     DropdownMenu,
     DropdownItem } from 'reactstrap';
 import {Link, Redirect} from "react-router-dom";
 import "../components/css/navbarcomponent.css"
 import Homelogo from "../assets/images/homebuttonblue.jpg"
 import Messagelogo from "../assets/images/message.jpg"
-import Logoutlogo from "../assets/images/logout.jpg"
+// import Logoutlogo from "../assets/images/logout.jpg"
 
 class NavbarComponent extends Component {
     constructor(props) {
@@ -128,8 +127,8 @@ class NavbarComponent extends Component {
         <div>
         {backdrop}
         <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="sm" className='pb-0' className="containertopnavbar">
-          <NavbarBrand href="/Dashboard/TradeMain/MyFeed" className="buttonhome"><img src={Homelogo} className="homelogo"></img></NavbarBrand>
-          <NavbarBrand href="/Dashboard/messageList" className="buttonmessage"><img src={Messagelogo} className="messagelogo"></img></NavbarBrand>
+          <NavbarBrand href="/Dashboard/TradeMain/MyFeed" className="buttonhome"><img src={Homelogo} className="homelogo" alt='test'/></NavbarBrand>
+          <NavbarBrand href="/Dashboard/messageList" className="buttonmessage"><img src={Messagelogo} className="messagelogo" alt='test'/></NavbarBrand>
           
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -143,7 +142,7 @@ class NavbarComponent extends Component {
            {/* for fiter thing  */}
             <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
                 <div nav caret onMouseOver={this.overHandler} className={'text-white ml-5'} className="categorybutton">
-                  <img src={Categorylogo} className="categorylogo"></img>
+                  <img src={Categorylogo} className="categorylogo" alt='test'/>
                   <strong>Category</strong>
                 </div> 
                 <div >

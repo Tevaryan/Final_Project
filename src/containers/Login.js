@@ -7,7 +7,7 @@ import {
 from 'reactstrap';
 import axios from "axios";
 
-import {Link, Redirect} from "react-router-dom";
+import {Redirect} from "react-router-dom";
 import "../components/css/login.css";
 import Logo from "../assets/images/logo.jpg";
 import Facebook from '../containers/Login/google_login'

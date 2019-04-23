@@ -67,7 +67,8 @@ class ItemsNearYou extends Component {
     
     clickedAgain = (location) =>{
       let newClickedLocation = this.state.clickedLocation.filter((locations) => {
-        if (locations != location ){
+        
+        if (locations !== location ){
           return this.state.clickedLocation
         }
       })

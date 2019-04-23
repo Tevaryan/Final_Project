@@ -161,7 +161,6 @@ class SideBarProfile extends Component {
     return (
       <div className="sidebarprofile">
 
-<<<<<<< HEAD
         <img src="https://source.unsplash.com/random/100x100" className="sidebarprofileimg" style={{border: '5px solid #5D6D7E'}} alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
 
         <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
@@ -175,25 +174,6 @@ class SideBarProfile extends Component {
         <p className="location">{this.state.location}</p>
         <p className="items">{this.state.going_to}</p>
         <p className="items">{this.state.date}</p> */}
-=======
-<<<<<<< HEAD
-        <img src="https://source.unsplash.com/random/300x200" className="sidebarprofileimg" alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
-        
-=======
-        <img src="https://source.unsplash.com/random/100x100" className="sidebarprofileimg" alt='aaaa'/>
->>>>>>> added exchange feature
-        <p className="sidebarname">{this.state.username}</p>
-        <p className="location">{this.state.location}</p>
-        <p className="items">{this.state.going_to}</p>
-        <p className="items">{this.state.date}</p>
-<<<<<<< HEAD
-=======
-        <ButtonToolbar>
-          <Button onClick={() => this.setState({ lgShow: true })}>
-            Edit Profile
-          </Button>
->>>>>>> added exchange feature
->>>>>>> added exchange feature
 
           <Modal
             size="lg"

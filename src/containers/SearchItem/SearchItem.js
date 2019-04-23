@@ -69,8 +69,7 @@ class MyFeed extends Component {
   }
 
   detailSearch=(event)=>{
-    console.log('goooo')
-    console.log(event.target.innerText)
+    
     axios( {
       // url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}?tag_children=${event.target.innerHTML}`,
       url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}/${event.target.innerText}`,

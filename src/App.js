@@ -10,12 +10,11 @@ import MyItems from './containers/Trade/MyItems.js';
 import ItemsNearYou from './containers/Trade/ItemsNearYou.js';
 import Favourite from './containers/Trade/favourite.js'
 
-import SignUp from './containers/SignUp';
+// import SignUp from './containers/SignUp';
 import ExchangeRequestList from "./containers/ExchangeRequest/ExchangeRequestList"
 import Messages from './containers/Chatroom/Chatroom'
 import MessageList from './containers/Chatroom/MessageList/MessageList'
 import SearchItem from './containers/SearchItem/SearchItem'
-import Messages from './containers/Chatroom/Chatroom';
 import items from "./components/items.js";
 import './components/css/homepage.css'
 import Delivery from './pages/Delivery/Delivery'

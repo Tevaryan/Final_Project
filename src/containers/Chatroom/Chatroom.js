@@ -153,10 +153,10 @@ let img = this.props.location.state.picture? this.props.location.state.picture: 
                 {item}
           </div>
             <div className="ChatSpace" >
-                <MessageSend message={this.state.newMessage} input={this.inputHandler} submit={this.handleSubmit}/>
-              <div style={{marginTop: '200px'}}>
+              <div>
                 {dialog}
               </div>
+                <MessageSend message={this.state.newMessage} input={this.inputHandler} submit={this.handleSubmit}/>
           </div>
           </>
       )

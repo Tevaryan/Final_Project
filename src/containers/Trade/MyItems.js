@@ -22,7 +22,8 @@ class MyItems extends Component {
     description:"",
     showAddItemModel:false,
     items: [],
-    editItem: false
+    editItem: false,
+    fileUpload: {}
     }
 
 
@@ -32,6 +33,7 @@ class MyItems extends Component {
   }
 
   fetchItems = () => {
+    console.log('aa')
     axios.get(`http://localhost:5000/api/v1/item/show/me`,{
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("JWT")
@@ -79,27 +81,47 @@ class MyItems extends Component {
   }
 
   fileNameInputHandler =(event)=>{
-    this.setState({file_name:event.target.value})
-    
+    this.setState({fileUpload: event.target.files[0]})
+    console.log(event.target.files[0])
+    console.log(event.target.files[0].name)
   }
 
-
+  
   submitHandler = (event) => {
 
     // alert('Success');
         event.preventDefault();
-        const data ={
-          name: this.state.name,
-          tag_parent:this.state.tag_parent,
-          tag_children:this.state.tag_children,
-          description: this.state.description,
-          file_name: this.state.file_name
-        }
+        let formData = new FormData() // instantiate it
         
-        axios.post(`http://localhost:5000/api/v1/item/new`, data, {
+
+    
+        formData.append('image', this.state.fileUpload, this.state.fileUpload.name)
+        formData.append('name', this.state.name)
+        formData.append('tag_parent', this.state.tag_parent)
+        formData.append('tag_children', this.state.tag_children)
+        formData.append('description', this.state.description)
+
+        
+        
+        
+        // console.log(formData)
+        // const data ={
+        //   name: this.state.name,
+        //   tag_parent:this.state.tag_parent,
+        //   tag_children:this.state.tag_children,
+        //   description: this.state.description,
+        //   image: formData
+          
+        // }
+        
+        axios({
+          url: `http://localhost:5000/api/v1/item/new`,
+          method:"post",          
           headers: {
-            "Authorization": "Bearer " + localStorage.getItem("JWT")
-          }
+            "Authorization": "Bearer " + localStorage.getItem("JWT"),
+            Accept: 'multipart/form-data'
+          },
+          data: formData
         })
         .then((response)=> {
           console.log(response)
@@ -107,12 +129,17 @@ class MyItems extends Component {
          items.push(response.data.user)
          this.setState({items:items})
          this.setState({showAddItemModel:false})
+         this.setState({file_name: response.data.user.file_name})
         })
         .catch(function (error) {
           console.log(error);
         });
     
   }
+
+
+
+
 
     
   render() {
@@ -318,14 +345,21 @@ class MyItems extends Component {
           <button onClick={this.addItemHandler}  className="additembutton">+ Add Item</button>
           {
             this.state.showAddItemModel === true
-            ? <><Backdrop backdrop={this.addItemHandler}/><NewItem name={this.nameInputHandler} tagParent={this.tagParentInputHandler} tagChildren={this.tagChildrenInputHandler} fileName={this.fileNameInputHandler} description={this.descriptionInputHandler} submit={this.submitHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}/></>
+            ? <><Backdrop backdrop={this.addItemHandler}/>
+            <NewItem name={this.nameInputHandler} tagParent={this.tagParentInputHandler} 
+            tagChildren={this.tagChildrenInputHandler} fileName={this.fileNameInputHandler} 
+            description={this.descriptionInputHandler} submit={this.submitHandler} 
+            optionsPrefecture={options_prefecture} subOption={subOptions} 
+            tagParentValue={this.state.tag_parent}  picture={this.state.file_name}/></>
             : null
           }
           <Row>
           {
               this.state.items.map((item, index)=> {
                         return(
-                          <ShowItem key={index} item={item} index={index} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent} refetch={this.fetchItems}></ShowItem>
+                          <ShowItem key={index} item={item} index={index} 
+                          optionsPrefecture={options_prefecture} subOption={subOptions} 
+                          tagParentValue={this.state.tag_parent} refetch={this.fetchItems}></ShowItem>
                         )
               }
               )

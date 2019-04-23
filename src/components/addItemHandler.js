@@ -3,6 +3,11 @@ import { FormGroup, FormLabel,Form} from 'react-bootstrap';
 import {Input, Button, Label, Col,Row,Modal} from "reactstrap";
 
 const NewItem = props => (
+
+
+  
+
+
   <>
   
   <div 
@@ -21,12 +26,20 @@ const NewItem = props => (
                 <Label for="exampleEmail">Item Name</Label>
                 <Input type="text" name="item name" id="exampleEmail" onChange={props.name} />
               </Col>
-              <Col>
-                <Col>
+
+              {/* <div className="sidebarprofile">
+                <img src={this.props.picture} className="sidebarprofileimg " alt='aaaa' /> 
+              </div> */}
+             
+                <input onChange={props.fileName} id='test' className="fileInput" type="file" name='file'/>
+           
+
+              {/* <Col>
                   <Label for="exampleSelectMulti">File</Label>
                   <Input type="text" name="file name" id="exampleSelectMulti" onChange={props.fileName}/>
-                </Col>
-              </Col>
+              </Col> */}
+
+
             </Row>
             <div>
               <FormLabel >Category</FormLabel>
@@ -55,7 +68,7 @@ const NewItem = props => (
                       return(<option key={index} value={o}>{o}</option>)
                     }
                     )
-                  }
+                       }
                     
                   </select>
                 </>

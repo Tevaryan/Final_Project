@@ -75,7 +75,7 @@ render(){
     
                 </CardBody>
                 <div>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
+                  <img width="100%" src={this.props.item.file_name} alt='temparaly images'/>
                 </div>
                 <CardBody>
                 <CardText>ownwer: {this.props.item.owner_name}</CardText>
@@ -90,7 +90,8 @@ render(){
                 profile_image: this.props.item.owner_profile_img,
                 username: this.props.item.owner_name,
                 item_name:this.props.item.item_name,
-                description:this.props.item.description
+                description:this.props.item.description,
+                img:this.props.item.file_name
               }}}
                 ><Button color="secondary" className='btn-block'>Contact</Button></Link>
               </div>

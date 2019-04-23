@@ -52,7 +52,7 @@ class MyFeed extends Component {
                 <CardTitle>{item.item_name}</CardTitle>
                 </CardBody>
                 <div>
-                  <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
+                  <img width="100%" src={item.file_name} alt='temparaly images'/>
                 </div>
                 <CardBody>
                 <CardText>ownwer: {item.owner_name}</CardText>

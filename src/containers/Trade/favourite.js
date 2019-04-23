@@ -88,7 +88,7 @@ class TaggedItems extends Component {
                         {item.name}<br/>
                         </CardTitle>
                     </CardBody>
-                    <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                    <img width="100%" src={item.file_name} alt='temparaly images' />
                     <CardBody>
                         <div className="itemtag">
                             <CardText>

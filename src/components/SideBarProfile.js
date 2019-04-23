@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import "../components/css/tradesidebar.css";
 import axios from "axios";
-import{ Modal,Button,Form, Col} from 'react-bootstrap';
+import{ Modal,Button,Form, Col,} from 'react-bootstrap';
+import {Input,Label} from 'reactstrap'
+
 
 
 const red = {
@@ -159,7 +161,6 @@ class SideBarProfile extends Component {
     return (
       <div className="sidebarprofile">
 
-        {/* <img src={this.state.picture} className="sidebarprofileimg" alt='aaaa' onClick={() => this.setState({ lgShow: true })}/> */}
         <img src="https://source.unsplash.com/random/300x200" className="sidebarprofileimg" alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
         
         <p className="sidebarname">{this.state.username}</p>
@@ -175,28 +176,23 @@ class SideBarProfile extends Component {
           >
             <Modal.Header closeButton>
               
-              
               <Modal.Title id="example-modal-sizes-title-lg">
-                Profile Page
+                Profile Edit Page
               </Modal.Title>
             </Modal.Header>
               {/* form */}
-              
-
               <Modal.Body>
               <Form.Row>
-                  <Form.Group as={Col} md="4" controlId="validationCustom01">
+                  {/* <Form.Group as={Col} md="4" controlId="validationCustom01">
                     <img src={this.state.pictuer} className="sidebarprofileimg" alt='aaa'/>
                   </Form.Group>
                   <Form.Group as={Col} md="8" controlId="validationCustom02">
                     <h5>{this.state.username}<br/><br/>{this.state.location}<br/><br/>I am going to {this.state.going_to} in {this.state.date}</h5>
-                  </Form.Group>
+                  </Form.Group> */}
                 </Form.Row>
 
-
-
                 <Form.Row>
-                  <Form.Group as={Col} md="4" controlId="validationCustom01">
+                  <Form.Group as={Col} md="4" controlId="validationCustom01" className="mb-0">
                     <Form.Label>First name</Form.Label>
                     <Form.Control
                       required
@@ -207,7 +203,8 @@ class SideBarProfile extends Component {
                     />
                     <p style={red}>   {!valisation_firstname && "please enter your info here"}</p>
                   </Form.Group>
-                  <Form.Group as={Col} md="4" controlId="validationCustom02">
+
+                  <Form.Group as={Col} md="4" controlId="validationCustom02" className="mb-0">
                     <Form.Label>Last name</Form.Label>
                     <Form.Control
                       required
@@ -218,12 +215,13 @@ class SideBarProfile extends Component {
                     />
                     <p style={red}>   {!valisation_lastname && "please enter your info here"}</p>
                   </Form.Group>
-                  <Form.Group as={Col} md="4" controlId="validationCustom02">
+
+                  <Form.Group as={Col} md="4" controlId="validationCustom02" className="mb-0">
                     <Form.Label>Usarname</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      placeholder="Last name"
+                      placeholder="UserName"
                       defaultValue={this.state.username}
                       name="username" onChange={this.handleChange}
                     />
@@ -231,69 +229,81 @@ class SideBarProfile extends Component {
                   </Form.Group>
                 </Form.Row>
 
-
                 <Form.Row>
-                  <Form.Group as={Col} md="4" controlId="validationCustom01">
+                  <Form.Group as={Col} md="4" controlId="validationCustom01" className="mb-0">
                     <Form.Label>occupation</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      placeholder="First name"
+                      placeholder="Occupation"
                       defaultValue={this.state.occupation}
                       name="occupation" onChange={this.handleChange}
                     />
                     <p style={red}>   {!valisation_occupation && "please enter your info here"}</p>
                   </Form.Group>
-                  <Form.Group as={Col} md="4" controlId="validationCustom02">
+
+                  <Form.Group as={Col} md="4" controlId="validationCustom02" className="mb-0">
                     <Form.Label>Sex</Form.Label>
                     <Form.Control
                       required
                       type="text"
-                      placeholder="Last name"
+                      placeholder="Man or Woman"
                       defaultValue={this.state.sex}
                       name="sex" onChange={this.handleChange}
                     />
-                    
                     <p style={red}>   {!valisation_sex && "please enter your info here"}</p>
                   </Form.Group>
-                  <Form.Group as={Col} md="4" controlId="validationCustom02">
-                    <Form.Label>birthday</Form.Label>
-                    <Form.Control
-                      required
-                      type="text"
-                      placeholder=" birthday"
-                      defaultValue={this.state.birthday}
-                      name="birthday" onChange={this.handleChange}
-                    />
-                    <p style={red}>   {!valisation_birthday && "please enter your info here"}</p>
+                    
+                  <Form.Group as={Col} md="4" controlId="validationCustom02" className="mb-0">
+                    <Form.Label>Birthday</Form.Label>
+                      <Input
+                        required
+                        type="date"
+                        name="birthday"
+                        id="exampleDate"
+                        defaultValue={this.state.birthday}
+                        name="birthday" onChange={this.handleChange}
+                      />
+                        <p style={red}>   {!valisation_birthday && "please enter your info here"}</p>
                   </Form.Group>
+                    
+                  {/* <Form.Group as={Col} md="4" controlId="validationCustom02">
+                  <Label className="mb-0" for="exampleDate">birthday</Label>
+                          <Input
+                            required
+                            type="text"
+                            placeholder=" birthday"
+                            defaultValue={this.state.birthday}
+                            name="birthday" onChange={this.handleChange}
+                          />
+                    <p style={red}>   {!valisation_birthday && "please enter your info here"}</p>
+                  </Form.Group> */}
                 </Form.Row>
 
-
-
-                
-
-                
-
-
                 <Form.Row>
-                  <Form.Group as={Col} md="6" controlId="validationCustom03">
-                    <Form.Label>Location</Form.Label>
+                  <Form.Group as={Col} md="4" controlId="validationCustom03" className="mb-0">
+                    <Form.Label>Current Location</Form.Label>
                     <Form.Control type="text" name="location" onChange={this.handleChange} defaultValue={this.state.location}  placeholder={this.state.location} required />
                     <p style={red}>
-
                     {!valisation_location && "please enter your info here"}</p>
                   </Form.Group>
-                  <Form.Group as={Col} md="3" controlId="validationCustom04">
-                    <Form.Label>going_to</Form.Label>
+
+                  <Form.Group as={Col} md="4" controlId="validationCustom04" className="mb-0">
+                    <Form.Label>Destination</Form.Label>
                     <Form.Control type="text" name="going_to" onChange={this.handleChange} defaultValue={this.state.going_to}  placeholder={this.state.going_to} required />
                     <p style={red}>
-
                     {!valisation_going_to && "please enter your info here"}</p>
                   </Form.Group>
-                  <Form.Group as={Col} md="3" controlId="validationCustom05">
-                    <Form.Label>Date</Form.Label>
-                    <Form.Control type="text" name="date" onChange={this.handleChange} defaultValue={this.state.date} placeholder={this.state.date} required />
+
+                  <Form.Group as={Col} md="4" controlId="validationCustom05" className="mb-0">
+                    <Form.Label>Itinerary Date</Form.Label>
+                    {/* <Form.Control type="text" name="date" onChange={this.handleChange} defaultValue={this.state.date} placeholder={this.state.date} required /> */}
+                    <Input
+                        type="date"
+                        name="date"
+                        defaultValue={this.state.date}  required
+                        onChange={this.handleChange}
+                      />
                     <p style={red}>
                     
                     {!valisation_date && "please enter your info here"}</p>
@@ -301,26 +311,17 @@ class SideBarProfile extends Component {
                 </Form.Row>
 
                 
-                <Form.Group controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Info.</Form.Label>
+                <Form.Group controlId="exampleForm.ControlTextarea1" className="mb-0">
+                  <Form.Label>Introduction,Info</Form.Label>
                   <Form.Control as="textarea" rows="3" name="brif" onChange={this.handleChange}  defaultValue={this.state.brif}/>
-                  <p style={red}>{!valisation_brif && "please enter your info here"}</p>
+                  <p style={red} className="mb-0">{!valisation_brif && "please enter your info here"}</p>
                 </Form.Group>
-                <Modal.Body><Button type="submit" onClick={this.handleEditForm}>Edit Profile</Button></Modal.Body>
-                
-              
-
-
               </Modal.Body>
-
-
-              {/* end           form */}
-
-
-
-
+              <Modal.Footer className="">
+                <Button type="submit" onClick={this.handleEditForm} className="btn-success">Edit Profile</Button>
+              </Modal.Footer>
               
-            
+              {/* end form */}
           </Modal>
 
         {/* </ButtonToolbar> */}

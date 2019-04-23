@@ -27,7 +27,7 @@ class MyFeed extends Component {
       axios( {
         url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
         headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
-        method: "get"
+        method: "get" 
       })
       .then((response)=>{
           this.setState({

@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import '../../App.css';
 import {
-    Container, Col, Row, Card, CardText, CardBody, CardLink,
-    CardTitle
+    Container, Col, Row,
   } 
   from 'reactstrap';
 import axios from "axios";
@@ -10,6 +9,7 @@ import TradeSideBar from '../../components/TradeSideBar.js'
 import NewItem from "../../components/addItemHandler";
 import "../../components/css/myitems.css";
 import ShowItem from "../../components/showItems";
+import Backdrop from '../../components/Backdrop/Backdrop'
 
 
 class MyItems extends Component {
@@ -86,7 +86,7 @@ class MyItems extends Component {
 
   submitHandler = (event) => {
 
-    alert('Success');
+    // alert('Success');
         event.preventDefault();
         const data ={
           name: this.state.name,
@@ -95,13 +95,14 @@ class MyItems extends Component {
           description: this.state.description,
           file_name: this.state.file_name
         }
-        axios.post(`http://localhost:5000/api/v1/item/show/items/me`, data, {
+        
+        axios.post(`http://localhost:5000/api/v1/item/new`, data, {
           headers: {
             "Authorization": "Bearer " + localStorage.getItem("JWT")
           }
         })
         .then((response)=> {
-
+          console.log(response)
          let items = [...this.state.items]
          items.push(response.data.user)
          this.setState({items:items})
@@ -317,7 +318,7 @@ class MyItems extends Component {
           <button onClick={this.addItemHandler}  className="additembutton">+ Add Item</button>
           {
             this.state.showAddItemModel === true
-            ? <NewItem name={this.nameInputHandler} tagParent={this.tagParentInputHandler} tagChildren={this.tagChildrenInputHandler} fileName={this.fileNameInputHandler} description={this.descriptionInputHandler} submit={this.submitHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}/>
+            ? <><Backdrop backdrop={this.addItemHandler}/><NewItem name={this.nameInputHandler} tagParent={this.tagParentInputHandler} tagChildren={this.tagChildrenInputHandler} fileName={this.fileNameInputHandler} description={this.descriptionInputHandler} submit={this.submitHandler} optionsPrefecture={options_prefecture} subOption={subOptions} tagParentValue={this.state.tag_parent}/></>
             : null
           }
           <Row>

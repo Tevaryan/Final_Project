@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 
 import {
-    Collapse,
     Navbar,
-    NavbarToggler,
     NavbarBrand,
     Nav,
     NavItem,
@@ -41,13 +39,13 @@ class HomePage extends Component {
 
 
     render() {
-        let signup = this.state.ismodal?  signup = <SignUp modal={this.modalHandler}/>: null
+        let signup = this.state.ismodal?  <SignUp modal={this.modalHandler}/>: null
     return (
         <>
         {signup}
         <div id="root2">
             <Navbar className="navbar">
-                <NavbarBrand href="/"><img src={Logo} className="navbarlogo"></img></NavbarBrand>
+                <NavbarBrand href="/"><img src={Logo} className="navbarlogo" alt="test"></img></NavbarBrand>
                 <Nav>
                     <NavItem>
                         <NavLink tag ={Link} to={`/`}><p className="navbartext">What is Barter</p></NavLink>

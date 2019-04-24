@@ -137,7 +137,7 @@ class ExchangeRequestList extends React.Component {
                         {exchange_request.item_name}
                         </CardTitle>
                     </CardBody>
-                    <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                    <img width="100%" src={exchange_request.item_filename}alt='temparaly images' />
                     <CardBody>
                         <div className="itemtag">
                             <CardText>

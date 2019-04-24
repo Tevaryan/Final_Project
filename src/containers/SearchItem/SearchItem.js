@@ -23,7 +23,6 @@ class MyFeed extends Component {
   }
 
   componentDidUpdate(prevProps) {
-<<<<<<< Updated upstream
     if(prevProps.match.params.item !== this.props.match.params.item) {
       axios( {
         url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
@@ -40,24 +39,22 @@ class MyFeed extends Component {
         console.log(error);
       });
     }
-=======
-    axios( {
-      url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
-      headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
-      method: "get"
-    })
-    .then((response)=>{
-      if(prevProps.match.params.item !== this.props.match.params.item) {
-        this.setState({
-          items: response.data.item,
-          keyword: this.props.match.params.item
-        })
-      }
-    })
-    .catch( (error)=> {
-      console.log(error);
-    });
->>>>>>> Stashed changes
+    // axios( {
+    //   url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
+    //   headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
+    //   method: "get"
+    // })
+    // .then((response)=>{
+    //   if(prevProps.match.params.item !== this.props.match.params.item) {
+    //     this.setState({
+    //       items: response.data.item,
+    //       keyword: this.props.match.params.item
+    //     })
+    //   }
+    // })
+    // .catch( (error)=> {
+    //   console.log(error);
+    // });
   }
 
   fetch=()=>{
@@ -96,6 +93,7 @@ class MyFeed extends Component {
       method: "get",
     }) 
     .then((response)=>{
+      console.log('aaa')
       this.setState({
         items: response.data.item,
         keyword: this.props.match.params.item

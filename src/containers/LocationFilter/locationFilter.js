@@ -25,14 +25,14 @@ class LocationFilter extends Component {
         this.setState({
             city: event.target.value
         })
-        console.log(this.state.city)
+        
     }
 
     handleCountryChange = (event) => {
         this.setState({
             country: event.target.value
         })
-        console.log(this.state.country)
+       
     }
 
     trigger = () => {

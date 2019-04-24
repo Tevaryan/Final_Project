@@ -20,8 +20,8 @@ const NewItem = props => (
     borderRadius:'50px'
     }}>
 
-    <input type="file"></input>
-    <button>Submit  </button>
+    {/* <input type="file"></input>
+    <button>Submit  </button> */}
     <Form>
           <FormGroup >
             <Row>

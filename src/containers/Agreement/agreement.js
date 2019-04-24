@@ -187,7 +187,7 @@ class Agreement extends React.Component{
                                         EXCHANGE ITEM
                                         </CardTitle>
                                     </CardBody>
-                                    <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                                    <img width="100%" src={approved_request.wanted_item_filename} alt='temparaly images' />
                                     <CardBody>
                                         <div className="itemtag">
                                             <CardText>
@@ -226,7 +226,7 @@ class Agreement extends React.Component{
                                         GIVE OUT ITEM
                                         </CardTitle>
                                     </CardBody>
-                                    <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                                    <img width="100%" src={approved_request.give_item_file} alt='temparaly images' />
                                     <CardBody>
                                         <div className="itemtag">
                                             <CardText>
@@ -300,7 +300,7 @@ class Agreement extends React.Component{
                                         EXCHANGE ITEM
                                         </CardTitle>
                                     </CardBody>
-                                    <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                                    <img width="100%" src={agreement_request.wanted_item_filename} alt='temparaly images' />
                                     <CardBody>
                                         <div className="itemtag">
                                             <CardText>
@@ -345,7 +345,7 @@ class Agreement extends React.Component{
                                             GIVE OUT ITEM
                                             </CardTitle>
                                         </CardBody>
-                                        <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                                        <img width="100%" src={agreement_request.give_item_filename}alt='temparaly images' />
                                         <CardBody>
                                             <div className="itemtag">
                                                 <CardText>

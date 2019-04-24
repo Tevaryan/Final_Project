@@ -30,16 +30,16 @@ class SideBarProfile extends Component {
       brif: "",
       picture:"",
       validated: false ,
-      valisation_username: true,
-      valisation_firstname: true,
-      valisation_lastname: true,
-      valisation_occupation: true,
-      valisation_location: true,
-      valisation_sex: true,
-      valisation_going_to: true,
-      valisation_date: true,
-      valisation_birthday: true,
-      valisation_brif: true,
+      // valisation_username: true,
+      // valisation_firstname: true,
+      // valisation_lastname: true,
+      // valisation_occupation: true,
+      // valisation_location: true,
+      // valisation_sex: true,
+      // valisation_going_to: true,
+      // valisation_date: true,
+      // valisation_birthday: true,
+      // valisation_brif: true,
       fileUpload: {},
     }
 
@@ -71,7 +71,7 @@ fetch_profile_img=()=>{
     method: "get"
   })
   .then( (response)=>{
-    console.log(response)
+  
     const { 
       username,
       firstname,
@@ -193,7 +193,7 @@ fetch_profile_img=()=>{
   render() {
     let lgClose = () => this.setState({ lgShow: false });
     const {valisation_username, valisation_firstname, valisation_lastname, valisation_occupation, valisation_location, valisation_sex, valisation_going_to, valisation_date, valisation_birthday, valisation_brif}=this.state
-    console.log(this.state.pictuer)
+    
     return (
 
       <div>
@@ -213,7 +213,6 @@ fetch_profile_img=()=>{
         </form>
 
 
-
         <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
           <li>Name:{this.state.username}</li>
           <li>Location:{this.state.location}</li>
@@ -221,14 +220,11 @@ fetch_profile_img=()=>{
           {/* <li>{this.state.date}</li> */}
         </ul>
   {/*         
-=======
->>>>>>> Stashed changes
         <p className="sidebarname">{this.state.username}</p>
         <p className="location">{this.state.location}</p>
         <p className="items">{this.state.going_to}</p>
         <p className="items">{this.state.date}</p> */}
 
-=======
       <div>
       <div className="sidebarprofile">
         <div className="profile">
@@ -242,7 +238,6 @@ fetch_profile_img=()=>{
             <li>Destination:{this.state.going_to}</li>
           </ul>
         </div>
->>>>>>> chatbox half fixed
           <Modal
             size="lg"
             show={this.state.lgShow}

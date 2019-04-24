@@ -30,18 +30,6 @@ class SideBarProfile extends Component {
       brif: "",
       picture:"",
       validated: false ,
-<<<<<<< Updated upstream
-      // valisation_username: true,
-      // valisation_firstname: true,
-      // valisation_lastname: true,
-      // valisation_occupation: true,
-      // valisation_location: true,
-      // valisation_sex: true,
-      // valisation_going_to: true,
-      // valisation_date: true,
-      // valisation_birthday: true,
-      // valisation_brif: true,
-=======
       valisation_username: true,
       valisation_firstname: true,
       valisation_lastname: true,
@@ -52,7 +40,6 @@ class SideBarProfile extends Component {
       valisation_date: true,
       valisation_birthday: true,
       valisation_brif: true,
->>>>>>> Stashed changes
       fileUpload: {},
     }
 
@@ -164,7 +151,7 @@ fetch_profile_img=()=>{
             sex,
             going_to,
             date, 
-            birthday,
+            zbirthday,
             brif,
             lgShow: false
           })     
@@ -191,17 +178,11 @@ fetch_profile_img=()=>{
           },
           data: formData,
         }).then( (response)=>{
-<<<<<<< Updated upstream
           
           this.fetch_profile_img()
           this.setState({pictuer:response.data.image_url})           
         })
         
-=======
-          console.log(response)
-          this.setState({pictuer:response.data.image_url})           
-        })
->>>>>>> Stashed changes
       }
     
   selectImage = e => {
@@ -214,24 +195,24 @@ fetch_profile_img=()=>{
     const {valisation_username, valisation_firstname, valisation_lastname, valisation_occupation, valisation_location, valisation_sex, valisation_going_to, valisation_date, valisation_birthday, valisation_brif}=this.state
     console.log(this.state.pictuer)
     return (
-<<<<<<< Updated upstream
+
       <div>
 
         <div className="sidebarprofile">
           <img src={this.state.picture} className="sidebarprofileimg " alt='aaaa' /> 
         </div>
-=======
+
       <div className="sidebarprofile">
          {/* <h1>{this.state.pictuer}hi herio</h1> */}
          <div className="border"><img src={this.state.pictuer} className="sidebarprofileimg" alt='aaaa'/></div>
         
->>>>>>> Stashed changes
+
         <form onSubmit={this.onFormSubmit}>
           <input onChange={this.selectImage} id='test' className="fileInput" type="file" name='file'/>
           <button className="submitButton"  type="submit" >Upload Image</button>
         </form>
 
-<<<<<<< Updated upstream
+
 
         <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
           <li>Name:{this.state.username}</li>
@@ -247,6 +228,21 @@ fetch_profile_img=()=>{
         <p className="items">{this.state.going_to}</p>
         <p className="items">{this.state.date}</p> */}
 
+=======
+      <div>
+      <div className="sidebarprofile">
+        <div className="profile">
+          <img src="https://source.unsplash.com/random/100x100" className="sidebarprofileimg" style={{border: '5px solid #5D6D7E'}} alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
+          <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
+            
+            <li>@{this.state.username}</li>
+            <hr/>
+            <li>Location:{this.state.location}</li>
+            <hr/>
+            <li>Destination:{this.state.going_to}</li>
+          </ul>
+        </div>
+>>>>>>> chatbox half fixed
           <Modal
             size="lg"
             show={this.state.lgShow}
@@ -404,7 +400,10 @@ fetch_profile_img=()=>{
           </Modal>
 
         
+        </div>
+        </div>
 
+      </div>
       </div>
     )
   }

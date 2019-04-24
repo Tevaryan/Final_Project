@@ -9,7 +9,7 @@
     transform: rotate(-45deg);
     border-bottom: 30px solid white;
 }
-      
+
 .img{
     position: absolute;
     right:-130px;
@@ -17,4 +17,11 @@
     width:80px;
     height:80px;
     border-radius: 50px;
+}
+
+.chatboxinputandsend{
+    position: relative;
+    bottom: 3%;
+    right: 10%;
+
 }

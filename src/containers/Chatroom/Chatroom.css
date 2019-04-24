@@ -1,13 +1,9 @@
 .ChatSpace {
-    position: relative;
-    width: 100%;
+    position: relative; 
     min-height: 100vh;
     height: 100%;
+    /* width: 15px; */
     background-color:rgb(245, 245, 245);
-    /* background-image: '';
-    background-size: cover;background-attachment: fixed;
-    background-position: center;
-    opacity: 0.8; */
     padding-top:56px;
     padding-left: 30%;
     padding-right: 200px;
@@ -16,6 +12,11 @@
     font-size: 18px;
     text-align: top;
     z-index: 0;
+    border: 1px solid black;
+    /* background-image: '';
+    background-size: cover;background-attachment: fixed;
+    background-position: center;
+    opacity: 0.8; */
 }
 
 .OutsideContainerMy {
@@ -39,7 +40,9 @@
     padding: 5px;
     margin: 5px 0;
     min-width: 200px;
-}
+    position: relative;
+    margin-left: 5% !important;
+  }
 
 .ContainerMy {
   background-color: #333;

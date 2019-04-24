@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
 import { Redirect } from "react-router-dom"
-import FacebookLogin from 'react-facebook-login';
 // import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import "../../components/css/loginbutton.css"
+import LoginButton from "../../assets/images/facebook.jpg"
+import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props'
 
 class ResponseFacebook extends Component {
   state = {
@@ -46,17 +48,18 @@ class ResponseFacebook extends Component {
   render() {
     if (this.state.isLogin === false) {
       return(
-        <>
-          <FacebookLogin 
+        <div>
+          <FacebookLogin
           appId="1059436517582741"
-          textButton =" Login with Facebook"
           autoLoad={false}
-          fields="name,email,picture"
           callback={this.responseFacebook}
-          cssClass="my-facebook-button-class"
-          // icon={<FontAwesomeIcon icon={['fab', 'facebook']} size="1x" color="blue"/>}
+          render={renderProps => (
+            <button onClick={renderProps.onClick} style={{borderRadius: "25px", width: '100%'}} className="facebook">Login with Facebook</button>
+          )}
           />
-        </>
+        </div>
+        
+
       )
     } else {
       return <Redirect to='/Dashboard/TradeMain/MyFeed'/>

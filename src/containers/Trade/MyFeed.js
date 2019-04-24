@@ -20,11 +20,11 @@ class MyFeed extends Component {
       method: "get"
     })
     .then((response)=>{
-      console.log(response)
+      
       this.setState({
         items: response.data.item,
       })
-      console.log(this.state.items)
+      
     })
     .catch( (error)=> {
       console.log(error);

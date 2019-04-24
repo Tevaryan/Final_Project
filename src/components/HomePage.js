@@ -68,8 +68,8 @@ class HomePage extends Component {
             </h2> 
             <div className= "container4">
                 <form action="/">
-                <input type="text" placeholder="Search.." name="search"></input>
-                <button type="submit" className="searchbarbutton">Go!</button>
+                    <input type="text" placeholder="Search.." name="search" className="searchinput"></input>
+                    <button type="submit" className="searchbarbutton">🔎</button>
                 </form>
             </div>
         </div>

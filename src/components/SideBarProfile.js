@@ -210,7 +210,7 @@ fetch_profile_img=()=>{
         <ul style={{listStyle: 'none'}} className="pl-0 mt-2 uls">
           <li>Name:  {this.state.username}</li>
           <li>Location:  {this.state.location}</li>
-          <li>Destination:  {this.state.going_to}</li>
+          <li>Destination:   {this.state.going_to}</li>
           {/* <li>{this.state.date}</li> */}
         </ul>
       </div>  

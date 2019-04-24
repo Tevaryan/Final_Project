@@ -59,7 +59,7 @@ class MyFeed extends Component {
       console.log(error);
     });
   }
-  
+
   
 
   toggle=()=> {
@@ -69,8 +69,7 @@ class MyFeed extends Component {
   }
 
   detailSearch=(event)=>{
-    console.log('goooo')
-    console.log(event.target.innerText)
+    
     axios( {
       // url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}?tag_children=${event.target.innerHTML}`,
       url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}/${event.target.innerText}`,
@@ -78,6 +77,7 @@ class MyFeed extends Component {
       method: "get",
     }) 
     .then((response)=>{
+      console.log('aaa')
       this.setState({
         items: response.data.item,
         keyword: this.props.match.params.item

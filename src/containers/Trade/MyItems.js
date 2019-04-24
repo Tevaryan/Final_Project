@@ -35,7 +35,7 @@ class MyItems extends Component {
   }
 
   fetchItems = () => {
-    console.log('aa')
+    
     axios.get(`http://localhost:5000/api/v1/item/show/me`,{
       headers: {
         "Authorization": "Bearer " + localStorage.getItem("JWT")
@@ -84,8 +84,7 @@ class MyItems extends Component {
 
   fileNameInputHandler =(event)=>{
     this.setState({fileUpload: event.target.files[0]})
-    console.log(event.target.files[0])
-    console.log(event.target.files[0].name)
+   
   }
 
   
@@ -126,7 +125,7 @@ class MyItems extends Component {
           data: formData
         })
         .then((response)=> {
-          console.log(response)
+          
          let items = [...this.state.items]
          items.push(response.data.user)
          this.setState({items:items})

@@ -19,6 +19,8 @@ import {Link, Redirect} from "react-router-dom";
 import "../components/css/navbarcomponent.css"
 import Homelogo from "../assets/images/homebuttonblue.jpg"
 import Messagelogo from "../assets/images/message.jpg"
+import More from "../components/more"
+
 // import Logoutlogo from "../assets/images/logout.jpg"
 
 class NavbarComponent extends Component {
@@ -133,15 +135,16 @@ class NavbarComponent extends Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
 
-          <div className= "container5">
+          
+          {/* <div className= "container5">
             <form action="/">
               <input type="text" placeholder="  Search.." name="search" className='searchbar'></input>
               <button type="submit" className="searchbarbutton">🔎</button>
             </form>
-          </div>
+          </div> */}
            {/* for fiter thing  */}
             <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
-                <div nav caret onMouseOver={this.overHandler} className={'text-white ml-5'} className="categorybutton">
+                <div onMouseOver={this.overHandler} className={'text-white ml-5'} className="categorybutton">
                   <img src={Categorylogo} className="categorylogo" alt='test'/>
                   <strong>Category</strong>
                 </div> 
@@ -163,7 +166,7 @@ class NavbarComponent extends Component {
                 </div>
               </UncontrolledDropdown>
               <Dropdown nav inNavbar className={'text-white ml-5 list-unstyled'}>
-                <div nav caret onMouseOver={this.overHandler2} className={'text-white'}  className="city">
+                <div onMouseOver={this.overHandler2} className={'text-white'}  className="city">
                   <strong>📍Location</strong>
                 </div> 
                 <div>
@@ -172,19 +175,8 @@ class NavbarComponent extends Component {
                   </DropdownMenu>
                 </div>
               </Dropdown>
-            <Nav className="ml-auto" navbar>
-              <NavItem className = 'Navbar_TradeMain'>
-                <NavLink tag ={Link} to={`/Dashboard/TradeMain/MyFeed`} className="tradebutton"><p className="taobutton">Tao click here</p></NavLink>
-              </NavItem>
-              <NavItem className = 'Navbar_Delivery'>
-                <NavLink tag ={Link} to={`/Dashboard/page2`} onClick={this.logoutHandler} >
-                <div>
-                  <p className="logoutbutton">LOGOUT</p>
-                </div>
-                </NavLink>
-              </NavItem>
-              
-            </Nav>
+            
+            <More logout={this.logoutHandler}/>
           </Collapse>
         </Navbar>
       </div>

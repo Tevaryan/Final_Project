@@ -1,6 +1,6 @@
 import React from "react";
 import { FormGroup, FormLabel,Form} from 'react-bootstrap';
-import {Input, Button, Label, Col,Row,Modal} from "reactstrap";
+import {Input, Button, Label, Col,Row} from "reactstrap";
 
 
 
@@ -27,6 +27,9 @@ const NewItem = props => (
     left:'25%',
     borderRadius:'50px'
     }}>
+
+    {/* <input type="file"></input>
+    <button>Submit  </button> */}
     <Form>
           <FormGroup >
             <Row>

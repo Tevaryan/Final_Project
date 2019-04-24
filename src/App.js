@@ -21,6 +21,7 @@ import Delivery from './pages/Delivery/Delivery'
 import UserItem from "./containers/ExchangeRequest/userItem"
 import ChooseItem from "./containers/ExchangeRequest/chooseItem"
 import AgreementList from "./containers/Agreement/agreement"
+import SetAmount from "./containers/ExchangeRequest/setAmount"
 
 
 class App extends Component {
@@ -46,6 +47,7 @@ class App extends Component {
       <Route path={'/Dashboard/Item/:id'} component={UserItem}/>
       <Route path={'/Dashboard/ChooseItem/:id'} component={ChooseItem}/>
       <Route path={'/Dashboard/AgreementList'} component={AgreementList}/>
+      <Route path={'/Dashboard/SetAmount'} component={SetAmount}/>
 
 
     </>

@@ -107,7 +107,7 @@ class SearchItems extends React.Component{
 render(){
 
    
-    console.log(this.props)
+    
     return(
     
         <Col sm='4' className='my-2'>

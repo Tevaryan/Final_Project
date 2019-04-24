@@ -1,13 +1,17 @@
 import React from "react";
 import axios from "axios";
 import {Row,Col} from "react-bootstrap";
-import {Card, CardBody, CardTitle, CardText} from "reactstrap";
+import {Card, CardBody, CardTitle, CardText,Input} from "reactstrap";
 import {Link} from "react-router-dom";
 
 class ExchangeRequestList extends React.Component {
 
     state={
         exchange_requests:[],
+        // setAmountModal:false,
+        money:""
+
+
         
     }
 
@@ -50,7 +54,7 @@ class ExchangeRequestList extends React.Component {
             }
           })
           .then((response)=> {
-               console.log(response)
+               
                this.fetch()
             
            
@@ -60,6 +64,46 @@ class ExchangeRequestList extends React.Component {
           });
     }
     
+    // setAmountModal=()=>{
+    //     this.setState({setAmountModal:true})
+    // }
+
+    moneyInputHandler =(event)=>{
+        this.setState({money:event.target.value})
+        }
+
+    setAmount = (user_id, wanted_item_id) =>{
+
+        const data ={
+            user_id:user_id,
+            wanted_item_id:wanted_item_id,
+            money:this.state.money
+            }
+            axios.post(`http://localhost:5000/api/v1/agreement/new`, data, {
+            headers: {
+                "Authorization": "Bearer " + localStorage.getItem("JWT")
+            }
+            })
+            .then((response)=> {
+                
+                alert("send agreement request successfully")
+                axios.post(`http://localhost:5000/api/v1/exchange_request/update`, data, {
+                headers: {
+                "Authorization": "Bearer " + localStorage.getItem("JWT")
+                }
+                })
+                .then((response)=> {
+                    this.fetch()
+                })
+            
+            
+            })
+            .catch(function (error) {
+            console.log(error);
+            });
+
+    }
+
 
 
     render(){
@@ -70,10 +114,20 @@ class ExchangeRequestList extends React.Component {
     <Row>
       {
         this.state.exchange_requests.map((exchange_request,index)=>{
-         
-          return(
-          
-           
+            
+
+        // if(this.state.setAmountModal === true){
+        //     return(
+        //         <Col sm='3' className="mt-5" key={index}>
+
+        //         <h1>Its work</h1>
+        //         </Col>
+        //     )
+        // }
+
+            return(
+            
+
             
             
                 <Col sm='3' className="mt-5" key={index}>
@@ -105,11 +159,12 @@ class ExchangeRequestList extends React.Component {
                         </div>
                     
                         {
-                            exchange_request.give_item_id===null
+                            exchange_request.give_item_id===null && exchange_request.money===null
                             ?<div>
                                 <div>
                                     <CardText>
-                                        <button>Exchange with money</button>
+                                        {/* <Link to={{pathname:`/Dashboard/SetAmount`,state:{wanted_item_id:exchange_request.item_id,user_id:exchange_request.user_id}}}><button>Exchange with money</button></Link> */}
+                                        <span>Amount:</span><Input type="text" styl={{width:"10%"}} onChange={this.moneyInputHandler}/><button onClick={()=>this.setAmount(exchange_request.user_id, exchange_request.item_id)}>Exchange with money</button>
                                     </CardText>
                                 </div>
                                 <div>
@@ -122,19 +177,19 @@ class ExchangeRequestList extends React.Component {
                                         <button onClick={()=>this.delete(exchange_request.user_id, exchange_request.item_id)}>Reject</button>
                                     </CardText>
                                 </div>
-                             </div>
+                                </div>
                             :<span>agreement pending...</span>
                         }
-                       
+                        
                         
                     </CardBody>
                     
                     </Card>
                 </Col>
-          
-         
-         
-         )
+            
+            
+            
+            )
         })
      }
     </Row>

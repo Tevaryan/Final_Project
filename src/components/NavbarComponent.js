@@ -136,6 +136,12 @@ class NavbarComponent extends Component {
           <Collapse isOpen={this.state.isOpen} navbar>
 
           
+          {/* <div className= "container5">
+            <form action="/">
+              <input type="text" placeholder="  Search.." name="search" className='searchbar'></input>
+              <button type="submit" className="searchbarbutton">🔎</button>
+            </form>
+          </div> */}
            {/* for fiter thing  */}
             <UncontrolledDropdown nav inNavbar className={'list-unstyled text-white ml-5'}>
                 <div onMouseOver={this.overHandler} className={'text-white ml-5'} className="categorybutton">

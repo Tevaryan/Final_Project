@@ -30,6 +30,8 @@ class Agreement extends React.Component{
         method: "get"
     })
     .then((response)=>{
+
+        
         
         this.setState({
         agreement_requests: response.data.agreement_request
@@ -67,11 +69,12 @@ class Agreement extends React.Component{
 
 
 
-    approve=(wanted_item_id,owner_id,give_item_id)=>{
+    approve=(wanted_item_id,owner_id,give_item_id, money)=>{
         const data ={
             wanted_item_id:wanted_item_id,
             owner_id:owner_id,
-            give_item_id:give_item_id
+            give_item_id:give_item_id,
+            money:money
         }
         
         axios.post(`http://localhost:5000/api/v1/agreement/approval/update`, data, {
@@ -100,6 +103,51 @@ class Agreement extends React.Component{
         });
     }
 
+    reject=(wanted_item_id,owner_id,give_item_id,user_id, money )=>{
+        const data ={
+            wanted_item_id:wanted_item_id,
+            owner_id:owner_id,
+            give_item_id:give_item_id,
+            money:money
+        }
+
+        // const e ={
+        //     user_id:user_id,
+        //     wanted_item_id:wanted_item_id,
+        //     // give_item_id:give_item_id
+        //   }
+
+        axios.post(`http://localhost:5000/api/v1/agreement/delete`, data, {
+            headers: {
+            "Authorization": "Bearer " + localStorage.getItem("JWT")
+            }
+        })
+        .then((response)=> {
+
+            this.fetchAgreementRequests()
+            // axios.post(`http://localhost:5000/api/v1/exchange_request/reject_request`, e, {
+            //     headers: {
+            //       "Authorization": "Bearer " + localStorage.getItem("JWT")
+            //     }
+            //   })
+            //   .then((response)=> {
+                   
+                //    this.fetchAgreementRequests()
+                
+               
+            //   })
+            //   .catch(function (error) {
+            //     console.log(error);
+            //   });
+                
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+
+    }
+
+
     showHistory= () =>{
         this.setState({history:true})
         this.fetchApprovedRequests()
@@ -115,7 +163,7 @@ class Agreement extends React.Component{
 
 
     render(){
-
+       
         if (this.state.history ===true){
             return(
                 <div>
@@ -169,38 +217,46 @@ class Agreement extends React.Component{
                                 <h1>EXCHANGE SUCCESSFULLY</h1>
                                 
                                 </Col>
-                                <Col sm='4' className="mt-" key={approved_request.give_item_id}>
-                                <Card>
-                                <CardBody className="itemname">
-                                    <CardTitle>
-                                    GIVE OUT ITEM
-                                    </CardTitle>
-                                </CardBody>
-                                <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
-                                <CardBody>
-                                    <div className="itemtag">
-                                        <CardText>
-                                            
-                                            {approved_request.give_item_tag_parent}<br/>
-                                        </CardText>
-                                    </div>
-                                    <div className="itemtag">
-                                        <CardText>
-                                            {approved_request.give_item_tag_children}<br/>
-                                        </CardText>
-                                    </div>
-                                    <div className="itemdescription">
-                                        <CardText>
-                                            {approved_request.give_item_name}
-                                        </CardText>
-                                    </div>
+                                {
+                                    approved_request.money===null
+                                   ?<Col sm='4' className="mt-" key={approved_request.give_item_id}>
+                                    <Card>
+                                    <CardBody className="itemname">
+                                        <CardTitle>
+                                        GIVE OUT ITEM
+                                        </CardTitle>
+                                    </CardBody>
+                                    <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                                    <CardBody>
+                                        <div className="itemtag">
+                                            <CardText>
+                                                
+                                                {approved_request.give_item_tag_parent}<br/>
+                                            </CardText>
+                                        </div>
+                                        <div className="itemtag">
+                                            <CardText>
+                                                {approved_request.give_item_tag_children}<br/>
+                                            </CardText>
+                                        </div>
+                                        <div className="itemdescription">
+                                            <CardText>
+                                                {approved_request.give_item_name}
+                                            </CardText>
+                                        </div>
                                     
     
                                     
-                                </CardBody>
-    
-                                </Card>
-                                </Col>
+                                    </CardBody>
+        
+                                    </Card>
+                                    </Col>
+                                   :<Col sm='4' className="mt-" >
+
+                                    <h1>RM{approved_request.money}</h1>
+                               
+                                    </Col>
+                                }
                             </Row>
     
     
@@ -274,43 +330,56 @@ class Agreement extends React.Component{
                                 <h1>EXCHANGE WITH</h1>
                                 <br>
                                 </br>
-                                <button onClick={()=>this.approve(agreement_request.wanted_item_id,agreement_request.owner_id,agreement_request.give_item_id)}>Agree</button>
+                                <button onClick={()=>this.approve(agreement_request.wanted_item_id,agreement_request.owner_id,agreement_request.give_item_id, agreement_request.money)}>Agree</button>
                                 <br>
                                 </br>
-                                <button>Reject</button>
+                                <button onClick={()=>this.reject(agreement_request.wanted_item_id,agreement_request.owner_id,agreement_request.give_item_id, agreement_request.user_id, agreement_request.money)}>Reject</button>
                                 </Col>
-                                <Col sm='4' className="mt-" key={agreement_request.give_item_id}>
-                                <Card>
-                                <CardBody className="itemname">
-                                    <CardTitle>
-                                    GIVE OUT ITEM
-                                    </CardTitle>
-                                </CardBody>
-                                <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
-                                <CardBody>
-                                    <div className="itemtag">
-                                        <CardText>
+
+                                {
+                                    agreement_request.money===null
+                                    ?<Col sm='4' className="mt-" key={agreement_request.give_item_id}>
+                                        <Card>
+                                        <CardBody className="itemname">
+                                            <CardTitle>
+                                            GIVE OUT ITEM
+                                            </CardTitle>
+                                        </CardBody>
+                                        <img width="100%" src="https://source.unsplash.com/random/300x300" alt='temparaly images' />
+                                        <CardBody>
+                                            <div className="itemtag">
+                                                <CardText>
+                                                    
+                                                    {agreement_request.give_item_tag_parent}<br/>
+                                                </CardText>
+                                            </div>
+                                            <div className="itemtag">
+                                                <CardText>
+                                                    {agreement_request.give_item_tag_children}<br/>
+                                                </CardText>
+                                            </div>
+                                            <div className="itemdescription">
+                                                <CardText>
+                                                    {agreement_request.give_item_name}
+                                                </CardText>
+                                            </div>
                                             
-                                            {agreement_request.give_item_tag_parent}<br/>
-                                        </CardText>
-                                    </div>
-                                    <div className="itemtag">
-                                        <CardText>
-                                            {agreement_request.give_item_tag_children}<br/>
-                                        </CardText>
-                                    </div>
-                                    <div className="itemdescription">
-                                        <CardText>
-                                            {agreement_request.give_item_name}
-                                        </CardText>
-                                    </div>
+            
+                                            
+                                        </CardBody>
+            
+                                        </Card>
+                                        </Col>
+                                    :<Col sm='4' className="mt-" key={agreement_request.give_item_id}>
+
+                                        <h1>RM{agreement_request.money}</h1>
                                     
-    
-                                    
-                                </CardBody>
-    
-                                </Card>
-                                </Col>
+                                     </Col>
+
+                                } 
+                                
+                                
+                                
                             </Row>
     
     

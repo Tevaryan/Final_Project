@@ -3,6 +3,7 @@ import "../components/css/tradesidebar.css";
 import axios from "axios";
 import{ Modal,Button,Form, Col,} from 'react-bootstrap';
 import {Input} from 'reactstrap'
+import '../mhd.css';
 
 
 
@@ -71,7 +72,7 @@ fetch_profile_img=()=>{
     method: "get"
   })
   .then( (response)=>{
-  
+    console.log(response)
     const { 
       username,
       firstname,
@@ -151,7 +152,7 @@ fetch_profile_img=()=>{
             sex,
             going_to,
             date, 
-            zbirthday,
+            birthday,
             brif,
             lgShow: false
           })     
@@ -193,51 +194,32 @@ fetch_profile_img=()=>{
   render() {
     let lgClose = () => this.setState({ lgShow: false });
     const {valisation_username, valisation_firstname, valisation_lastname, valisation_occupation, valisation_location, valisation_sex, valisation_going_to, valisation_date, valisation_birthday, valisation_brif}=this.state
-    
+    console.log(this.state.pictuer)
     return (
-
       <div>
-
+       <div className="borderchin">
         <div className="sidebarprofile">
-          <img src={this.state.picture} className="sidebarprofileimg " alt='aaaa' /> 
+          <img onClick={()=>this.setState({ lgShow: true })} src={this.state.picture} className="sidebarprofileimg " alt='aaaa' /> 
         </div>
-
-      <div className="sidebarprofile">
-         {/* <h1>{this.state.pictuer}hi herio</h1> */}
-         <div className="border"><img src={this.state.pictuer} className="sidebarprofileimg" alt='aaaa'/></div>
-        
-
-        <form onSubmit={this.onFormSubmit}>
+        {/* <form onSubmit={this.onFormSubmit}>
           <input onChange={this.selectImage} id='test' className="fileInput" type="file" name='file'/>
           <button className="submitButton"  type="submit" >Upload Image</button>
-        </form>
+        </form> */}
 
 
-        <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
-          <li>Name:{this.state.username}</li>
-          <li>Location:{this.state.location}</li>
-          <li>Destination:{this.state.going_to}</li>
+        <ul style={{listStyle: 'none'}} className="pl-0 mt-2 uls">
+          <li>Name:  {this.state.username}</li>
+          <li>Location:  {this.state.location}</li>
+          <li>Destination:   {this.state.going_to}</li>
           {/* <li>{this.state.date}</li> */}
         </ul>
+      </div>  
   {/*         
         <p className="sidebarname">{this.state.username}</p>
         <p className="location">{this.state.location}</p>
         <p className="items">{this.state.going_to}</p>
         <p className="items">{this.state.date}</p> */}
 
-      <div>
-      <div className="sidebarprofile">
-        <div className="profile">
-          <img src="https://source.unsplash.com/random/100x100" className="sidebarprofileimg" style={{border: '5px solid #5D6D7E'}} alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
-          <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
-            
-            <li>@{this.state.username}</li>
-            <hr/>
-            <li>Location:{this.state.location}</li>
-            <hr/>
-            <li>Destination:{this.state.going_to}</li>
-          </ul>
-        </div>
           <Modal
             size="lg"
             show={this.state.lgShow}
@@ -254,13 +236,16 @@ fetch_profile_img=()=>{
               <Modal.Body>
               <Form.Row>
                   <Form.Group as={Col} md="4" controlId="validationCustom01">
-                    <img src="https://source.unsplash.com/random/100x100" className="sidebarprofileimg" alt='aaa'/>
-                  </Form.Group>
+                  <div className="sidebarprofile">
+                    <img onClick={()=>this.setState({ lgShow: true })} src={this.state.picture} className="sidebarprofileimg " alt='aaaa' /> 
+                  </div>
+                 </Form.Group>
                   <Form.Group as={Col} md="8" controlId="validationCustom02">
-                    <h5>{this.state.username}<br/><br/>{this.state.location}<br/><br/>I am going to {this.state.going_to} on {this.state.date}</h5>
+                    <h5>Hey {this.state.username}!!!<br/><br/>{this.state.location}<br/></h5>
                   </Form.Group>
                 </Form.Row>
 
+            
                 <Form.Row>
                   <Form.Group as={Col} md="4" controlId="validationCustom01" className="mb-0">
                     <Form.Label>First name</Form.Label>
@@ -378,27 +363,33 @@ fetch_profile_img=()=>{
                     
                     {!valisation_date && "please enter your info here"}</p>
                   </Form.Group>
+
+
                 </Form.Row>
 
-                
+           
+
                 <Form.Group controlId="exampleForm.ControlTextarea1" className="mb-0">
                   <Form.Label>Introduction,Info</Form.Label>
                   <Form.Control as="textarea" rows="3" name="brif" onChange={this.handleChange}  defaultValue={this.state.brif}/>
                   <p style={red} className="mb-0">{!valisation_brif && "please enter your info here"}</p>
                 </Form.Group>
+                <form onSubmit={this.onFormSubmit}>
+          <input onChange={this.selectImage} id='test' className="fileInput  " type="file" name='file'/>
+          <button className="submitButton "  type="submit" >Upload Image</button>
+        </form>
               </Modal.Body>
               <Modal.Footer className="">
                 <Button type="submit" onClick={this.handleEditForm} className="btn-success">Edit Profile</Button>
               </Modal.Footer>
+
+              
               
               {/* end form */}
           </Modal>
 
         
-        </div>
-        </div>
 
-      </div>
       </div>
     )
   }

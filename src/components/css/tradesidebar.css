@@ -1,4 +1,5 @@
 .sidebarprofileimg{
+    /* height: 150px; */
     width:150px;
     display: block;
     position: relative;
@@ -52,7 +53,7 @@
 
 
 .something{
-    border: 1px solid #34495E;
+    border: 1px solid #fff;
     background-color: #5D6D7E;
     border-radius: 5px;
     color:white;
@@ -62,3 +63,20 @@
     top: 140px;
 }
 
+
+.something:hover{
+    border: 1px solid #fff;
+    background-color: rgb(71, 84, 97);
+    border-radius: 5px;
+    color:white;
+    text-align: center;
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+
+
+.trendingtags{
+    border-radius: 5px;
+    background-color: #5D6D7E;
+}

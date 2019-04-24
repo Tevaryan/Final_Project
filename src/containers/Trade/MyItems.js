@@ -10,6 +10,8 @@ import NewItem from "../../components/addItemHandler";
 import "../../components/css/myitems.css";
 import ShowItem from "../../components/showItems";
 import Backdrop from '../../components/Backdrop/Backdrop'
+import '../../mhd.css';
+
 
 
 class MyItems extends Component {

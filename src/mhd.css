@@ -1,0 +1,102 @@
+div.col{
+    background-color: #202c38;
+    height: 100vh;
+    overflow-y: auto;
+    /* overflow: hidden; */
+    /* overflow: hidden; */
+}
+::-webkit-scrollbar { 
+    display: none; 
+  }
+
+  
+ .card{
+    
+    border-radius: 50px;
+    height: 100%;
+ }
+
+ div.card{
+    border-radius: 15px;
+    margin: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+ }
+
+ div.card:hover{
+    border-radius: 15px;
+    margin: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.7), 0 6px 20px 0 rgba(0, 0, 0, 0.7);
+ }
+
+
+ img{
+    border-radius: 15px;
+    padding: 5px;
+
+
+ }
+
+ .mt-5{
+    border-radius: 50px;
+
+    border-radius: 100px;
+ }
+
+ .itemtag{
+     border-radius: 5px;
+     background-color: #202c38
+ }
+ .itemname{
+     margin: auto;
+     font-weight: 600;
+     margin-bottom: 5px;
+     border-bottom: 2px solid rgb(39, 32, 32);
+
+
+ }
+
+ .butt{
+     border: 2px solid #202c38;
+     padding: 5px 10px;
+     color: #202c38;
+     
+     margin: 5px;
+     border-radius: 5px;
+     float: right;
+ }
+
+ .butt:hover{
+    border: 2px solid #202c38;
+    padding: 5px 10px;
+    color: #fff;
+    background-color: #202c38;
+    margin: 5px;
+    border-radius: 5px;
+    float: right;
+}
+
+.borderchin{
+    padding: 5px;
+    border: 1px solid #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+    background-color: #394450;
+
+
+
+}
+
+.sidebarprofile{
+    margin: auto
+}
+
+
+.uls{
+    text-align: center;
+    color: #fff;
+    
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 10px;
+    
+}

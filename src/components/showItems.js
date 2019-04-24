@@ -1,8 +1,9 @@
 import React from "react";
 import {Col} from "react-bootstrap";
-import { FormGroup, FormLabel,Form} from 'react-bootstrap';
+import { FormGroup, FormLabel,Form, CardColumns} from 'react-bootstrap';
 import {Input, Button, Label, Card, CardBody, CardTitle, CardText, CardLink} from "reactstrap";
 import axios from "axios";
+import '../mhd.css';
 
 
 
@@ -104,7 +105,8 @@ class Items extends React.Component{
         if(this.state.editItem === true){
             return(
 
-            <Col sm={4} key={this.props.index} className={"mt-5"} style={{border:"2px solid black"}}>
+            <Col sm={4} key={this.props.index} className={"mt-5"} style={{border:"2px solid black",   backgroundColor:" red"
+        }}>
             <Form>
                     <FormGroup >
                     <Label for="exampleEmail" sm={2}>Item Name</Label>
@@ -168,16 +170,18 @@ class Items extends React.Component{
         
         return(
 
+         
 
+         
             <Col sm='4' key={this.props.index} className={"mt-5"}>
                 <Card>
+                <img width="100%" src={this.props.item.file_name} alt='temparaly images' />
                 <CardBody className="itemname">
                     <CardTitle>
                     {/* <span>Item{index}</span> */}
-                    {this.props.item.name}<br/>
+                    | {this.props.item.name} |<br/>
                     </CardTitle>
                 </CardBody>
-                <img width="100%" src={this.props.item.file_name} alt='temparaly images' />
                 <CardBody>
                     <div className="itemtag">
                         <CardText>
@@ -197,13 +201,14 @@ class Items extends React.Component{
                     </div>
                 
 
-                <CardLink href="#" onClick={()=>{this.setState({editItem:true})}}>edit</CardLink>
-                <CardLink href="#">delete</CardLink>
+                <CardLink className="butt" href="#" onClick={()=>{this.setState({editItem:true})}}>edit</CardLink>
+                <CardLink className="butt" href="#">delete</CardLink>
 
                 </CardBody>
                 </Card>
             </Col>
-
+           
+  
                    
             )
 

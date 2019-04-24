@@ -1,8 +1,5 @@
 .sidebarprofileimg{
-<<<<<<< Updated upstream
-=======
     /* height: 150px; */
->>>>>>> Stashed changes
     width:150px;
     display: block;
     position: relative;
@@ -12,14 +9,11 @@
     
 }
 
-<<<<<<< Updated upstream
-=======
 .border{
     width:150px;
     height: 150px;
     border: 2px solid red;
 }
->>>>>>> Stashed changes
 
 .sidebarprofile{
     margin-top: 31px;
@@ -39,13 +33,26 @@
 }
 
 .something{
-    border: 1px solid #34495E;
+    border: 1px solid #fff;
     background-color: #5D6D7E;
     border-radius: 5px;
     color:white;
     text-align: center;
     margin-top: 6px;
 }
+
+
+.something:hover{
+    border: 1px solid #fff;
+    background-color: rgb(71, 84, 97);
+    border-radius: 5px;
+    color:white;
+    text-align: center;
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+
 
 .trendingtags{
     border-radius: 5px;

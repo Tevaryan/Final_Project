@@ -8,6 +8,10 @@
   height: 100vh;
 }
 
+body{
+  font-family: arial;
+}
+
 .picture_space{
   background-color: #34495E  ;
   height: 100vh;

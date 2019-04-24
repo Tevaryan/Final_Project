@@ -44,8 +44,8 @@ class Distance extends Component{
     render() {
         return (
             <div>
-                <h5>distance from your location:{this.state.distance}</h5>
-                <h5>estiamted time of your journey:{this.state.estimated_time}</h5>
+                <h6>distance: {this.state.distance}</h6>
+                <h6>travel time: {this.state.estimated_time}</h6>
             </div>
         )
     }

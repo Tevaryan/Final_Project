@@ -4,12 +4,7 @@ import axios from 'axios';
 
 class Geocoding extends Component{
     constructor(props){
-
         super(props)
-        this.state ={
-            places: ['Kajang Malaysia', 'Presinct 11 Malaysia', 'Balakong Malaysia', 'Bandar Baru Bangi Malaysia'],
-        }
-
     }
 
     componentDidMount() {
@@ -18,13 +13,14 @@ class Geocoding extends Component{
               url: `http://localhost:5000/api/v1/item/show_all_items`,
               headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
               method: "get"
-            }).then(result => {
+            }).then((result) => {
                 result.data.item.map(place =>
                     {
                         axios.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${place.owner_location}&key=AIzaSyCz2XfFOJs5LX94xX69vyj0TqZOmsw6p1c`)
                         .then(result => {
+                        const user_id = place.owner_user_id
                         // If successful, we do stuffs with 'result'
-                        this.props.getLocation(result.data.results[0].geometry.location.lng, result.data.results[0].geometry.location.lat)
+                        this.props.getLocation(user_id, result.data.results[0].geometry.location.lng, result.data.results[0].geometry.location.lat)
                         })
                         .catch(error => {
                         // If unsuccessful, we notify users what went wrong

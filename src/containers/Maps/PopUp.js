@@ -1,8 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Distance from '../Maps/distance.js'
-import {Popup} from "react-mapbox-gl";
-// import ReactMapboxGl, { Layer, Popup, Marker} from "react-mapbox-gl";
+import  {  Popup} from "react-mapbox-gl";
 
 
 class PopUp extends React.Component{

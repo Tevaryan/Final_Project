@@ -7,6 +7,7 @@ import {
   from 'reactstrap';
 import SideBarProfile from "../components/SideBarProfile";
 
+
 class TradeSideBar extends Component {
   render() {
     return (

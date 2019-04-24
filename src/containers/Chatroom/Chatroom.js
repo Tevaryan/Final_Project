@@ -23,6 +23,7 @@ class Messages extends React.Component {
   
   componentDidMount () {
     //!! when user comes to this page,let user join room and activate socket
+    console.log(this.props.location.state)
    
     this.setSocketListeners()
     socket.emit("join_room",{'user_id':this.state.user_id,'partner_id': this.state.partner_id})
@@ -130,8 +131,8 @@ if(this.props.location.state.description){
   item =  
 <Card body className='py-0 '>
   <CardTitle>Selected Item</CardTitle>
-  <div>
-    <img width="100%" src="https://source.unsplash.com/random/300x200" alt='temparaly images'/>
+  <div> 
+    <img width="100%" src={this.props.location.state.img} alt='temparaly images'/>
   </div>
   <CardText>ownwer: {this.props.location.state.username}</CardText>
   <CardText>reward: {this.props.location.state.reward}</CardText>

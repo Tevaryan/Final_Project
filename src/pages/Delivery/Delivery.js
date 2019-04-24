@@ -91,7 +91,7 @@ class Delivery extends React.Component{
                     <CardTitle className="text-center mb-0" style={{fontSize:'30px'}}><strong>WANTED</strong></CardTitle>
                     <Row>
                       <Col sm={6} >
-                        <img src="https://source.unsplash.com/random/300x200" alt='temparaly images' className="img-fluid"/>
+                        <img src={item.file_namee} alt='temparaly images' className="img-fluid"/>
                       </Col>
                       <Col sm={6} className="pl-0">
                         <CardText>ownwer: {item.username}</CardText>

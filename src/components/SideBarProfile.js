@@ -12,6 +12,7 @@ const red = {
 };
 
 
+
 class SideBarProfile extends Component {
   constructor () {
     super();
@@ -27,8 +28,20 @@ class SideBarProfile extends Component {
       date: "",
       birthday: "",
       brif: "",
-      pictuer:"",
+      picture:"",
       validated: false ,
+<<<<<<< Updated upstream
+      // valisation_username: true,
+      // valisation_firstname: true,
+      // valisation_lastname: true,
+      // valisation_occupation: true,
+      // valisation_location: true,
+      // valisation_sex: true,
+      // valisation_going_to: true,
+      // valisation_date: true,
+      // valisation_birthday: true,
+      // valisation_brif: true,
+=======
       valisation_username: true,
       valisation_firstname: true,
       valisation_lastname: true,
@@ -38,7 +51,9 @@ class SideBarProfile extends Component {
       valisation_going_to: true,
       valisation_date: true,
       valisation_birthday: true,
-      valisation_brif: true
+      valisation_brif: true,
+>>>>>>> Stashed changes
+      fileUpload: {},
     }
 
   }
@@ -59,44 +74,49 @@ class SideBarProfile extends Component {
     // }
 
   componentDidMount(){
-    axios( {
-      url: `http://localhost:5000/api/v1/users/new/show_profilepag`,
-      headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
-      method: "get"
-    })
-    .then( (response)=>{
-      const { 
-        username = '',
-        firstname = '',
-        lastname = '',
-        occupation = '',
-        location = '',
-        sex = '',
-        going_to = '',
-        date = '',
-        birthday = '',
-        brif = ''
-      } = response.data.user
-      
-      this.setState({
-        username,
-        firstname,
-        lastname,
-        occupation,
-        location,
-        sex,
-        going_to,
-        date, 
-        birthday,
-        brif  
-      })     
-    })
-    .catch( (error)=> {
-      console.log(error);
-    });
+    this.fetch_profile_img()
   }
 
-
+fetch_profile_img=()=>{
+  axios( {
+    url: `http://localhost:5000/api/v1/users/new/show_profilepag`,
+    headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
+    method: "get"
+  })
+  .then( (response)=>{
+    console.log(response)
+    const { 
+      username,
+      firstname,
+      lastname ,
+      occupation ,
+      location ,
+      sex ,
+      going_to ,
+      date ,
+      birthday ,
+      brif ,
+      picture 
+    } = response.data.user
+    
+    this.setState({
+      username,
+      firstname,
+      lastname,
+      occupation,
+      location,
+      sex,
+      going_to,
+      date, 
+      birthday,
+      brif,
+      picture
+    })     
+  })
+  .catch( (error)=> {
+    console.log(error);
+  });
+}
 
 
   handleEditForm = ()=>{
@@ -153,15 +173,65 @@ class SideBarProfile extends Component {
           console.log(error);
         });
       }
+
+
+
+      onFormSubmit = (e) => {
+        e.preventDefault()
+        let formData = new FormData() // instantiate it
+        
+        formData.append('image', this.state.fileUpload, this.state.fileUpload.name)
+
+        axios({
+          url: 'http://localhost:5000/api/v1/users/imges',
+          method: "post", 
+          headers: { 
+            Authorization: `Bearer ${localStorage.getItem("JWT")}`,
+            Accept: 'multipart/form-data'
+          },
+          data: formData,
+        }).then( (response)=>{
+<<<<<<< Updated upstream
+          
+          this.fetch_profile_img()
+          this.setState({pictuer:response.data.image_url})           
+        })
+        
+=======
+          console.log(response)
+          this.setState({pictuer:response.data.image_url})           
+        })
+>>>>>>> Stashed changes
+      }
     
+  selectImage = e => {
+    this.setState({fileUpload: e.target.files[0]})
+  }
+      
 
   render() {
     let lgClose = () => this.setState({ lgShow: false });
     const {valisation_username, valisation_firstname, valisation_lastname, valisation_occupation, valisation_location, valisation_sex, valisation_going_to, valisation_date, valisation_birthday, valisation_brif}=this.state
+    console.log(this.state.pictuer)
     return (
-      <div className="sidebarprofile">
+<<<<<<< Updated upstream
+      <div>
 
-        <img src="https://source.unsplash.com/random/100x100" className="sidebarprofileimg" style={{border: '5px solid #5D6D7E'}} alt='aaaa' onClick={() => this.setState({ lgShow: true })}/>
+        <div className="sidebarprofile">
+          <img src={this.state.picture} className="sidebarprofileimg " alt='aaaa' /> 
+        </div>
+=======
+      <div className="sidebarprofile">
+         {/* <h1>{this.state.pictuer}hi herio</h1> */}
+         <div className="border"><img src={this.state.pictuer} className="sidebarprofileimg" alt='aaaa'/></div>
+        
+>>>>>>> Stashed changes
+        <form onSubmit={this.onFormSubmit}>
+          <input onChange={this.selectImage} id='test' className="fileInput" type="file" name='file'/>
+          <button className="submitButton"  type="submit" >Upload Image</button>
+        </form>
+
+<<<<<<< Updated upstream
 
         <ul style={{listStyle: 'none'}} className="pl-0 mt-2">
           <li>Name:{this.state.username}</li>
@@ -170,6 +240,8 @@ class SideBarProfile extends Component {
           {/* <li>{this.state.date}</li> */}
         </ul>
   {/*         
+=======
+>>>>>>> Stashed changes
         <p className="sidebarname">{this.state.username}</p>
         <p className="location">{this.state.location}</p>
         <p className="items">{this.state.going_to}</p>
@@ -331,7 +403,6 @@ class SideBarProfile extends Component {
               {/* end form */}
           </Modal>
 
-        {/* </ButtonToolbar> */}
         
 
       </div>

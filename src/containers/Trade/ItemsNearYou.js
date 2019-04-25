@@ -37,7 +37,7 @@ class ItemsNearYou extends Component {
     
   render() {
     return (
-      <Container fluid>
+      <Container fluid style={{marginTop:'60px'}}>
       <Row>
           <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden'}} sm ='2'>
             <TradeSideBar/>

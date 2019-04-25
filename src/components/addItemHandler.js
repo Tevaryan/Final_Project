@@ -1,6 +1,6 @@
 import React from "react";
-import { FormGroup, FormLabel,Form} from 'react-bootstrap';
-import {Input, Button, Label, Col,Row} from "reactstrap";
+// import { FormGroup, Label,Form} from 'react-bootstrap';
+import {Input, Button, Label, Col,Row, FormGroup, Form} from "reactstrap";
 
 
 
@@ -25,7 +25,7 @@ const NewItem = props => (
     position: 'absolute',
     zIndex:'100',
     left:'25%',
-    borderRadius:'50px'
+    borderRadius:'20px'
     }}>
 
     {/* <input type="file"></input>
@@ -33,16 +33,21 @@ const NewItem = props => (
     <Form>
           <FormGroup >
             <Row>
-              <Col>
+              <div className="pl-3">
                 <Label for="exampleEmail">Item Name</Label>
                 <Input type="text" name="item name" id="exampleEmail" onChange={props.name} />
-              </Col>
+              </div>
 
+          
+            </Row>
+            <Row>
               {/* <div className="sidebarprofile">
                 <img src={this.props.picture} className="sidebarprofileimg " alt='aaaa' /> 
               </div> */}
-             
+              <div className="mt-5 pl-3">
+                <Label>Upload Item Photo</Label><br/>
                 <input onChange={props.fileName} id='test' className="fileInput" type="file" name='file'/>
+              </div>
            
 
               {/* <Col>
@@ -53,7 +58,7 @@ const NewItem = props => (
 
             </Row>
             <div>
-              <FormLabel >Category</FormLabel>
+              <Label className="mt-5">Category</Label>
                   <br/>
                   <select onChange={props.tagParent}>
                   <option></option>
@@ -71,7 +76,7 @@ const NewItem = props => (
               props.tagParentValue ?
               (
                 <>
-                  <FormLabel className="mt-3">Sub category</FormLabel><br/>
+                  <Label className="mt-3">Sub category</Label><br/>
                   <select onChange={props.tagChildren}>
                   <option></option>
                   {
@@ -95,7 +100,7 @@ const NewItem = props => (
           </FormGroup>
           <FormGroup>
             <Col sm={{ size: 10 }}>
-              <Button onClick={props.submit}>Add</Button>
+              <Button className="btn-success" onClick={props.submit}>Add</Button>
             </Col>
           </FormGroup>
           

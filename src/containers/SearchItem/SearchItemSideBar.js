@@ -188,7 +188,7 @@ let subOptions={
 
 const TradeSideBar=(props)=> {
     return (
-      <div>
+      <div style={{height: 'calc(100vh-44px)',marginTop:'60px',}}>
           <strong>{props.parentTag}</strong>
           <ul className={'list-unstyled text-white'}>
               {

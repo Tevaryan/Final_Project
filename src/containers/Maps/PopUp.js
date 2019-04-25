@@ -67,7 +67,9 @@ class PopUp extends React.Component{
                 'bottom-left': [12, -38],  'bottom': [0, -38], 'bottom-right': [-12, -38]
                     }}>
                     <div width="200px">
-                    <Button color='success' onClick = {() => {this.props.clickedAgain(this.props.location)}} className='mr-rg-0'>x</Button>
+                    <div className="text-right">
+                        <button onClick = {() => {this.props.clickedAgain(this.props.location)}} >x</button>
+                    </div>
                     {
                         this.state.user_item ?
                         <div width='100px'>
@@ -80,13 +82,13 @@ class PopUp extends React.Component{
 
                         this.state.user_item ?
                             this.state.user_item.data.item.map(item => 
-                            <div>
+                            <div className="mt-2" overflow-y="scroll">
                                 <Button color="success" onClick={this.toggle}>{item.item_name}</Button>
                                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                                     <UserItemDisplay item={item}/>
                                 </Modal>
                             </div>
-                            ):
+                            ): 
                         null
 
 

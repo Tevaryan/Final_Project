@@ -145,14 +145,14 @@ let img = this.props.location.state.picture? this.props.location.state.picture: 
   	
       return(
           <>
-          <div style={{position: 'fixed',zIndex: '100', width: '20%'}}>
+          <div style={{position: 'fixed',zIndex: '100', width: '20%',marginTop:'60px'}}>
                 <Card body className='text-center p-0'>
                   <img src={img} className="m-auto img-fluid rounded-circle" style={{width:'80px'}} alt="userProfile"/>
                   <CardTitle>{this.props.location.state.username}</CardTitle>
                 </Card>
                 {item}
           </div>
-            <div className="ChatSpace" >
+            <div className="ChatSpace" style={{marginTop:'60px'}}>
               <div>
                 {dialog}
               </div>

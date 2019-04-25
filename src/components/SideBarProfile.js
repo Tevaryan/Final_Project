@@ -72,7 +72,7 @@ fetch_profile_img=()=>{
     method: "get"
   })
   .then( (response)=>{
-    console.log(response)
+    
     const { 
       username,
       firstname,
@@ -194,7 +194,7 @@ fetch_profile_img=()=>{
   render() {
     let lgClose = () => this.setState({ lgShow: false });
     const {valisation_username, valisation_firstname, valisation_lastname, valisation_occupation, valisation_location, valisation_sex, valisation_going_to, valisation_date, valisation_birthday, valisation_brif}=this.state
-    console.log(this.state.pictuer)
+    
     return (
       <div>
        <div className="borderchin">
@@ -256,7 +256,7 @@ fetch_profile_img=()=>{
                       defaultValue={this.state.firstname}
                       name="firstname" onChange={this.handleChange}
                     />
-                    <p style={red}>   {!valisation_firstname && "please enter your info here"}</p>
+                    <p style={red}>   </p>
                   </Form.Group>
 
                   <Form.Group as={Col} md="4" controlId="validationCustom02" className="mb-0">
@@ -280,7 +280,7 @@ fetch_profile_img=()=>{
                       defaultValue={this.state.username}
                       name="username" onChange={this.handleChange}
                     />
-                    <p style={red}>   {!valisation_username && "please enter your info here"}</p>
+                    <p style={red}>   </p>
                   </Form.Group>
                 </Form.Row>
 
@@ -294,7 +294,7 @@ fetch_profile_img=()=>{
                       defaultValue={this.state.occupation}
                       name="occupation" onChange={this.handleChange}
                     />
-                    <p style={red}>   {!valisation_occupation && "please enter your info here"}</p>
+                    <p style={red}>   </p>
                   </Form.Group>
 
                   <Form.Group as={Col} md="4" controlId="validationCustom02" className="mb-0">
@@ -306,7 +306,7 @@ fetch_profile_img=()=>{
                       defaultValue={this.state.sex}
                       name="sex" onChange={this.handleChange}
                     />
-                    <p style={red}>   {!valisation_sex && "please enter your info here"}</p>
+                    <p style={red}>   </p>
                   </Form.Group>
                     
                   <Form.Group as={Col} md="4" controlId="validationCustom02" className="mb-0">
@@ -319,7 +319,7 @@ fetch_profile_img=()=>{
                         defaultValue={this.state.birthday}
                         name="birthday" onChange={this.handleChange}
                       />
-                        <p style={red}>   {!valisation_birthday && "please enter your info here"}</p>
+                        <p style={red}>   </p>
                   </Form.Group>
                     
                   {/* <Form.Group as={Col} md="4" controlId="validationCustom02">
@@ -340,14 +340,14 @@ fetch_profile_img=()=>{
                     <Form.Label>Current Location</Form.Label>
                     <Form.Control type="text" name="location" onChange={this.handleChange} defaultValue={this.state.location}  placeholder={this.state.location} required />
                     <p style={red}>
-                    {!valisation_location && "please enter your info here"}</p>
+                    </p>
                   </Form.Group>
 
                   <Form.Group as={Col} md="4" controlId="validationCustom04" className="mb-0">
                     <Form.Label>Destination</Form.Label>
                     <Form.Control type="text" name="going_to" onChange={this.handleChange} defaultValue={this.state.going_to}  placeholder={this.state.going_to} required />
                     <p style={red}>
-                    {!valisation_going_to && "please enter your info here"}</p>
+                    </p>
                   </Form.Group>
 
                   <Form.Group as={Col} md="4" controlId="validationCustom05" className="mb-0">
@@ -361,7 +361,7 @@ fetch_profile_img=()=>{
                       />
                     <p style={red}>
                     
-                    {!valisation_date && "please enter your info here"}</p>
+                    </p>
                   </Form.Group>
 
 
@@ -372,7 +372,7 @@ fetch_profile_img=()=>{
                 <Form.Group controlId="exampleForm.ControlTextarea1" className="mb-0">
                   <Form.Label>Introduction,Info</Form.Label>
                   <Form.Control as="textarea" rows="3" name="brif" onChange={this.handleChange}  defaultValue={this.state.brif}/>
-                  <p style={red} className="mb-0">{!valisation_brif && "please enter your info here"}</p>
+                  <p style={red} className="mb-0"></p>
                 </Form.Group>
                 <form onSubmit={this.onFormSubmit}>
           <input onChange={this.selectImage} id='test' className="fileInput  " type="file" name='file'/>

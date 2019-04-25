@@ -227,7 +227,7 @@ class ItemFilter extends Component {
     render () {
         return (
             <>
-                <FormGroup sm={2}>
+                <FormGroup sm={2} className="p-2">
                     <Label >Category</Label>
                         <br/>
                         <select onChange={this.tagParentInputHandler}>
@@ -238,11 +238,13 @@ class ItemFilter extends Component {
                             })
                         }
                         </select>
+                        <hr/>
                         {
                         this.state.tag_parent ?
                         (
                             <>
                             <Label>Sub category</Label>
+                            <br/>
                             <select onChange={this.tagsubOptionInputHandler} >
                             <option></option>
                             {
@@ -254,6 +256,7 @@ class ItemFilter extends Component {
                             </>
                         ) : null
                         }
+                        <hr/>
                     
                     <Button onClick={this.submitFilters} disabled = {this.state.lock}>Submit</Button>
                 </FormGroup>

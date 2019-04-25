@@ -16,7 +16,7 @@ const items = [
     {
     src: TravelLogo,
     altText: 'Slide 1',
-    caption: 'Slide bjwehrbfbewhfbrjewbfrewfrewfrewfrew irhue wfre wifriewhfriewhfrhewhriewfhr ioqiewhqi hefihwqfruewiurheiwguiiuefr eiur fiehrwihfriuehwiuhfriuewhiuh riehwiufhieruwhfiurieuwh fireh wifhriuewhirhiqhurihefiurheiw hfirqhuirhaihfiruiuqhiruh iu  rewhiuh o hri fiurhieh ifhreiwhfuihreuwihfr wefriewf ruiewfriuewhfir eiuwf r9ue fiaiueqwouehiwq q fhfuiewqhfi riuqhifuwqiufehiqf iwqe iqiewq if eiqf ewiqf iewq fiuweqfiwqfi fruiqhf riuehwfhriewhguirewiuhgre grewui giure wg'
+    caption: ""
   },
     {
     src: TradeLogo,

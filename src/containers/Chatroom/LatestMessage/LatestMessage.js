@@ -15,9 +15,6 @@ class latestMessaage extends React.Component {
                 "Authorization": "Bearer " + localStorage.getItem("JWT")
             },
         }).then((result)=>{
-            console.log(result.data)
-            console.log(result.data[0].msg)
-            console.log(result.data[0].time)
             this.setState({
                 latestMessaage: result.data[0].msg,
                 MessageTime: result.data[0].time

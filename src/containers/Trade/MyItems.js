@@ -339,10 +339,10 @@ class MyItems extends Component {
       
       <Container fluid>
         <Row>
-          <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden', borderRight: "1px solid rgba(0,0,0,.05)"}} sm ='2'>
+          <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden',marginTop:'60px', borderRight: "1px solid rgba(0,0,0,.05)"}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col>  
+          <Col style={{marginTop:'60px'}}>  
           <button onClick={this.addItemHandler}  className="additembutton">+ Add Item</button>
           {
             this.state.showAddItemModel === true

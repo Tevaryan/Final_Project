@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Row,Col} from "react-bootstrap";
-import {Card, CardBody, CardTitle, CardText} from "reactstrap";
+import {Card, CardBody, CardTitle, CardText, Button} from "reactstrap";
 
 
 
@@ -170,17 +170,17 @@ class Agreement extends React.Component{
 
                     <h1>Exchange History</h1>
                     <br></br>
-                    <button onClick={this.closeHistory} >Agreement List</button>
+                    <Button className="btn-warning" onClick={this.closeHistory} >AGREEMENT LISTS</Button>
 
                     {
                         this.state.approved_requests.map((approved_request,index)=>{
                         
                         return(
                         
-                            <Row key={index}  className="mt-5" style={{border:"2px solid black"}}>
+                            <Row key={index}  className="mt-5" >
     
     
-                                <Col sm='4' className="mt-" key={approved_request.wanted_item_id}>
+                                <Col sm='4' className="mt-" style={{height:"500px"}} key={approved_request.wanted_item_id}>
                                     <Card>
                                     <CardBody className="itemname">
                                         <CardTitle>
@@ -212,21 +212,21 @@ class Agreement extends React.Component{
                                     
                                     </Card>
                                 </Col>
-                                <Col sm='4'>
+                                <Col sm='4' className="text-center my-auto">
     
-                                <h1>EXCHANGE SUCCESSFULLY</h1>
+                                <h1 style={{color:"green"}}>EXCHANGE SUCCESSFULLY</h1>
                                 
                                 </Col>
                                 {
                                     approved_request.money===null
-                                   ?<Col sm='4' className="mt-" key={approved_request.give_item_id}>
+                                   ?<Col sm='4' className="mt-" style={{height:"500px"}} key={approved_request.give_item_id}>
                                     <Card>
                                     <CardBody className="itemname">
                                         <CardTitle>
                                         GIVE OUT ITEM
                                         </CardTitle>
                                     </CardBody>
-                                    <img width="100%" src={approved_request.give_item_file} alt='temparaly images' />
+                                    <img width="100%" src={approved_request.give_item_filename} alt='temparaly images' />
                                     <CardBody>
                                         <div className="itemtag">
                                             <CardText>
@@ -281,7 +281,7 @@ class Agreement extends React.Component{
                 <div>
                     <h1>Agreement requests</h1>
                     <br/>
-                    <button onClick={this.showHistory}>exchange history</button>
+                    <Button className="btn-warning" onClick={this.showHistory}>EXCHANGE HISTORY</Button>
     
     
                     {/* <Row> */}
@@ -290,10 +290,10 @@ class Agreement extends React.Component{
                         
                         return(
                         
-                            <Row key={index}  className="mt-5" style={{border:"2px solid black"}}>
+                            <Row key={index}  className="mt-5" >
     
     
-                                <Col sm='4' className="mt-" key={agreement_request.wanted_item_id}>
+                                <Col sm='4' className="mt-" style={{height:"500px"}} key={agreement_request.wanted_item_id}>
                                     <Card>
                                     <CardBody className="itemname">
                                         <CardTitle>
@@ -325,20 +325,20 @@ class Agreement extends React.Component{
                                     
                                     </Card>
                                 </Col>
-                                <Col sm='4'>
+                                <Col sm='4' className="text-center my-auto">
     
                                 <h1>EXCHANGE WITH</h1>
                                 <br>
                                 </br>
-                                <button onClick={()=>this.approve(agreement_request.wanted_item_id,agreement_request.owner_id,agreement_request.give_item_id, agreement_request.money)}>Agree</button>
+                                <Button className="btn-success" block onClick={()=>this.approve(agreement_request.wanted_item_id,agreement_request.owner_id,agreement_request.give_item_id, agreement_request.money)}>Agree</Button>
                                 <br>
                                 </br>
-                                <button onClick={()=>this.reject(agreement_request.wanted_item_id,agreement_request.owner_id,agreement_request.give_item_id, agreement_request.user_id, agreement_request.money)}>Reject</button>
+                                <Button className="btn-danger" block onClick={()=>this.reject(agreement_request.wanted_item_id,agreement_request.owner_id,agreement_request.give_item_id, agreement_request.user_id, agreement_request.money)}>Reject</Button>
                                 </Col>
 
                                 {
                                     agreement_request.money===null
-                                    ?<Col sm='4' className="mt-" key={agreement_request.give_item_id}>
+                                    ?<Col sm='4' className="mt-" style={{height:"500px"}} key={agreement_request.give_item_id}>
                                         <Card>
                                         <CardBody className="itemname">
                                             <CardTitle>
@@ -370,7 +370,7 @@ class Agreement extends React.Component{
             
                                         </Card>
                                         </Col>
-                                    :<Col sm='4' className="mt-" key={agreement_request.give_item_id}>
+                                    :<Col sm='4' className="text-center my-auto" key={agreement_request.give_item_id}>
 
                                         <h1>RM{agreement_request.money}</h1>
                                     

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Row,Col} from "react-bootstrap";
-import {Card, CardBody, CardTitle, CardText,Input} from "reactstrap";
+import {Card, CardBody, CardTitle, CardText,Input, Button} from "reactstrap";
 import {Link} from "react-router-dom";
 
 class ExchangeRequestList extends React.Component {
@@ -109,12 +109,12 @@ class ExchangeRequestList extends React.Component {
     render(){
         return(
 
-    <div>
+    <div style={{backgroundColor:"#202c38", minHeight:"120vh"}}>
 
-    <Row>
+    <Row >
       {
         this.state.exchange_requests.map((exchange_request,index)=>{
-            
+           let link = '/message/' + exchange_request.user_id
 
         // if(this.state.setAmountModal === true){
         //     return(
@@ -132,7 +132,7 @@ class ExchangeRequestList extends React.Component {
             
                 <Col sm='3' className="mt-5" key={index}>
                     <Card>
-                    <CardBody className="itemname">
+                    <CardBody className="itemname" style={{height:"5px"}}>
                         <CardTitle>
                         {exchange_request.item_name}
                         </CardTitle>
@@ -151,9 +151,17 @@ class ExchangeRequestList extends React.Component {
                             </CardText>
                         </div>
                         <div>
-                            <CardText>
-                                Request by <Link to={`/Dashboard/Item/${exchange_request.user_id}`}>{exchange_request.user_name}</Link>
-                                <button>message</button>
+                            <CardText tag="strong">
+                                Request by {exchange_request.user_name}<br></br>
+                                
+                                <Link to={{pathname:{link},
+                            state:{
+                                profile_image: exchange_request.user_profile_image,
+                                username: exchange_request.user_name,
+                                // item_name:this.props.item.item_name,
+                                // description:this.props.item.description
+                            }}}
+                        ><Button className="btn-warning mt-2">Contact Owner</Button></Link>
                                 <br/>
                             </CardText>
                         </div>
@@ -162,23 +170,23 @@ class ExchangeRequestList extends React.Component {
                             exchange_request.give_item_id===null && exchange_request.money===null
                             ?<div>
                                 <div>
-                                    <CardText>
+                                    <CardText className="mt-3">
                                         {/* <Link to={{pathname:`/Dashboard/SetAmount`,state:{wanted_item_id:exchange_request.item_id,user_id:exchange_request.user_id}}}><button>Exchange with money</button></Link> */}
-                                        <span>Amount:</span><Input type="text" styl={{width:"10%"}} onChange={this.moneyInputHandler}/><button onClick={()=>this.setAmount(exchange_request.user_id, exchange_request.item_id)}>Exchange with money</button>
+                                        <strong>Amount(RM):</strong><Input type="text" styl={{width:"10%"}} onChange={this.moneyInputHandler}/><Button className="btn-success mt-3" onClick={()=>this.setAmount(exchange_request.user_id, exchange_request.item_id)}>Exchange with money</Button>
                                     </CardText>
                                 </div>
                                 <div>
                                     <CardText>
-                                        <Link to={{pathname:`/Dashboard/ChooseItem/${exchange_request.user_id}`,state:{wanted_item_id:exchange_request.item_id,user_id:exchange_request.user_id}}}><button>Exchange with item</button></Link>
+                                        <Link to={{pathname:`/Dashboard/ChooseItem/${exchange_request.user_id}`,state:{wanted_item_id:exchange_request.item_id,user_id:exchange_request.user_id}}}><Button className="btn-success mt-3">Exchange with item</Button></Link>
                                     </CardText>
                                 </div>
                                 <div>
                                     <CardText>
-                                        <button onClick={()=>this.delete(exchange_request.user_id, exchange_request.item_id)}>Reject</button>
+                                        <Button className="btn-danger mt-3" onClick={()=>this.delete(exchange_request.user_id, exchange_request.item_id)}>Reject</Button>
                                     </CardText>
                                 </div>
                                 </div>
-                            :<span>agreement pending...</span>
+                            :<strong  className="mt-5" style={{color:"red"}}>AGREEMENT PENDING...</strong>
                         }
                         
                         

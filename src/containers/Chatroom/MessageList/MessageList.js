@@ -55,7 +55,7 @@ class MessageList extends React.Component {
 
         return(
             <div 
-            style={{padding: '10px',textDecoration: 'none',margin: 'auto',width:'80%'}}
+            style={{padding: '10px',textDecoration: 'none',margin: 'auto',width:'80%',marginTop:'60px'}}
             >
                 <ul
                  style={{listStyleType: 'none', border: '1px solid black', padding: '0px 20px'}}

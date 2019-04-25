@@ -35,10 +35,10 @@ class MyFeed extends Component {
     return (
     <Container fluid>
         <Row>
-          <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden'}} sm ='2'>
+          <Col className="SideBar" style={{backgroundColor: '#34495E', height: 'calc(100vh-44px)',marginTop:'60px', overflow: 'hidden'}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
+          <Col style={{backgroundColor:"#202c38", height: '100vh', overflow: 'auto'}}>
 
           <Row><h3><strong>You may also wanna check</strong></h3></Row>
           <Row style={{height:'50%'}} className='Card_Row mt-4'>
@@ -49,13 +49,14 @@ class MyFeed extends Component {
               <Col sm='4' className='my-2'key={index}>
               <Card>
                 <CardBody>
-                <CardTitle>{item.item_name}</CardTitle>
+                <CardTitle tag="h1">{item.item_name}</CardTitle>
                 </CardBody>
                 <div>
                   <img width="100%" src={item.file_name} alt='temparaly images'/>
                 </div>
                 <CardBody>
-                <CardText>ownwer: {item.owner_name}</CardText>
+                <CardText>Owner
+                  : {item.owner_name}</CardText>
                 <CardText>Description:  {item.description}</CardText>
                 <CardLink href="#">{item.tag_children}</CardLink>
                 <CardLink href="#">{item.tag_parent}</CardLink>

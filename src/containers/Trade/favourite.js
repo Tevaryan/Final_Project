@@ -70,10 +70,10 @@ class TaggedItems extends Component {
     return (
     <Container fluid>
       <Row>
-          <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden'}} sm ='2'>
+          <Col className="SideBar" style={{backgroundColor: '#34495E',marginTop:'60px', height: '100vh', overflow: 'hidden'}} sm ='2'>
             <TradeSideBar/>
           </Col>
-          <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
+          <Col style={{backgroundColor:"#202c38", height: '100vh', overflow: 'auto',marginTop:'60px'}}>
           <Row>
             {
               this.state.items.map((item,index)=>{

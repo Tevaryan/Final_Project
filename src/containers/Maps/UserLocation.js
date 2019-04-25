@@ -233,10 +233,10 @@ class UserLocation extends Component {
                     null
 
                   }
-              <Button color="success" onClick={this.toggle}>Custom Location</Button>
-              <Button color="success" onClick={this.reCenterOnUserLocation}>Center</Button>
-              <Button color="success" onClick={this.toggledropdown}>Filter Items</Button>
-              <Button color="success" onClick={this.getAllItemLocation}>Show all</Button>
+              <Button color="success mt-2 mr-2" onClick={this.toggle}>Custom Location</Button>
+              <Button color="success mt-2 mr-2" onClick={this.reCenterOnUserLocation}>Center</Button>
+              <Button color="success mt-2 mr-2" onClick={this.toggledropdown}>Filter Items</Button>
+              <Button color="success mt-2 mr-2" onClick={this.getAllItemLocation} disabled={this.state.showAll}>Show all</Button>
               <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                 <MapLocationFilter toggle={this.toggle} newLocation={this.getCustomLocation}></MapLocationFilter>
               </Modal>

@@ -39,6 +39,22 @@ class MyFeed extends Component {
         console.log(error);
       });
     }
+    // axios( {
+    //   url: `http://localhost:5000/api/v1/item/show/${this.props.match.params.item}`,
+    //   headers: { Authorization: `Bearer ${localStorage.getItem("JWT")}` },
+    //   method: "get"
+    // })
+    // .then((response)=>{
+    //   if(prevProps.match.params.item !== this.props.match.params.item) {
+    //     this.setState({
+    //       items: response.data.item,
+    //       keyword: this.props.match.params.item
+    //     })
+    //   }
+    // })
+    // .catch( (error)=> {
+    //   console.log(error);
+    // });
   }
 
   fetch=()=>{
@@ -77,7 +93,6 @@ class MyFeed extends Component {
       method: "get",
     }) 
     .then((response)=>{
-      console.log('aaa')
       this.setState({
         items: response.data.item,
         keyword: this.props.match.params.item
@@ -98,19 +113,18 @@ class MyFeed extends Component {
         <Col className="SideBar" style={{backgroundColor: '#34495E', height: '100vh', overflow: 'hidden'}} sm ='2'>
           <SearchSideBar parentTag={this.props.match.params.item} childTag={this.detailSearch}/>
         </Col>
-        <Col style={{backgroundColor: '#f5f5f5', height: '100vh', overflow: 'auto'}}>
-
-      <Row style={{height:'50%'}} className='Card_Row mt-4'>
-        {
-          this.state.items.map((item,index)=>{
-            let link = '/Dashboard/message/' + item.owner_user_id
-            return(
-              <SearchItems refetch={this.fetch} key={index} item={item} link={link}></SearchItems>
-            )
-          })
-        }
-        
-      </Row>
+        <Col style={{backgroundColor: '#202c38', height: '100vh', overflow: 'auto'}}>
+          <Row className='Card_Row mt-4'>
+            {
+              this.state.items.map((item,index)=>{
+                let link = '/Dashboard/message/' + item.owner_user_id
+                return(
+                  <SearchItems refetch={this.fetch} key={index} item={item} link={link}></SearchItems>
+                )
+              })
+            }
+            
+          </Row>
         </Col>
       </Row>
   </Container>

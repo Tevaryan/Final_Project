@@ -128,7 +128,7 @@ class NavbarComponent extends Component {
     return (
         <div>
         {backdrop}
-        <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="sm" className='pb-0' className="containertopnavbar">
+        <Navbar style={{backgroundColor: '#5D6D7E'}} light expand="sm" className='pb-0' className="containertopnavbar" fixed={`top`}>
           <NavbarBrand href="/Dashboard/TradeMain/MyFeed" className="buttonhome"><img src={Homelogo} className="homelogo" alt='test'/></NavbarBrand>
           <NavbarBrand href="/Dashboard/messageList" className="buttonmessage"><img src={Messagelogo} className="messagelogo" alt='test'/></NavbarBrand>
           

@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import {Row,Col} from "react-bootstrap";
-import {Card, CardBody, CardTitle, CardText} from "reactstrap";
+import {Card, CardBody, CardTitle, CardText, Button} from "reactstrap";
 import {Redirect} from "react-router-dom"
 
 
@@ -29,7 +29,7 @@ class ChooseItem extends React.Component{
           
             this.setState({
                 items: response.data.item,
-                user_name: response.data.item[1].user_name
+                user_name: response.data.item[0].user_name
                 
                 })
                 
@@ -82,7 +82,7 @@ class ChooseItem extends React.Component{
 
               
               return(
-                 <div>
+                 <div style={{backgroundColor:"#202c38", minHeight:"120vh"}}>
                      <h1>Choose An Item To Exchange</h1>
       
                       <Row>
@@ -102,7 +102,7 @@ class ChooseItem extends React.Component{
                                           {item.name}<br/>
                                           </CardTitle>
                                       </CardBody>
-                                      <img width="100%" src={item.filename} alt='temparaly images' />
+                                      <img width="100%" src={item.file_name} alt='temparaly images' />
                                       <CardBody>
                                           <div className="itemtag">
                                               <CardText>
@@ -119,7 +119,7 @@ class ChooseItem extends React.Component{
                                                   {item.description}<br/>
                                               </CardText>
                                           </div>
-                                          <button onClick={()=>this.chooseItem(item.id)}>CHOOSE</button>
+                                          <Button className="btn-success" onClick={()=>this.chooseItem(item.id)}>CHOOSE</Button>
       
                                       </CardBody>
                                       </Card>
